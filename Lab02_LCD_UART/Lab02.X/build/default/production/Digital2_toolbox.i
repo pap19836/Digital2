@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "Digital2_toolbox.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,25 +6,155 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 13 "main.c"
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = ON
-#pragma config IESO = ON
-#pragma config FCMEN = ON
-#pragma config LVP = ON
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
+# 1 "Digital2_toolbox.c" 2
+# 1 "./Digital2_toolbox.h" 1
 
 
 
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int8_t;
+
+
+
+
+
+
+typedef signed int int16_t;
+
+
+
+
+
+
+
+typedef __int24 int24_t;
+
+
+
+
+
+
+
+typedef signed long int int32_t;
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint8_t;
+
+
+
+
+
+typedef unsigned int uint16_t;
+
+
+
+
+
+
+typedef __uint24 uint24_t;
+
+
+
+
+
+
+typedef unsigned long int uint32_t;
+# 88 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_least8_t;
+
+
+
+
+
+
+
+typedef signed int int_least16_t;
+# 109 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_least24_t;
+# 118 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
+typedef signed long int int_least32_t;
+# 136 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_least8_t;
+
+
+
+
+
+
+typedef unsigned int uint_least16_t;
+# 154 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_least24_t;
+
+
+
+
+
+
+
+typedef unsigned long int uint_least32_t;
+# 181 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_fast8_t;
+
+
+
+
+
+
+typedef signed int int_fast16_t;
+# 200 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_fast24_t;
+
+
+
+
+
+
+
+typedef signed long int int_fast32_t;
+# 224 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+# 240 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_fast24_t;
+
+
+
+
+
+
+typedef unsigned long int uint_fast32_t;
+# 268 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
+typedef int32_t intmax_t;
+# 282 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
+typedef uint32_t uintmax_t;
+
+
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 7 "./Digital2_toolbox.h" 2
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\pic.h" 1 3
+
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\htc.h" 1 3
 
 
 
@@ -45,15 +175,7 @@ extern void __builtin_software_breakpoint(void);
 
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\pic.h" 1 3
-
-
-
-
-# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
+# 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
 # 5 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\htc.h" 2 3
 # 6 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\pic.h" 2 3
 
@@ -2507,155 +2629,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
-# 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 32 "main.c" 2
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
-# 13 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int8_t;
-
-
-
-
-
-
-typedef signed int int16_t;
-
-
-
-
-
-
-
-typedef __int24 int24_t;
-
-
-
-
-
-
-
-typedef signed long int int32_t;
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint8_t;
-
-
-
-
-
-typedef unsigned int uint16_t;
-
-
-
-
-
-
-typedef __uint24 uint24_t;
-
-
-
-
-
-
-typedef unsigned long int uint32_t;
-# 88 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_least8_t;
-
-
-
-
-
-
-
-typedef signed int int_least16_t;
-# 109 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_least24_t;
-# 118 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
-typedef signed long int int_least32_t;
-# 136 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_least8_t;
-
-
-
-
-
-
-typedef unsigned int uint_least16_t;
-# 154 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_least24_t;
-
-
-
-
-
-
-
-typedef unsigned long int uint_least32_t;
-# 181 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
-typedef signed char int_fast8_t;
-
-
-
-
-
-
-typedef signed int int_fast16_t;
-# 200 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
-typedef __int24 int_fast24_t;
-
-
-
-
-
-
-
-typedef signed long int int_fast32_t;
-# 224 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
-typedef unsigned char uint_fast8_t;
-
-
-
-
-
-typedef unsigned int uint_fast16_t;
-# 240 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
-typedef __uint24 uint_fast24_t;
-
-
-
-
-
-
-typedef unsigned long int uint_fast32_t;
-# 268 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
-typedef int32_t intmax_t;
-# 282 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
-typedef uint32_t uintmax_t;
-
-
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-# 34 "main.c" 2
-
-# 1 "./Digital2_toolbox.h" 1
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
-# 7 "./Digital2_toolbox.h" 2
-
+# 8 "./Digital2_toolbox.h" 2
 
 
 
@@ -2667,88 +2641,75 @@ uint8_t EightBitAnalog();
 void Lcd_Init(void);
 void Lcd_Write_Char(char a);
 void Lcd_Write_String(char *a);
-# 35 "main.c" 2
+# 1 "Digital2_toolbox.c" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
+# 2 "Digital2_toolbox.c" 2
 
 
 
 
+uint16_t readAnalog(){
+    uint16_t result = 0;
+    uint16_t a;
+    uint16_t b;
+    a = ADRESL>>6;
+    b = ADRESH<<2;
+    result = b|a;
+    return result;
+}
 
-uint16_t voltage1;
-uint16_t voltage2;
-
-
-
-
-void setup(void);
-
-
-
-
-void main(void){
-    setup();
-    Lcd_Write_Char(47);
-    while(1){
-        GO = 1;
-        _delay((unsigned long)((100)*(4000000/4000000.0)));
-
-
-    }
+uint8_t EightBitAnalog(){
+    uint8_t a = ADRESH;
+    return a;
 }
 
 
 
 
-void setup(void){
+void Lcd_Cmd(uint8_t a) {
+    RE0 = 0;
+    PORTD = a;
+    RE1 = 1;
+    _delay((unsigned long)((4)*(4000000/4000.0)));
+    RE1 = 0;
+}
 
-    ANSEL = 0b00000011;
-    ANSELH = 0;
-    TRISA = 0b00000011;
-    TRISB = 0;
-    TRISC = 0;
-    TRISD = 0;
-    TRISE = 0;
-
-
-    GIE = 1;
-    PEIE = 1;
-    ADIE = 1;
+void Lcd_Clear(void) {
+    Lcd_Cmd(0);
+    Lcd_Cmd(1);
+}
 
 
-    ADCON0bits.ADCS = 0b01;
-    ADCON0bits.CHS = 0b0000;
-    ADON = 1;
-    ADIF = 0;
-
-    Lcd_Init();
-
-
-    PORTA = 0;
-    PORTB = 0;
-    PORTC = 0;
+void Lcd_Init(void) {
     PORTD = 0;
-    PORTE = 0;
+    _delay((unsigned long)((20)*(4000000/4000.0)));
+    Lcd_Cmd(0x03);
+    _delay((unsigned long)((5)*(4000000/4000.0)));
+    Lcd_Cmd(0x03);
+    _delay((unsigned long)((160)*(4000000/4000000.0)));
+    Lcd_Cmd(0x03);
 
+    PORTD = 0b00111100;
+    PORTD = 0x10;
+    PORTD = 0x01;
+    PORTD = 0x07;
+    PORTD = 0x0F;
 
-    voltage1 = 0;
-    voltage2 = 0;
-
+    _delay((unsigned long)((100)*(4000000/4000.0)));
 }
 
+void Lcd_Write_Char(char a) {
+    PORTD = a;
+    RE0 = 1;
+    RE1 = 1;
+    _delay((unsigned long)((100)*(4000000/4000000.0)));
+    RE1 = 0;
+    _delay((unsigned long)((10)*(4000000/4000.0)));
+}
 
-
-
-
-
-void __attribute__((picinterrupt(("")))) isr(void){
-    if(ADIF){
-        if(ADCON0bits.CHS==0b0000){
-            voltage1 = readAnalog();
-            ADCON0bits.CHS = 0b0001;
-        }
-        else if(ADCON0bits.CHS==0b0001){
-            voltage2 = readAnalog();
-            ADCON0bits.CHS = 0b0000;
-        }
-        ADIF = 0;
-    }
+void Lcd_Write_String(char *a) {
+    int i;
+    for (i = 0; a[i] != '\0'; i++)
+        Lcd_Write_Char(a[i]);
 }
