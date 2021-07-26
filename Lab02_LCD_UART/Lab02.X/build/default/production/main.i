@@ -2803,13 +2803,17 @@ void main(void){
             Lcd_Write_Char(d1+48);
             Lcd_Write_String("V ");
 
+            for(uint8_t i; i<42; i++){
+                UART_Write_Char(8);
+            }
+            UART_Write_Char(13);
             UART_Write("Voltage 1 = ");
             UART_Write_Char(m1+48);
             UART_Write(".");
             UART_Write_Char(c1+48);
             UART_Write_Char(d1+48);
             UART_Write_Char(u1+48);
-            UART_Write(" V\r");
+            UART_Write(" V    ");
 
             Lcd_Write_Char(m2+48);
             Lcd_Write_String(".");
@@ -2823,7 +2827,7 @@ void main(void){
             UART_Write_Char(c2+48);
             UART_Write_Char(d2+48);
             UART_Write_Char(u2+48);
-            UART_Write(" V\r\r");
+            UART_Write(" V");
         }
         if(counter_compare!=counter){
             Lcd_Cmd(0b11001100);
