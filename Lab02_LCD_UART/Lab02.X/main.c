@@ -32,28 +32,119 @@
 #include<xc.h>
 #include<pic.h>
 #include<stdint.h>
+#include<string.h>
 #include"Digital2_toolbox.h"
 
 //|----------------------------------------------------------------------------|
 //|-------------------------------VARIABLES------------------------------------|
 //|----------------------------------------------------------------------------|
-uint16_t    voltage1;
-uint16_t    voltage2;
+uint16_t    v1;
+uint16_t    v1_compare;
+uint16_t    read_an1;
+uint8_t     m1;
+uint8_t     c1;
+uint8_t     d1;
+uint8_t     u1;
+
+uint16_t    v2;
+uint16_t    v2_compare;
+uint16_t    read_an2;
+uint8_t     m2;
+uint8_t     c2;
+uint8_t     d2;
+uint8_t     u2;
+
+uint8_t     counter;
+uint8_t     counter_compare;
+uint8_t     mc;
+uint8_t     cc;
+uint8_t     dc;
+uint8_t     uc;
 
 //|----------------------------------------------------------------------------|
 //|------------------------------PROTOTYPES------------------------------------|
 //|----------------------------------------------------------------------------|
 void setup(void);
+void divide(uint16_t value, uint8_t *mil, uint8_t *cent, uint8_t *dec, uint8_t *unit);
+
 //|----------------------------------------------------------------------------|
 //|---------------------------------CODE---------------------------------------|
 //|----------------------------------------------------------------------------|
 
 void    main(void){
     setup();
-    Lcd_Write_Char(47);
+    Lcd_Write_String("  V1    V2    V3 ");
+
+    
+    
     while(1){
         GO  =   1;
         __delay_us(100);
+        v1    =   (float)5000*(float)read_an1/(float)1024;
+        v2    =   (float)5000*(float)read_an2/(float)1024;
+        if(RCIF){
+            if(RCREG==43){
+                counter++;
+            }
+            if(RCREG==45){
+                counter--;
+            }   
+        }
+        
+        if(v1!=v1_compare || v2!=v2_compare){
+            v1_compare    =   v1;
+            v2_compare    =   v2;
+            divide(v1, &m1, &c1, &d1, &u1);
+            divide(v2, &m2, &c2, &d2, &u2);
+            //Write V1 on LCD
+            Lcd_Cmd(0b11000000);
+            Lcd_Write_Char(m1+48);
+            Lcd_Write_String(".");
+            Lcd_Write_Char(c1+48);
+            Lcd_Write_Char(d1+48);
+            Lcd_Write_String("V ");
+            //Write V1 on Terminal
+            UART_Write("Voltage 1 = ");
+            UART_Write_Char(m1+48);
+            UART_Write(".");
+            UART_Write_Char(c1+48);
+            UART_Write_Char(d1+48);
+            UART_Write_Char(u1+48);
+            UART_Write(" V\r");
+            //Write V2 on LCD
+            Lcd_Write_Char(m2+48);
+            Lcd_Write_String(".");
+            Lcd_Write_Char(c2+48);
+            Lcd_Write_Char(d2+48);
+            Lcd_Write_String("V ");
+            //Write V2 on terminal
+            UART_Write("Voltage 2 = ");
+            UART_Write_Char(m2+48);
+            UART_Write(".");
+            UART_Write_Char(c2+48);
+            UART_Write_Char(d2+48);
+            UART_Write_Char(u2+48);
+            UART_Write(" V\r\r");
+        }
+        if(counter_compare!=counter){
+            Lcd_Cmd(0b11001100);
+            counter_compare =   counter;
+            divide(counter,  &mc, &cc, &dc, &uc);
+             //Write counter on LCD
+            if(cc==0){
+                Lcd_Write_String(" ");
+            }
+            else{
+                Lcd_Write_Char(cc+48);
+            }
+            if(dc==0){
+                Lcd_Write_String(" ");
+            }
+            else{
+                Lcd_Write_Char(dc+48);
+            }
+            Lcd_Write_Char(uc+48);
+        }
         
         
     }
@@ -68,7 +159,7 @@ void setup(void){
     ANSELH  =   0;
     TRISA   =   0b00000011;
     TRISB   =   0;
-    TRISC   =   0;
+    TRISC   =   0b10000000;
     TRISD   =   0;
     TRISE   =   0;
 
@@ -84,7 +175,9 @@ void setup(void){
     ADIF    =   0;
         
     Lcd_Init();
-
+    
+    UART_Init();
+    
     //Port Inicialization
     PORTA   =   0;
     PORTB   =   0;
@@ -93,12 +186,20 @@ void setup(void){
     PORTE   =   0;
     
     //Variable Inicialization
-    voltage1    =   0;
-    voltage2    =   0;
+    read_an1    =   0;
+    v1    =   0;
+    read_an2    =   0;
+    v2    =   0;
     
 }
 
-       
+void divide(uint16_t value, uint8_t *mil, uint8_t *cent, uint8_t *dec, uint8_t *unit){
+    *mil=value/1000;
+    *cent=(value-1000*(int)*mil)/100;
+    *dec=(value-1000*(int)*mil-100*(int)*cent)/10;
+    *unit=value-1000*(int)*mil-100*(int)*cent-10*(int)*dec;
+    
+}       
 
 //|----------------------------------------------------------------------------|
 //|------------------------------INTERRUPTS------------------------------------|
@@ -106,11 +207,11 @@ void setup(void){
 void __interrupt() isr(void){
     if(ADIF){
         if(ADCON0bits.CHS==0b0000){
-            voltage1    =   readAnalog();
+            read_an1    =   readAnalog();
             ADCON0bits.CHS =   0b0001;
         }
         else if(ADCON0bits.CHS==0b0001){
-            voltage2    =   readAnalog();
+            read_an2    =   readAnalog();
             ADCON0bits.CHS =   0b0000;
         }
         ADIF    =   0;

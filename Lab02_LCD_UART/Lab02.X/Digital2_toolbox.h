@@ -32,6 +32,14 @@ uint8_t EightBitAnalog();
 void    Lcd_Init(void);
 void Lcd_Write_Char(char a);
 void Lcd_Write_String(char *a);
+void Lcd_Cmd(uint8_t a);
+void cursor_Pos(uint8_t a);
 
 #endif	/* DIGITAL2_TOOLBOX_H */
 
+//|----------------------------------------------------------------------------|
+//|---------------------------------UART---------------------------------------|
+//|----------------------------------------------------------------------------|
+void UART_Init(void);
+void UART_Write(unsigned char* word);
+void UART_Write_Char(uint8_t character);

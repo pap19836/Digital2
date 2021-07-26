@@ -38,18 +38,18 @@ void Lcd_Clear(void) {
 void Lcd_Init(void) {
     PORTD   =   0;
     __delay_ms(20);
-    Lcd_Cmd(0x03);
+    Lcd_Cmd(0x030);
     __delay_ms(5);
-    Lcd_Cmd(0x03);
+    Lcd_Cmd(0x030);
     __delay_us(160);
-    Lcd_Cmd(0x03);
+    Lcd_Cmd(0x030);
     /////////////////////////////////////////////////////
-    PORTD   =   0b00111100;     //interface Lenght
-    PORTD   =   0x10;           //Turn off Display
-    PORTD   =   0x01;           //Clear Display
-    PORTD   =   0x07;           //cursor Move direction
-    PORTD   =   0x0F;           //Turn on Displa/cursor
-    
+    Lcd_Cmd(0b00111000);        //Set Interface Length
+    Lcd_Cmd(0x10);              //turn off the Display
+    Lcd_Cmd(0x01);              //Clear the Display
+    Lcd_Cmd(0b00000110);        //Set Cursor Move Direction
+    Lcd_Cmd(0x10);              //Shit Dislpay/Move Cursor
+    Lcd_Cmd(0b00001100);        //cursor, blink, Dislplay
     __delay_ms(100);
 }
 
@@ -64,6 +64,38 @@ void Lcd_Write_Char(char a) {
 
 void Lcd_Write_String(char *a) {
     int i;
-    for (i = 0; a[i] != '\0'; i++)
+    for (i = 0; a[i] != '\0'; i++){
         Lcd_Write_Char(a[i]);
+    }
+}
+
+//|----------------------------------------------------------------------------|
+//|---------------------------------UART---------------------------------------|
+//|----------------------------------------------------------------------------|
+
+void UART_Init(void){
+    //Config Transmitter
+    TXSTAbits.TXEN  =   1;      //habilitar tranmision
+    TXSTAbits.SYNC  =   0;      //asincrono
+    RCSTAbits.SPEN  =   1;      //enable serial port
+    TXSTAbits.BRGH  =   1;      //high baud rate
+    BRG16   =   0;
+    SPBRGH  =   0;              //Calibrate SPBRGH:SPBRG for desired BaudRate
+    SPBRG   =   25;
+    
+        //Config Reciever
+    RCSTAbits.CREN  =   1;      //Habilitar reciever
+}
+    
+void UART_Write(unsigned char* word){   
+    while (*word != 0){                 //Loop until NULL
+        TXREG = (*word);                //Send current array value pointed
+        while(!TXSTAbits.TRMT);         //Make sure TSR is full (value sent)
+        word++;                         //Go to next value in the array
+    }
+}
+
+void UART_Write_Char(uint8_t character){
+    TXREG   =   character;
+    while   (!TXSTAbits.TRMT);
 }

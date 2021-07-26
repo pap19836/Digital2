@@ -2646,6 +2646,59 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 34 "main.c" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 1 3
+
+
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 6 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 2 3
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
+# 7 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 2 3
+
+
+
+
+
+
+
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+# 36 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 3
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+# 35 "main.c" 2
+
 # 1 "./Digital2_toolbox.h" 1
 
 
@@ -2667,29 +2720,130 @@ uint8_t EightBitAnalog();
 void Lcd_Init(void);
 void Lcd_Write_Char(char a);
 void Lcd_Write_String(char *a);
-# 35 "main.c" 2
+void Lcd_Cmd(uint8_t a);
+void cursor_Pos(uint8_t a);
 
 
 
 
 
-uint16_t voltage1;
-uint16_t voltage2;
+
+void UART_Init(void);
+void UART_Write(unsigned char* word);
+void UART_Write_Char(uint8_t character);
+# 36 "main.c" 2
+
+
+
+
+
+uint16_t v1;
+uint16_t v1_compare;
+uint16_t read_an1;
+uint8_t m1;
+uint8_t c1;
+uint8_t d1;
+uint8_t u1;
+
+uint16_t v2;
+uint16_t v2_compare;
+uint16_t read_an2;
+uint8_t m2;
+uint8_t c2;
+uint8_t d2;
+uint8_t u2;
+
+uint8_t counter;
+uint8_t counter_compare;
+uint8_t mc;
+uint8_t cc;
+uint8_t dc;
+uint8_t uc;
 
 
 
 
 void setup(void);
+void divide(uint16_t value, uint8_t *mil, uint8_t *cent, uint8_t *dec, uint8_t *unit);
+
 
 
 
 
 void main(void){
     setup();
-    Lcd_Write_Char(47);
+    Lcd_Write_String("  V1    V2    V3 ");
+
+
+
     while(1){
         GO = 1;
         _delay((unsigned long)((100)*(4000000/4000000.0)));
+        v1 = (float)5000*(float)read_an1/(float)1024;
+        v2 = (float)5000*(float)read_an2/(float)1024;
+        if(RCIF){
+            if(RCREG==43){
+                counter++;
+            }
+            if(RCREG==45){
+                counter--;
+            }
+        }
+
+        if(v1!=v1_compare || v2!=v2_compare){
+            v1_compare = v1;
+            v2_compare = v2;
+            divide(v1, &m1, &c1, &d1, &u1);
+            divide(v2, &m2, &c2, &d2, &u2);
+
+            Lcd_Cmd(0b11000000);
+            Lcd_Write_Char(m1+48);
+            Lcd_Write_String(".");
+            Lcd_Write_Char(c1+48);
+            Lcd_Write_Char(d1+48);
+            Lcd_Write_String("V ");
+
+            UART_Write("Voltage 1 = ");
+            UART_Write_Char(m1+48);
+            UART_Write(".");
+            UART_Write_Char(c1+48);
+            UART_Write_Char(d1+48);
+            UART_Write_Char(u1+48);
+            UART_Write(" V\r");
+
+            Lcd_Write_Char(m2+48);
+            Lcd_Write_String(".");
+            Lcd_Write_Char(c2+48);
+            Lcd_Write_Char(d2+48);
+            Lcd_Write_String("V ");
+
+            UART_Write("Voltage 2 = ");
+            UART_Write_Char(m2+48);
+            UART_Write(".");
+            UART_Write_Char(c2+48);
+            UART_Write_Char(d2+48);
+            UART_Write_Char(u2+48);
+            UART_Write(" V\r\r");
+        }
+        if(counter_compare!=counter){
+            Lcd_Cmd(0b11001100);
+            counter_compare = counter;
+            divide(counter, &mc, &cc, &dc, &uc);
+
+            if(cc==0){
+                Lcd_Write_String(" ");
+            }
+            else{
+                Lcd_Write_Char(cc+48);
+            }
+            if(dc==0){
+                Lcd_Write_String(" ");
+            }
+            else{
+                Lcd_Write_Char(dc+48);
+            }
+            Lcd_Write_Char(uc+48);
+        }
 
 
     }
@@ -2704,7 +2858,7 @@ void setup(void){
     ANSELH = 0;
     TRISA = 0b00000011;
     TRISB = 0;
-    TRISC = 0;
+    TRISC = 0b10000000;
     TRISD = 0;
     TRISE = 0;
 
@@ -2721,6 +2875,8 @@ void setup(void){
 
     Lcd_Init();
 
+    UART_Init();
+
 
     PORTA = 0;
     PORTB = 0;
@@ -2729,12 +2885,20 @@ void setup(void){
     PORTE = 0;
 
 
-    voltage1 = 0;
-    voltage2 = 0;
+    read_an1 = 0;
+    v1 = 0;
+    read_an2 = 0;
+    v2 = 0;
 
 }
 
+void divide(uint16_t value, uint8_t *mil, uint8_t *cent, uint8_t *dec, uint8_t *unit){
+    *mil=value/1000;
+    *cent=(value-1000*(int)*mil)/100;
+    *dec=(value-1000*(int)*mil-100*(int)*cent)/10;
+    *unit=value-1000*(int)*mil-100*(int)*cent-10*(int)*dec;
 
+}
 
 
 
@@ -2742,11 +2906,11 @@ void setup(void){
 void __attribute__((picinterrupt(("")))) isr(void){
     if(ADIF){
         if(ADCON0bits.CHS==0b0000){
-            voltage1 = readAnalog();
+            read_an1 = readAnalog();
             ADCON0bits.CHS = 0b0001;
         }
         else if(ADCON0bits.CHS==0b0001){
-            voltage2 = readAnalog();
+            read_an2 = readAnalog();
             ADCON0bits.CHS = 0b0000;
         }
         ADIF = 0;

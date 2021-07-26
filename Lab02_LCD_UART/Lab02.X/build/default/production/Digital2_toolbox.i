@@ -2641,6 +2641,17 @@ uint8_t EightBitAnalog();
 void Lcd_Init(void);
 void Lcd_Write_Char(char a);
 void Lcd_Write_String(char *a);
+void Lcd_Cmd(uint8_t a);
+void cursor_Pos(uint8_t a);
+
+
+
+
+
+
+void UART_Init(void);
+void UART_Write(unsigned char* word);
+void UART_Write_Char(uint8_t character);
 # 1 "Digital2_toolbox.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
@@ -2684,18 +2695,18 @@ void Lcd_Clear(void) {
 void Lcd_Init(void) {
     PORTD = 0;
     _delay((unsigned long)((20)*(4000000/4000.0)));
-    Lcd_Cmd(0x03);
+    Lcd_Cmd(0x030);
     _delay((unsigned long)((5)*(4000000/4000.0)));
-    Lcd_Cmd(0x03);
+    Lcd_Cmd(0x030);
     _delay((unsigned long)((160)*(4000000/4000000.0)));
-    Lcd_Cmd(0x03);
+    Lcd_Cmd(0x030);
 
-    PORTD = 0b00111100;
-    PORTD = 0x10;
-    PORTD = 0x01;
-    PORTD = 0x07;
-    PORTD = 0x0F;
-
+    Lcd_Cmd(0b00111000);
+    Lcd_Cmd(0x10);
+    Lcd_Cmd(0x01);
+    Lcd_Cmd(0b00000110);
+    Lcd_Cmd(0x10);
+    Lcd_Cmd(0b00001100);
     _delay((unsigned long)((100)*(4000000/4000.0)));
 }
 
@@ -2710,6 +2721,38 @@ void Lcd_Write_Char(char a) {
 
 void Lcd_Write_String(char *a) {
     int i;
-    for (i = 0; a[i] != '\0'; i++)
+    for (i = 0; a[i] != '\0'; i++){
         Lcd_Write_Char(a[i]);
+    }
+}
+
+
+
+
+
+void UART_Init(void){
+
+    TXSTAbits.TXEN = 1;
+    TXSTAbits.SYNC = 0;
+    RCSTAbits.SPEN = 1;
+    TXSTAbits.BRGH = 1;
+    BRG16 = 0;
+    SPBRGH = 0;
+    SPBRG = 25;
+
+
+    RCSTAbits.CREN = 1;
+}
+
+void UART_Write(unsigned char* word){
+    while (*word != 0){
+        TXREG = (*word);
+        while(!TXSTAbits.TRMT);
+        word++;
+    }
+}
+
+void UART_Write_Char(uint8_t character){
+    TXREG = character;
+    while (!TXSTAbits.TRMT);
 }
