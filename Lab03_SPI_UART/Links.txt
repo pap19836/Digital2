@@ -1,0 +1,4 @@
+Vídeo:
+
+Repositorio:
+https://github.com/pap19836/Digital2/tree/main/Lab03_SPI_UART
