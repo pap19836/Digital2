@@ -2773,8 +2773,14 @@ void divide(uint16_t value, uint8_t *mil, uint8_t *cent, uint8_t *dec, uint8_t *
 
 
 uint8_t analog0;
+uint8_t analog0temp;
 
 uint8_t analog1;
+uint8_t analog1temp;
+
+uint8_t counter;
+
+
 
 
 
@@ -2788,10 +2794,21 @@ void __attribute__((picinterrupt(("")))) isr(void);
 
 void main(void){
     setup();
+    uint16_t v1;
+    uint8_t m1;
+    uint8_t c1;
+    uint8_t d1;
+    uint8_t u1;
 
+    uint16_t v0;
+    uint8_t m0;
+    uint8_t c0;
+    uint8_t d0;
+    uint8_t u0;
     while(1){
         _delay((unsigned long)((1)*(4000000/4000.0)));
         spiWrite(0b11111111);
+
         switch(RE0){
             case 0:
                 analog0 = spiRead();
@@ -2800,7 +2817,35 @@ void main(void){
                 analog1 = spiRead();
                 break;
         }
-        PORTB = analog0;
+
+        _delay((unsigned long)((1)*(4000000/4000.0)));
+        if(analog0!=analog0temp || analog1!=analog1temp){
+            analog0temp = analog0;
+            analog1temp = analog1;
+            v0 = (float)5000*(float)analog0/(float)255;
+            v1 = (float)5000*(float)analog1/(float)255;
+            divide(v0, &m0, &c0, &d0, &u0);
+            divide(v1, &m1, &c1, &d1, &u1);
+            UART_Write_Char(m0+48);
+            UART_Write(".");
+            UART_Write_Char(c0+48);
+            UART_Write_Char(d0+48);
+            UART_Write_Char(u0+48);
+            UART_Write(" V,");
+
+            UART_Write_Char(m1+48);
+            UART_Write(".");
+            UART_Write_Char(c1+48);
+            UART_Write_Char(d1+48);
+            UART_Write_Char(u1+48);
+            UART_Write(" V");
+
+        }
+
+        if(RCIF){
+            counter = RCREG;
+        }
+        PORTB = counter;
         PORTD = analog1;
     }
 }
@@ -2823,11 +2868,6 @@ void setup(void){
     PEIE = 1;
     ADIE = 1;
 
-
-    ADCON0bits.ADCS = 0b01;
-    ADCON0bits.CHS = 0b0000;
-    ADON = 1;
-    ADIF = 0;
 
     UART_Init();
 

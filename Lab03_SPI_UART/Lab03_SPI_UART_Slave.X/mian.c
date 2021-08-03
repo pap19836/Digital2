@@ -90,7 +90,6 @@ void setup(void){
     ADIF    =   0;
     SSPIE   =   1;                  //MSSP Enable
     
-    UART_Init();
     
     //MSSP SPI config
     spiInit(SPI_SLAVE_SS_DIS, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
