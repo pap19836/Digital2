@@ -1,4 +1,6 @@
 from tkinter import *
+import serial
+from serial import *
 
 class Window(Frame):
     def __init__(self, master = None):
@@ -15,19 +17,19 @@ class Window(Frame):
         e.insert(0, "Agregue un valor 0-255 para el contador")        
         
 
-        connectButton = Button(self, text="Connect", command=self.client_exit)
+        connectButton = Button(self, text="Connect", command=self.connect)
         connectButton.place(x=0, y=0)
-        sendButton = Button(self, text="Send", command=e.get())
+        sendButton = Button(self, text="Send")
         sendButton.place(x=325, y=100)
         
-        v1 = Label(self, text="Voltage 1")
-        v1.place(x=50,y=150)
-        v2 = Label(self, text="Voltage 2")
-        v2.place(x=200,y=150)
+        v_header = Label(self, text="Voltage 1               |              Voltage 2")
+        v_header.place(x=50,y=150)
         
+        v_values = Label(self, text=ser.read(1000))
+        v_values.place(x=50, y=200)
         
-    def client_exit(self):
-        exit()
+    def connect(self):
+        ser = serial.Serial("COM6", 9600)
         
 
                 
@@ -37,5 +39,3 @@ root.geometry("400x300")
 app = Window(root)
 
 root.mainloop()
-
-print("A")
