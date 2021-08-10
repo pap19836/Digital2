@@ -1,0 +1,5 @@
+Vídeo:
+https://youtu.be/nsNRGFr58Pc
+
+Repositorio:
+https://github.com/pap19836/Digital2/tree/main/Lab04_I2C

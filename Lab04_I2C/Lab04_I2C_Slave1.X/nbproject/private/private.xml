@@ -5,12 +5,7 @@
         <group>
             <file>file:/C:/Digital2/Lab04_I2C/Lab04_I2C_Slave2.X/main.c</file>
             <file>file:/C:/Digital2/Lab04_I2C/Lab04_I2C_Master.X/main.c</file>
-            <file>file:/C:/Digital2/Lab04_I2C/Lab04_I2C_Master.X/Digital2_toolbox.c</file>
             <file>file:/C:/Digital2/Lab04_I2C/Lab04_I2C_Slave1.X/main.c</file>
-            <file>file:/C:/Digital2/Lab02_LCD_UART/Lab02.X/main.c</file>
-            <file>file:/C:/Digital2/Lab04_I2C/Lab04_I2C_Slave1.X/Digital2_toolbox.c</file>
-            <file>file:/C:/Digital2/Lab04_I2C/Lab04_I2C_Master.X/Digital2_toolbox.h</file>
-            <file>file:/C:/Digital2/Lab04_I2C/Lab04_I2C_Slave1.X/Digital2_toolbox.h</file>
         </group>
     </open-files>
 </project-private>

@@ -44,9 +44,6 @@
 uint8_t analog0;
 uint8_t analog0temp;
 
-uint8_t analog1;
-uint8_t analog1temp;
-
 uint8_t z;
 
 
@@ -78,14 +75,10 @@ void    main(void){
         __delay_us(100);
 
         
-        if(analog0!=analog0temp || analog1!=analog1temp){
+        if(analog0!=analog0temp){
             analog0temp =   analog0;
-            analog1temp =   analog1;
             v0    =   (float)5000*(float)analog0/(float)255;
-            v1    =   (float)5000*(float)analog1/(float)255;
-            divide(v0, &m0, &c0, &d0, &u0);
-            divide(v1, &m1, &c1, &d1, &u1);
-        }
+            }
         
         PORTB   =   analog0;
         //PORTD   =   analog1;
@@ -139,14 +132,7 @@ void setup(void){
 //|----------------------------------------------------------------------------|
 void __interrupt() isr(void){
     if(ADIF){
-        if(ADCON0bits.CHS==0b0000){
-            analog0    =   EightBitAnalog();
-            ADCON0bits.CHS =   0b0001;
-        }
-        else if(ADCON0bits.CHS==0b0001){
-            analog1    =   EightBitAnalog();
-            ADCON0bits.CHS =   0b0000;
-        }
+        analog0    =   EightBitAnalog();
         ADIF    =   0;
     }
 

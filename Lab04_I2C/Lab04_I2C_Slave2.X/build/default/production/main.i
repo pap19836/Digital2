@@ -2708,10 +2708,10 @@ extern char * strrichr(const char *, int);
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
 # 7 "./Digital2_toolbox.h" 2
-# 16 "./Digital2_toolbox.h"
+# 18 "./Digital2_toolbox.h"
 uint16_t readAnalog();
 uint8_t EightBitAnalog();
-# 35 "./Digital2_toolbox.h"
+# 37 "./Digital2_toolbox.h"
 void Lcd_Init(void);
 void Lcd_Write_Char(char a);
 void Lcd_Write_String(char *a);
@@ -2760,6 +2760,45 @@ void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 void spiWrite(char);
 unsigned spiDataReady();
 char spiRead();
+# 119 "./Digital2_toolbox.h"
+void I2C_Master_Init(const unsigned long c);
+
+
+
+
+
+
+
+void I2C_Master_Wait(void);
+
+
+
+void I2C_Master_Start(void);
+
+
+
+void I2C_Master_RepeatedStart(void);
+
+
+
+void I2C_Master_Stop(void);
+
+
+
+
+
+void I2C_Master_Write(unsigned d);
+
+
+
+
+unsigned short I2C_Master_Read(unsigned short a);
+
+
+
+void I2C_Slave_Init(uint8_t address);
+
+
 
 
 
@@ -2773,6 +2812,8 @@ void divide(uint16_t value, uint8_t *mil, uint8_t *cent, uint8_t *dec, uint8_t *
 
 
 uint8_t counter;
+uint8_t masked_counter;
+uint8_t z;
 
 
 
@@ -2787,8 +2828,8 @@ void __attribute__((picinterrupt(("")))) isr(void);
 void main(void){
     setup();
     while(1){
-        PORTD = counter&0x0F;
-
+        masked_counter = counter&0x0F;
+        PORTD = masked_counter;
     }
 }
 
@@ -2815,6 +2856,7 @@ void setup(void){
     RBIE = 1;
     RBIF = 0;
 
+    I2C_Slave_Init(0b00000010);
 
     PORTA = 0;
     PORTB = 0;
@@ -2843,4 +2885,36 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
     }
 
+    if(PIR1bits.SSPIF == 1){
+
+        SSPCONbits.CKP = 0;
+
+        if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
+            z = SSPBUF;
+            SSPCONbits.SSPOV = 0;
+            SSPCONbits.WCOL = 0;
+            SSPCONbits.CKP = 1;
+        }
+
+        if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+
+            z = SSPBUF;
+
+            PIR1bits.SSPIF = 0;
+            SSPCONbits.CKP = 1;
+            while(!SSPSTATbits.BF);
+            PORTD = SSPBUF;
+            _delay((unsigned long)((250)*(4000000/4000000.0)));
+
+        }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+            z = SSPBUF;
+            BF = 0;
+            SSPBUF = masked_counter;
+            SSPCONbits.CKP = 1;
+            _delay((unsigned long)((250)*(4000000/4000000.0)));
+            while(SSPSTATbits.BF);
+        }
+
+        PIR1bits.SSPIF = 0;
+    }
 }

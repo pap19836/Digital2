@@ -12,28 +12,32 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\Lab04_I2C_Master.X.production.o
-cinit CODE 0 F F 7 2
-text1 CODE 0 1BC 1BC 2B 2
-text2 CODE 0 FE FE 58 2
-text3 CODE 0 23C 23C 14 2
-text4 CODE 0 156 156 38 2
-text5 CODE 0 96 96 68 2
-text6 CODE 0 1E7 1E7 25 2
-text7 CODE 0 224 224 18 2
-text8 CODE 0 25D 25D A 2
-text9 CODE 0 267 267 9 2
-text10 CODE 0 270 270 9 2
-text11 CODE 0 18E 18E 2E 2
-text12 CODE 0 250 250 D 2
-text13 CODE 0 279 279 7 2
-maintext CODE 0 16 16 80 2
-cstackCOMMON COMMON 1 70 70 B 1
-cstackBANK0 BANK0 1 20 20 10 1
+cinit CODE 0 F F E 2
+text1 CODE 0 3FB 3FB 2B 2
+text2 CODE 0 2F7 2F7 58 2
+text3 CODE 0 4B9 4B9 14 2
+text4 CODE 0 395 395 38 2
+text5 CODE 0 28F 28F 68 2
+text6 CODE 0 1C2 1C2 CD 2
+text7 CODE 0 426 426 25 2
+text8 CODE 0 34F 34F 46 2
+text9 CODE 0 4A4 4A4 15 2
+text10 CODE 0 44B 44B 25 2
+text11 CODE 0 48C 48C 18 2
+text12 CODE 0 4DA 4DA A 2
+text13 CODE 0 4E4 4E4 9 2
+text14 CODE 0 4ED 4ED 9 2
+text15 CODE 0 3CD 3CD 2E 2
+text16 CODE 0 4CD 4CD D 2
+text17 CODE 0 4F6 4F6 7 2
+maintext CODE 0 1D 1D 1A5 2
+cstackCOMMON COMMON 1 70 70 C 1
+cstackBANK0 BANK0 1 20 20 25 1
 intentry CODE 0 4 4 8 2
-bssBANK0 BANK0 1 30 30 1 1
-strings STRING 0 20C 20C 18 2
+bssBANK0 BANK0 1 45 45 8 1
+strings STRING 0 470 470 1C 2
 config CONFIG 4 2007 2007 2 2
-$C:\Users\stefa\AppData\Local\Temp\xcAsbp0.o
+$C:\Users\stefa\AppData\Local\Temp\xcAsgjk.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -43,32 +47,32 @@ config CONFIG 4 2007 2007 2 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 31-6F 1
+RAM 4D-6F 1
 RAM A0-EF 1
 RAM 110-16F 1
 RAM 190-1EF 1
-BANK0 31-6F 1
+BANK0 4D-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST 280-1FFF 2
+CONST 4FD-1FFF 2
 ENTRY 3-3 2
-ENTRY 280-1FFF 2
+ENTRY 4FD-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE 280-1FFF 2
+CODE 4FD-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
-COMMON 7B-7D 1
+COMMON 7C-7D 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE 280-1FFF 2
+STRCODE 4FD-1FFF 2
 STRING 3-3 2
-STRING 280-1FFF 2
+STRING 4FD-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -83,156 +87,251 @@ STRING 280-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lab04_I2C_Master.X.production.o
-F cinit CODE >715:C:\Users\stefa\AppData\Local\Temp\xcAsbp0.s
-F cinit CODE >718:C:\Users\stefa\AppData\Local\Temp\xcAsbp0.s
-F cinit CODE >729:C:\Users\stefa\AppData\Local\Temp\xcAsbp0.s
-10 cinit CODE >730:C:\Users\stefa\AppData\Local\Temp\xcAsbp0.s
-11 cinit CODE >731:C:\Users\stefa\AppData\Local\Temp\xcAsbp0.s
-12 cinit CODE >737:C:\Users\stefa\AppData\Local\Temp\xcAsbp0.s
-12 cinit CODE >739:C:\Users\stefa\AppData\Local\Temp\xcAsbp0.s
-13 cinit CODE >740:C:\Users\stefa\AppData\Local\Temp\xcAsbp0.s
-4 intentry CODE >129:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-279 text13 CODE >129:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-279 text13 CODE >131:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-250 text12 CODE >186:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-250 text12 CODE >188:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-25C text12 CODE >189:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-18E text11 CODE >228:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-18E text11 CODE >231:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-193 text11 CODE >232:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-196 text11 CODE >233:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-19B text11 CODE >234:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-1A4 text11 CODE >235:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-1A9 text11 CODE >236:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-1AF text11 CODE >237:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-1B2 text11 CODE >238:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-1B3 text11 CODE >239:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-1B6 text11 CODE >240:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-1B6 text11 CODE >241:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-1B7 text11 CODE >242:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-1BB text11 CODE >243:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-270 text10 CODE >193:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-270 text10 CODE >195:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-275 text10 CODE >196:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-278 text10 CODE >197:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-267 text9 CODE >209:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-267 text9 CODE >211:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-26C text9 CODE >212:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-26F text9 CODE >213:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-25D text8 CODE >219:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-25D text8 CODE >221:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-262 text8 CODE >222:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-266 text8 CODE >223:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-224 text7 CODE >60:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-225 text7 CODE >61:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-229 text7 CODE >62:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-22A text7 CODE >63:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-22B text7 CODE >64:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-22F text7 CODE >65:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-232 text7 CODE >66:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-23B text7 CODE >67:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-1E7 text6 CODE >69:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-1E8 text6 CODE >71:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-1EB text6 CODE >72:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-1F8 text6 CODE >73:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-1FA text6 CODE >73:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-207 text6 CODE >73:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-20B text6 CODE >74:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-96 text5 CODE >5:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-96 text5 CODE >13:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-A0 text5 CODE >14:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-A4 text5 CODE >14:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-A8 text5 CODE >15:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-AA text5 CODE >16:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-AB text5 CODE >17:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-AD text5 CODE >17:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-B4 text5 CODE >18:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-B8 text5 CODE >16:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-BC text5 CODE >21:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-BE text5 CODE >21:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-C5 text5 CODE >22:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-C7 text5 CODE >22:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-CB text5 CODE >22:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-CF text5 CODE >22:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-D3 text5 CODE >22:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-D7 text5 CODE >23:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-DA text5 CODE >23:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-DE text5 CODE >23:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-E2 text5 CODE >23:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-E5 text5 CODE >24:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-E6 text5 CODE >26:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-E7 text5 CODE >26:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-ED text5 CODE >26:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-EF text5 CODE >27:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-F5 text5 CODE >29:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-FD text5 CODE >30:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
-156 text4 CODE >170:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-156 text4 CODE >172:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-15A text4 CODE >173:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-15D text4 CODE >174:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-168 text4 CODE >174:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-16E text4 CODE >174:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-18A text4 CODE >175:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-18B text4 CODE >176:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-18C text4 CODE >177:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-18D text4 CODE >178:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-23C text3 CODE >28:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-23D text3 CODE >29:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-240 text3 CODE >30:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-242 text3 CODE >31:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-243 text3 CODE >32:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-24C text3 CODE >33:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-24F text3 CODE >34:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-FE text2 CODE >42:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-FE text2 CODE >43:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-101 text2 CODE >44:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-10A text2 CODE >45:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-110 text2 CODE >46:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-118 text2 CODE >47:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-11E text2 CODE >48:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-122 text2 CODE >49:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-128 text2 CODE >51:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-12E text2 CODE >52:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-134 text2 CODE >53:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-13A text2 CODE >54:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-140 text2 CODE >55:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-146 text2 CODE >56:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-14C text2 CODE >57:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-155 text2 CODE >58:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
-1BC text1 CODE >93:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1BC text1 CODE >95:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1BF text1 CODE >96:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1C0 text1 CODE >97:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1C3 text1 CODE >98:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1C4 text1 CODE >99:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1C6 text1 CODE >100:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1C7 text1 CODE >101:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1C8 text1 CODE >104:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1C9 text1 CODE >105:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1CA text1 CODE >106:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1CB text1 CODE >109:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1D0 text1 CODE >111:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1DF text1 CODE >114:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1E2 text1 CODE >115:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1E3 text1 CODE >116:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1E4 text1 CODE >117:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1E5 text1 CODE >118:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1E6 text1 CODE >122:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-16 maintext CODE >57:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-16 maintext CODE >58:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-1B maintext CODE >59:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-21 maintext CODE >73:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-26 maintext CODE >74:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-2E maintext CODE >75:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-3C maintext CODE >76:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-41 maintext CODE >77:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-50 maintext CODE >78:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-56 maintext CODE >79:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-64 maintext CODE >81:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-69 maintext CODE >82:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-72 maintext CODE >83:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-7E maintext CODE >84:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
-83 maintext CODE >85:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+F cinit CODE >735:C:\Users\stefa\AppData\Local\Temp\xcAsgjk.s
+F cinit CODE >738:C:\Users\stefa\AppData\Local\Temp\xcAsgjk.s
+F cinit CODE >764:C:\Users\stefa\AppData\Local\Temp\xcAsgjk.s
+10 cinit CODE >765:C:\Users\stefa\AppData\Local\Temp\xcAsgjk.s
+11 cinit CODE >766:C:\Users\stefa\AppData\Local\Temp\xcAsgjk.s
+12 cinit CODE >767:C:\Users\stefa\AppData\Local\Temp\xcAsgjk.s
+13 cinit CODE >768:C:\Users\stefa\AppData\Local\Temp\xcAsgjk.s
+14 cinit CODE >769:C:\Users\stefa\AppData\Local\Temp\xcAsgjk.s
+15 cinit CODE >770:C:\Users\stefa\AppData\Local\Temp\xcAsgjk.s
+16 cinit CODE >771:C:\Users\stefa\AppData\Local\Temp\xcAsgjk.s
+17 cinit CODE >772:C:\Users\stefa\AppData\Local\Temp\xcAsgjk.s
+18 cinit CODE >773:C:\Users\stefa\AppData\Local\Temp\xcAsgjk.s
+19 cinit CODE >779:C:\Users\stefa\AppData\Local\Temp\xcAsgjk.s
+19 cinit CODE >781:C:\Users\stefa\AppData\Local\Temp\xcAsgjk.s
+1A cinit CODE >782:C:\Users\stefa\AppData\Local\Temp\xcAsgjk.s
+4 intentry CODE >177:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+4F6 text17 CODE >177:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+4F6 text17 CODE >179:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+4CD text16 CODE >186:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4CD text16 CODE >188:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4D9 text16 CODE >189:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3CD text15 CODE >228:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3CD text15 CODE >231:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3D2 text15 CODE >232:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3D5 text15 CODE >233:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3DA text15 CODE >234:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3E3 text15 CODE >235:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3E8 text15 CODE >236:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3EE text15 CODE >237:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3F1 text15 CODE >238:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3F2 text15 CODE >239:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3F5 text15 CODE >240:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3F5 text15 CODE >241:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3F6 text15 CODE >242:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3FA text15 CODE >243:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4ED text14 CODE >193:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4ED text14 CODE >195:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4F2 text14 CODE >196:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4F5 text14 CODE >197:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4E4 text13 CODE >209:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4E4 text13 CODE >211:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4E9 text13 CODE >212:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4EC text13 CODE >213:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4DA text12 CODE >219:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4DA text12 CODE >221:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4DF text12 CODE >222:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4E3 text12 CODE >223:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+48C text11 CODE >60:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+48D text11 CODE >61:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+491 text11 CODE >62:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+492 text11 CODE >63:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+493 text11 CODE >64:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+497 text11 CODE >65:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+49A text11 CODE >66:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4A3 text11 CODE >67:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+44B text10 CODE >69:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+44C text10 CODE >71:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+44F text10 CODE >72:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+45C text10 CODE >73:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+45E text10 CODE >73:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+46B text10 CODE >73:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+46F text10 CODE >74:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4A4 text9 CODE >4:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul8.c
+4A5 text9 CODE >6:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul8.c
+4A6 text9 CODE >43:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul8.c
+4AA text9 CODE >44:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul8.c
+4AE text9 CODE >45:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul8.c
+4B0 text9 CODE >46:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul8.c
+4B2 text9 CODE >47:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul8.c
+4B7 text9 CODE >50:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul8.c
+4B8 text9 CODE >51:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul8.c
+34F text8 CODE >5:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+34F text8 CODE >13:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+353 text8 CODE >14:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+359 text8 CODE >15:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+35B text8 CODE >16:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+35C text8 CODE >17:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+35D text8 CODE >17:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+361 text8 CODE >17:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+363 text8 CODE >18:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+367 text8 CODE >16:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+36B text8 CODE >21:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+36C text8 CODE >21:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+370 text8 CODE >21:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+372 text8 CODE >22:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+374 text8 CODE >22:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+378 text8 CODE >22:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+37C text8 CODE >23:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+37F text8 CODE >23:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+382 text8 CODE >24:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+383 text8 CODE >26:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+384 text8 CODE >26:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+388 text8 CODE >26:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+38A text8 CODE >27:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+390 text8 CODE >29:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+394 text8 CODE >30:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+426 text7 CODE >15:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+426 text7 CODE >43:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+428 text7 CODE >45:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+42C text7 CODE >46:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+42E text7 CODE >46:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+432 text7 CODE >47:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+433 text7 CODE >47:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+437 text7 CODE >47:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+439 text7 CODE >48:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+43A text7 CODE >48:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+43E text7 CODE >48:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+440 text7 CODE >49:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+446 text7 CODE >52:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+44A text7 CODE >53:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+1C2 text6 CODE >267:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+1C2 text6 CODE >268:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+1DA text6 CODE >269:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+1F6 text6 CODE >269:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+208 text6 CODE >270:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+23D text6 CODE >270:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+245 text6 CODE >270:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+257 text6 CODE >271:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+28E text6 CODE >273:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+28F text5 CODE >5:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+28F text5 CODE >13:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+299 text5 CODE >14:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+29D text5 CODE >14:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2A1 text5 CODE >15:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2A3 text5 CODE >16:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2A4 text5 CODE >17:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2A6 text5 CODE >17:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2AD text5 CODE >18:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2B1 text5 CODE >16:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2B5 text5 CODE >21:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2B7 text5 CODE >21:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2BE text5 CODE >22:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2C0 text5 CODE >22:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2C4 text5 CODE >22:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2C8 text5 CODE >22:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2CC text5 CODE >22:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2D0 text5 CODE >23:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2D3 text5 CODE >23:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2D7 text5 CODE >23:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2DB text5 CODE >23:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2DE text5 CODE >24:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2DF text5 CODE >26:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2E0 text5 CODE >26:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2E6 text5 CODE >26:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2E8 text5 CODE >27:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2EE text5 CODE >29:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+2F6 text5 CODE >30:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
+395 text4 CODE >170:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+395 text4 CODE >172:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+399 text4 CODE >173:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+39C text4 CODE >174:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3A7 text4 CODE >174:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3AD text4 CODE >174:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3C9 text4 CODE >175:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3CA text4 CODE >176:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3CB text4 CODE >177:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3CC text4 CODE >178:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4B9 text3 CODE >28:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4BA text3 CODE >29:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4BD text3 CODE >30:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4BF text3 CODE >31:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4C0 text3 CODE >32:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4C9 text3 CODE >33:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+4CC text3 CODE >34:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+2F7 text2 CODE >42:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+2F7 text2 CODE >43:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+2FA text2 CODE >44:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+303 text2 CODE >45:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+309 text2 CODE >46:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+311 text2 CODE >47:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+317 text2 CODE >48:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+31B text2 CODE >49:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+321 text2 CODE >51:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+327 text2 CODE >52:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+32D text2 CODE >53:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+333 text2 CODE >54:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+339 text2 CODE >55:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+33F text2 CODE >56:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+345 text2 CODE >57:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+34E text2 CODE >58:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+3FB text1 CODE >141:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+3FB text1 CODE >143:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+3FE text1 CODE >144:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+3FF text1 CODE >145:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+402 text1 CODE >146:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+403 text1 CODE >147:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+405 text1 CODE >148:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+406 text1 CODE >149:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+407 text1 CODE >152:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+408 text1 CODE >153:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+409 text1 CODE >154:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+40A text1 CODE >157:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+40F text1 CODE >159:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+41E text1 CODE >162:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+421 text1 CODE >163:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+422 text1 CODE >164:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+423 text1 CODE >165:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+424 text1 CODE >166:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+425 text1 CODE >170:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+1D maintext CODE >64:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+1D maintext CODE >65:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+22 maintext CODE >66:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+28 maintext CODE >87:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+2D maintext CODE >88:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+36 maintext CODE >89:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+44 maintext CODE >90:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+49 maintext CODE >91:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+58 maintext CODE >93:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+5D maintext CODE >94:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+66 maintext CODE >95:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+74 maintext CODE >96:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+79 maintext CODE >97:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+88 maintext CODE >101:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+8D maintext CODE >102:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+96 maintext CODE >103:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+9F maintext CODE >104:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+A4 maintext CODE >105:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+B3 maintext CODE >107:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+B8 maintext CODE >108:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+C1 maintext CODE >109:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+CF maintext CODE >110:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+D4 maintext CODE >111:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+E3 maintext CODE >113:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+E7 maintext CODE >113:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+EB maintext CODE >113:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+F1 maintext CODE >113:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+F7 maintext CODE >113:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+FB maintext CODE >114:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+114 maintext CODE >115:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+132 maintext CODE >116:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+150 maintext CODE >117:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+156 maintext CODE >118:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+15A maintext CODE >119:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+15E maintext CODE >121:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+164 maintext CODE >122:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+16A maintext CODE >123:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+173 maintext CODE >124:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+17C maintext CODE >125:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+185 maintext CODE >126:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+18B maintext CODE >127:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+194 maintext CODE >128:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+19D maintext CODE >129:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+1A3 maintext CODE >130:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+1AC maintext CODE >131:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+1B5 maintext CODE >132:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -246,51 +345,67 @@ FE text2 CODE >43:C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
-__Hspace_0 280 0 ABS 0 - -
-__Hspace_1 7B 0 ABS 0 - -
+__Hspace_0 4FD 0 ABS 0 - -
+__Hspace_1 7C 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
-_Lcd_Init 1FC 0 CODE 0 text2 dist/default/production\Lab04_I2C_Master.X.production.o
+_Lcd_Init 5EE 0 CODE 0 text2 dist/default/production\Lab04_I2C_Master.X.production.o
+_counter_temp 4B 0 BANK0 1 bssBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
 I2C_Master_Init@c 25 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-__end_of_Lcd_Init 2AC 0 CODE 0 text2 dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of_Lcd_Init 69E 0 CODE 0 text2 dist/default/production\Lab04_I2C_Master.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _ADIE 466 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 _PEIE 5E 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\stefa\AppData\Local\Temp\xcAsbp0.o
-_main 2C 0 CODE 0 maintext dist/default/production\Lab04_I2C_Master.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\stefa\AppData\Local\Temp\xcAsgjk.o
+_main 3A 0 CODE 0 maintext dist/default/production\Lab04_I2C_Master.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
-_Lcd_Write_Char 448 0 CODE 0 text7 dist/default/production\Lab04_I2C_Master.X.production.o
-start 18 0 CODE 0 init C:\Users\stefa\AppData\Local\Temp\xcAsbp0.o
+_Lcd_Write_Char 918 0 CODE 0 text11 dist/default/production\Lab04_I2C_Master.X.production.o
+start 18 0 CODE 0 init C:\Users\stefa\AppData\Local\Temp\xcAsgjk.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 __size_of___lldiv 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
+__size_of___lwdiv 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
+divide@value 24 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+?___wmul 72 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 I2C_Master_Read@a 72 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsbp0.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsbp0.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsbp0.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsbp0.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsbp0.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsbp0.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsgjk.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsgjk.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsgjk.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsgjk.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsgjk.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsgjk.o
+___bmul@multiplicand 72 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 I2C_Master_Read@temp 76 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
-__end_of_Lcd_Write_Char 478 0 CODE 0 text7 dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of_Lcd_Write_Char 948 0 CODE 0 text11 dist/default/production\Lab04_I2C_Master.X.production.o
+___wmul@multiplicand 74 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
 _ADRESH 1E 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 _ADRESL 9E 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 _ANSELH 189 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of___bmul 972 0 CODE 0 text9 dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of___wmul 896 0 CODE 0 text7 dist/default/production\Lab04_I2C_Master.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-__end_of___lldiv 1FC 0 CODE 0 text5 dist/default/production\Lab04_I2C_Master.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\stefa\AppData\Local\Temp\xcAsbp0.o
-___stacklo 0 0 ABS 0 - C:\Users\stefa\AppData\Local\Temp\xcAsbp0.o
+___bmul@multiplier 75 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of___lldiv 5EE 0 CODE 0 text5 dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of___lwdiv 72A 0 CODE 0 text8 dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of_divide 51E 0 CODE 0 text6 dist/default/production\Lab04_I2C_Master.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\stefa\AppData\Local\Temp\xcAsgjk.o
+___stacklo 0 0 ABS 0 - C:\Users\stefa\AppData\Local\Temp\xcAsgjk.o
+divide@cent 27 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+divide@unit 29 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+_analog0_temp 45 0 BANK0 1 bssBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+___lwdiv@quotient 21 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 ___lldiv@counter 24 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\Lab04_I2C_Master.X.production.o
 _TRISCbits 87 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 ___lldiv@dividend 76 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
-_Lcd_Write_String 3CE 0 CODE 0 text6 dist/default/production\Lab04_I2C_Master.X.production.o
+_analog0 47 0 BANK0 1 bssBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+_Lcd_Write_String 896 0 CODE 0 text10 dist/default/production\Lab04_I2C_Master.X.production.o
 _SPBRGH 9A 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
 _SSPADD 93 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
@@ -300,14 +415,15 @@ _TRISC3 43B 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 _TRISC5 43D 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 __size_of_Lcd_Cmd 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\stefa\AppData\Local\Temp\xcAsbp0.o
+___int_sp 0 0 STACK 2 stack C:\Users\stefa\AppData\Local\Temp\xcAsgjk.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
-__Hcinit 2C 0 CODE 0 cinit -
+__Hcinit 3A 0 CODE 0 cinit -
 __Hstack 0 0 STACK 2 stack -
-__stringbase 422 0 STRING 0 strings dist/default/production\Lab04_I2C_Master.X.production.o
+__stringbase 8EA 0 STRING 0 strings dist/default/production\Lab04_I2C_Master.X.production.o
+___lwdiv@counter 23 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
 I2C_Master_Write@d 72 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
@@ -334,82 +450,111 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
+___bmul 948 0 CODE 0 text9 dist/default/production\Lab04_I2C_Master.X.production.o
+___wmul 84C 0 CODE 0 text7 dist/default/production\Lab04_I2C_Master.X.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 _GIE 5F 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 _RE0 48 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 _RE1 49 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
-__S0 280 0 ABS 0 - -
-__S1 7B 0 ABS 0 - -
+__S0 4FD 0 ABS 0 - -
+__S1 7C 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_isr 4F2 0 CODE 0 text13 dist/default/production\Lab04_I2C_Master.X.production.o
+_isr 9EC 0 CODE 0 text17 dist/default/production\Lab04_I2C_Master.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
-_I2C_Master_Start 4E0 0 CODE 0 text10 dist/default/production\Lab04_I2C_Master.X.production.o
-_I2C_Master_Write 4BA 0 CODE 0 text8 dist/default/production\Lab04_I2C_Master.X.production.o
-__end_of_Lcd_Write_String 418 0 CODE 0 text6 dist/default/production\Lab04_I2C_Master.X.production.o
-__end_of_isr 500 0 CODE 0 text13 dist/default/production\Lab04_I2C_Master.X.production.o
+_temperature_sensor_temp 49 0 BANK0 1 bssBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+_divide 384 0 CODE 0 text6 dist/default/production\Lab04_I2C_Master.X.production.o
+_I2C_Master_Start 9DA 0 CODE 0 text14 dist/default/production\Lab04_I2C_Master.X.production.o
+_I2C_Master_Write 9B4 0 CODE 0 text12 dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of_Lcd_Write_String 8E0 0 CODE 0 text10 dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of_isr 9FA 0 CODE 0 text17 dist/default/production\Lab04_I2C_Master.X.production.o
+_temperature_sensor 4A 0 BANK0 1 bssBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
 ___lldiv@divisor 72 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
 __size_of_Lcd_Write_String 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
-__stringtab 418 0 STRING 0 strings dist/default/production\Lab04_I2C_Master.X.production.o
+__stringtab 8E0 0 STRING 0 strings dist/default/production\Lab04_I2C_Master.X.production.o
 Lcd_Write_String@a 77 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
 Lcd_Write_String@i 75 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\stefa\AppData\Local\Temp\xcAsbp0.o
-__end_of_Lcd_Cmd 4A0 0 CODE 0 text3 dist/default/production\Lab04_I2C_Master.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\stefa\AppData\Local\Temp\xcAsgjk.o
+__end_of_Lcd_Cmd 99A 0 CODE 0 text3 dist/default/production\Lab04_I2C_Master.X.production.o
+__size_of___bmul 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
+__size_of___wmul 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 _RCSTAbits 18 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
-__ptext10 4E0 0 CODE 0 text10 dist/default/production\Lab04_I2C_Master.X.production.o
-__ptext11 31C 0 CODE 0 text11 dist/default/production\Lab04_I2C_Master.X.production.o
-__ptext12 4A0 0 CODE 0 text12 dist/default/production\Lab04_I2C_Master.X.production.o
-__ptext13 4F2 0 CODE 0 text13 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext10 896 0 CODE 0 text10 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext11 918 0 CODE 0 text11 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext12 9B4 0 CODE 0 text12 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext13 9C8 0 CODE 0 text13 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext14 9DA 0 CODE 0 text14 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext15 79A 0 CODE 0 text15 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext16 99A 0 CODE 0 text16 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext17 9EC 0 CODE 0 text17 dist/default/production\Lab04_I2C_Master.X.production.o
 __size_of_Lcd_Write_Char 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
-___lldiv 12C 0 CODE 0 text5 dist/default/production\Lab04_I2C_Master.X.production.o
-__pmaintext 2C 0 CODE 0 maintext dist/default/production\Lab04_I2C_Master.X.production.o
+___lldiv 51E 0 CODE 0 text5 dist/default/production\Lab04_I2C_Master.X.production.o
+___lwdiv 69E 0 CODE 0 text8 dist/default/production\Lab04_I2C_Master.X.production.o
+__pmaintext 3A 0 CODE 0 maintext dist/default/production\Lab04_I2C_Master.X.production.o
+__size_of_divide 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
+___wmul@multiplier 72 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
+___lwdiv@divisor 78 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
 ?_I2C_Master_Read 72 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
-__end_of_I2C_Master_Init 31C 0 CODE 0 text4 dist/default/production\Lab04_I2C_Master.X.production.o
-__end_of_I2C_Master_Read 378 0 CODE 0 text11 dist/default/production\Lab04_I2C_Master.X.production.o
-__end_of_I2C_Master_Stop 4E0 0 CODE 0 text9 dist/default/production\Lab04_I2C_Master.X.production.o
-__end_of_I2C_Master_Wait 4BA 0 CODE 0 text12 dist/default/production\Lab04_I2C_Master.X.production.o
-__end_of__stringtab 424 0 STRING 0 strings dist/default/production\Lab04_I2C_Master.X.production.o
-__end_of_I2C_Master_Start 4F2 0 CODE 0 text10 dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of_I2C_Master_Init 79A 0 CODE 0 text4 dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of_I2C_Master_Read 7F6 0 CODE 0 text15 dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of_I2C_Master_Stop 9DA 0 CODE 0 text13 dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of_I2C_Master_Wait 9B4 0 CODE 0 text16 dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of__stringtab 8EC 0 STRING 0 strings dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of_I2C_Master_Start 9EC 0 CODE 0 text14 dist/default/production\Lab04_I2C_Master.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-__end_of_I2C_Master_Write 4CE 0 CODE 0 text8 dist/default/production\Lab04_I2C_Master.X.production.o
+main@c0 43 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+main@d0 40 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+main@cc 39 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+main@ct 44 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+main@dc 41 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+main@dt 42 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+main@m0 3A 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+main@mc 3B 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+main@mt 3C 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+main@u0 3D 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+main@uc 3E 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+main@ut 3F 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of_I2C_Master_Write 9C8 0 CODE 0 text12 dist/default/production\Lab04_I2C_Master.X.production.o
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __Lend_init 18 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __size_of_I2C_Master_Start 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 __size_of_I2C_Master_Write 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
-end_of_initialization 24 0 CODE 0 cinit dist/default/production\Lab04_I2C_Master.X.production.o
+end_of_initialization 32 0 CODE 0 cinit dist/default/production\Lab04_I2C_Master.X.production.o
 __Hintentry 18 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
+___lwdiv@dividend 7A 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
 ?___lldiv 72 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
+?___lwdiv 78 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
 __Hreset_vec 6 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 _SSPCON2bits 91 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
-__ptext1 378 0 CODE 0 text1 dist/default/production\Lab04_I2C_Master.X.production.o
-__ptext2 1FC 0 CODE 0 text2 dist/default/production\Lab04_I2C_Master.X.production.o
-__ptext3 478 0 CODE 0 text3 dist/default/production\Lab04_I2C_Master.X.production.o
-__ptext4 2AC 0 CODE 0 text4 dist/default/production\Lab04_I2C_Master.X.production.o
-__ptext5 12C 0 CODE 0 text5 dist/default/production\Lab04_I2C_Master.X.production.o
-__ptext6 3CE 0 CODE 0 text6 dist/default/production\Lab04_I2C_Master.X.production.o
-__ptext7 448 0 CODE 0 text7 dist/default/production\Lab04_I2C_Master.X.production.o
-__ptext8 4BA 0 CODE 0 text8 dist/default/production\Lab04_I2C_Master.X.production.o
-__ptext9 4CE 0 CODE 0 text9 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext1 7F6 0 CODE 0 text1 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext2 5EE 0 CODE 0 text2 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext3 972 0 CODE 0 text3 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext4 72A 0 CODE 0 text4 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext5 51E 0 CODE 0 text5 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext6 384 0 CODE 0 text6 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext7 84C 0 CODE 0 text7 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext8 69E 0 CODE 0 text8 dist/default/production\Lab04_I2C_Master.X.production.o
+__ptext9 948 0 CODE 0 text9 dist/default/production\Lab04_I2C_Master.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-_I2C_Master_Init 2AC 0 CODE 0 text4 dist/default/production\Lab04_I2C_Master.X.production.o
-_I2C_Master_Read 31C 0 CODE 0 text11 dist/default/production\Lab04_I2C_Master.X.production.o
-_I2C_Master_Stop 4CE 0 CODE 0 text9 dist/default/production\Lab04_I2C_Master.X.production.o
-_I2C_Master_Wait 4A0 0 CODE 0 text12 dist/default/production\Lab04_I2C_Master.X.production.o
+_I2C_Master_Init 72A 0 CODE 0 text4 dist/default/production\Lab04_I2C_Master.X.production.o
+_I2C_Master_Read 79A 0 CODE 0 text15 dist/default/production\Lab04_I2C_Master.X.production.o
+_I2C_Master_Stop 9C8 0 CODE 0 text13 dist/default/production\Lab04_I2C_Master.X.production.o
+_I2C_Master_Wait 99A 0 CODE 0 text16 dist/default/production\Lab04_I2C_Master.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
-__end_of__initialization 24 0 CODE 0 cinit dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of__initialization 32 0 CODE 0 cinit dist/default/production\Lab04_I2C_Master.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
 Lcd_Cmd@a 74 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
@@ -420,7 +565,7 @@ _SSPCON2 91 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 _SSPSTAT 94 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 __size_of_Lcd_Init 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 __Hend_init 1E 0 CODE 0 end_init -
-__end_of_main 12C 0 CODE 0 maintext dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of_main 384 0 CODE 0 maintext dist/default/production\Lab04_I2C_Master.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 _BRG16 C3B 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 _PORTA 5 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
@@ -437,19 +582,23 @@ _TRISC 87 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 _TRISD 88 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 _TRISE 89 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 _TXREG 19 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
-__end_of_setup 3CE 0 CODE 0 text1 dist/default/production\Lab04_I2C_Master.X.production.o
+__end_of_setup 84C 0 CODE 0 text1 dist/default/production\Lab04_I2C_Master.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 interrupt_function 8 0 CODE 0 intentry dist/default/production\Lab04_I2C_Master.X.production.o
-_setup 378 0 CODE 0 text1 dist/default/production\Lab04_I2C_Master.X.production.o
+_setup 7F6 0 CODE 0 text1 dist/default/production\Lab04_I2C_Master.X.production.o
 _SSPSTATbits 94 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\Lab04_I2C_Master.X.production.o
-_Lcd_Cmd 478 0 CODE 0 text3 dist/default/production\Lab04_I2C_Master.X.production.o
+_Lcd_Cmd 972 0 CODE 0 text3 dist/default/production\Lab04_I2C_Master.X.production.o
 __size_of_isr 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 __initialization 1E 0 CODE 0 cinit dist/default/production\Lab04_I2C_Master.X.production.o
-__pbssBANK0 30 0 BANK0 1 bssBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
-__pstrings 418 0 STRING 0 strings dist/default/production\Lab04_I2C_Master.X.production.o
-_counter 30 0 BANK0 1 bssBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+___bmul@product 74 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
+__pbssBANK0 45 0 BANK0 1 bssBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+__pstrings 8E0 0 STRING 0 strings dist/default/production\Lab04_I2C_Master.X.production.o
+_counter 4C 0 BANK0 1 bssBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+___wmul@product 76 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
+divide@dec 28 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
+divide@mil 26 0 BANK0 1 cstackBANK0 dist/default/production\Lab04_I2C_Master.X.production.o
 Lcd_Write_Char@a 74 0 COMMON 1 cstackCOMMON dist/default/production\Lab04_I2C_Master.X.production.o
 __size_of_I2C_Master_Init 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
 __size_of_I2C_Master_Read 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X.production.o
@@ -480,12 +629,12 @@ __size_of_I2C_Master_Wait 0 0 ABS 0 - dist/default/production\Lab04_I2C_Master.X
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text7 0 224 448 5C 2
-cstackCOMMON 1 70 70 B 1
-cstackBANK0 1 20 20 11 1
-intentry 0 4 8 208 2
+text11 0 48C 918 71 2
+cstackCOMMON 1 70 70 C 1
+cstackBANK0 1 20 20 2D 1
+intentry 0 4 8 46C 2
 reset_vec 0 0 0 3 2
-strings 0 20C 418 18 2
+strings 0 470 8E0 1C 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

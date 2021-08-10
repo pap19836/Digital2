@@ -62,11 +62,13 @@ SPI_ACTIVE_2_IDLE 64
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
 "228
 [v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
-"57 C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+"267
+[v _divide divide `(v  1 e 1 0 ]
+"64 C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"93
+"141
 [v _setup setup `(v  1 e 1 0 ]
-"129
+"177
 [v _isr isr `II(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -243,16 +245,50 @@ SPI_ACTIVE_2_IDLE 64
 "4463
 [v _TRISC5 TRISC5 `VEb  1 e 0 @1085 ]
 "44 C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+[v _analog0 analog0 `ui  1 e 2 0 ]
+"45
+[v _analog0_temp analog0_temp `ui  1 e 2 0 ]
+"47
 [v _counter counter `uc  1 e 1 0 ]
-"57
+"48
+[v _counter_temp counter_temp `uc  1 e 1 0 ]
+"50
+[v _temperature_sensor temperature_sensor `uc  1 e 1 0 ]
+"51
+[v _temperature_sensor_temp temperature_sensor_temp `uc  1 e 1 0 ]
+"64
 [v _main main `(v  1 e 1 0 ]
 {
-"88
+"81
+[v main@ct ct `uc  1 a 1 36 ]
+"70
+[v main@c0 c0 `uc  1 a 1 35 ]
+"82
+[v main@dt dt `uc  1 a 1 34 ]
+"76
+[v main@dc dc `uc  1 a 1 33 ]
+"71
+[v main@d0 d0 `uc  1 a 1 32 ]
+"83
+[v main@ut ut `uc  1 a 1 31 ]
+"77
+[v main@uc uc `uc  1 a 1 30 ]
+"72
+[v main@u0 u0 `uc  1 a 1 29 ]
+"80
+[v main@mt mt `uc  1 a 1 28 ]
+"74
+[v main@mc mc `uc  1 a 1 27 ]
+"69
+[v main@m0 m0 `uc  1 a 1 26 ]
+"75
+[v main@cc cc `uc  1 a 1 25 ]
+"136
 } 0
-"93
+"141
 [v _setup setup `(v  1 e 1 0 ]
 {
-"122
+"170
 } 0
 "42 C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
 [v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
@@ -284,6 +320,51 @@ SPI_ACTIVE_2_IDLE 64
 [v ___lldiv@divisor divisor `ul  1 p 4 2 ]
 [v ___lldiv@dividend dividend `ul  1 p 4 6 ]
 "30
+} 0
+"267 C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
+[v _divide divide `(v  1 e 1 0 ]
+{
+[v divide@value value `ui  1 p 2 4 ]
+[v divide@mil mil `*.4uc  1 p 1 6 ]
+[v divide@cent cent `*.4uc  1 p 1 7 ]
+[v divide@dec dec `*.4uc  1 p 1 8 ]
+[v divide@unit unit `*.4uc  1 p 1 9 ]
+"273
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 6 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 2 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 4 ]
+"53
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 1 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 3 ]
+"5
+[v ___lwdiv@divisor divisor `ui  1 p 2 8 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 10 ]
+"30
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+{
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v ___bmul@product product `uc  1 a 1 4 ]
+"4
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+[v ___bmul@multiplicand multiplicand `uc  1 p 1 2 ]
+"6
+[v ___bmul@multiplier multiplier `uc  1 a 1 5 ]
+"51
 } 0
 "69 C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\Digital2_toolbox.c
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
@@ -335,8 +416,8 @@ SPI_ACTIVE_2_IDLE 64
 {
 "189
 } 0
-"129 C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
+"177 C:\Digital2\Lab04_I2C\Lab04_I2C_Master.X\main.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"131
+"179
 } 0

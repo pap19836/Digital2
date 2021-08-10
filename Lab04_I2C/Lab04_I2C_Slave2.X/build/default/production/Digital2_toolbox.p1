@@ -143,6 +143,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 "843
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 843: extern volatile unsigned char SSPBUF __attribute__((address(0x013)));
 [v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
+"1979
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1979: extern volatile unsigned char SSPCON2 __attribute__((address(0x091)));
+[v _SSPCON2 `Vuc ~T0 @X0 0 e@145 ]
+"2048
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2048: extern volatile unsigned char SSPADD __attribute__((address(0x093)));
+[v _SSPADD `Vuc ~T0 @X0 0 e@147 ]
+"1985
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1985:     struct {
+[s S76 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S76 . SEN RSEN PEN RCEN ACKEN ACKDT ACKSTAT GCEN ]
+"1984
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1984: typedef union {
+[u S75 `S76 1 ]
+[n S75 . . ]
+"1996
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1996: extern volatile SSPCON2bits_t SSPCON2bits __attribute__((address(0x091)));
+[v _SSPCON2bits `VS75 ~T0 @X0 0 e@145 ]
+"4460
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4460: extern volatile __bit TRISC4 __attribute__((address(0x43C)));
+[v _TRISC4 `Vb ~T0 @X0 0 e@1084 ]
+"3896
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3896: extern volatile __bit GIE __attribute__((address(0x5F)));
+[v _GIE `Vb ~T0 @X0 0 e@95 ]
+"4040
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4040: extern volatile __bit PEIE __attribute__((address(0x5E)));
+[v _PEIE `Vb ~T0 @X0 0 e@94 ]
+"4277
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4277: extern volatile __bit SSPIF __attribute__((address(0x63)));
+[v _SSPIF `Vb ~T0 @X0 0 e@99 ]
+"4274
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4274: extern volatile __bit SSPIE __attribute__((address(0x463)));
+[v _SSPIE `Vb ~T0 @X0 0 e@1123 ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -822,8 +854,248 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Digital2_toolbox.c: 151: }
 [e :UE 172 ]
 }
-"157
-[; ;Digital2_toolbox.c: 157: void divide(uint16_t value, uint8_t *mil, uint8_t *cent, uint8_t *dec, uint8_t *unit){
+"170
+[; ;Digital2_toolbox.c: 170: void I2C_Master_Init(const unsigned long c)
+[v _I2C_Master_Init `(v ~T0 @X0 1 ef1`Cul ]
+"171
+[; ;Digital2_toolbox.c: 171: {
+{
+[e :U _I2C_Master_Init ]
+"170
+[; ;Digital2_toolbox.c: 170: void I2C_Master_Init(const unsigned long c)
+[v _c `Cul ~T0 @X0 1 r1 ]
+"171
+[; ;Digital2_toolbox.c: 171: {
+[f ]
+"172
+[; ;Digital2_toolbox.c: 172:     SSPCON = 0b00101000;
+[e = _SSPCON -> -> 40 `i `uc ]
+"173
+[; ;Digital2_toolbox.c: 173:     SSPCON2 = 0;
+[e = _SSPCON2 -> -> 0 `i `uc ]
+"174
+[; ;Digital2_toolbox.c: 174:     SSPADD = (4000000/(4*c))-1;
+[e = _SSPADD -> - / -> -> 4000000 `l `ul * -> -> -> 4 `i `l `ul _c -> -> -> 1 `i `l `ul `uc ]
+"175
+[; ;Digital2_toolbox.c: 175:     SSPSTAT = 0;
+[e = _SSPSTAT -> -> 0 `i `uc ]
+"176
+[; ;Digital2_toolbox.c: 176:     TRISCbits.TRISC3 = 1;
+[e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
+"177
+[; ;Digital2_toolbox.c: 177:     TRISCbits.TRISC4 = 1;
+[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
+"178
+[; ;Digital2_toolbox.c: 178: }
+[e :UE 173 ]
+}
+"186
+[; ;Digital2_toolbox.c: 186: void I2C_Master_Wait()
+[v _I2C_Master_Wait `(v ~T0 @X0 1 ef ]
+"187
+[; ;Digital2_toolbox.c: 187: {
+{
+[e :U _I2C_Master_Wait ]
+[f ]
+"188
+[; ;Digital2_toolbox.c: 188:     while ((SSPSTAT & 0x04) || (SSPCON2 & 0x1F));
+[e $U 175  ]
+[e :U 176 ]
+[e :U 175 ]
+[e $ || != & -> _SSPSTAT `i -> 4 `i -> 0 `i != & -> _SSPCON2 `i -> 31 `i -> 0 `i 176  ]
+[e :U 177 ]
+"189
+[; ;Digital2_toolbox.c: 189: }
+[e :UE 174 ]
+}
+"193
+[; ;Digital2_toolbox.c: 193: void I2C_Master_Start()
+[v _I2C_Master_Start `(v ~T0 @X0 1 ef ]
+"194
+[; ;Digital2_toolbox.c: 194: {
+{
+[e :U _I2C_Master_Start ]
+[f ]
+"195
+[; ;Digital2_toolbox.c: 195:     I2C_Master_Wait();
+[e ( _I2C_Master_Wait ..  ]
+"196
+[; ;Digital2_toolbox.c: 196:     SSPCON2bits.SEN = 1;
+[e = . . _SSPCON2bits 0 0 -> -> 1 `i `uc ]
+"197
+[; ;Digital2_toolbox.c: 197: }
+[e :UE 178 ]
+}
+"201
+[; ;Digital2_toolbox.c: 201: void I2C_Master_RepeatedStart()
+[v _I2C_Master_RepeatedStart `(v ~T0 @X0 1 ef ]
+"202
+[; ;Digital2_toolbox.c: 202: {
+{
+[e :U _I2C_Master_RepeatedStart ]
+[f ]
+"203
+[; ;Digital2_toolbox.c: 203:     I2C_Master_Wait();
+[e ( _I2C_Master_Wait ..  ]
+"204
+[; ;Digital2_toolbox.c: 204:     SSPCON2bits.RSEN = 1;
+[e = . . _SSPCON2bits 0 1 -> -> 1 `i `uc ]
+"205
+[; ;Digital2_toolbox.c: 205: }
+[e :UE 179 ]
+}
+"209
+[; ;Digital2_toolbox.c: 209: void I2C_Master_Stop()
+[v _I2C_Master_Stop `(v ~T0 @X0 1 ef ]
+"210
+[; ;Digital2_toolbox.c: 210: {
+{
+[e :U _I2C_Master_Stop ]
+[f ]
+"211
+[; ;Digital2_toolbox.c: 211:     I2C_Master_Wait();
+[e ( _I2C_Master_Wait ..  ]
+"212
+[; ;Digital2_toolbox.c: 212:     SSPCON2bits.PEN = 1;
+[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
+"213
+[; ;Digital2_toolbox.c: 213: }
+[e :UE 180 ]
+}
+"219
+[; ;Digital2_toolbox.c: 219: void I2C_Master_Write(unsigned d)
+[v _I2C_Master_Write `(v ~T0 @X0 1 ef1`ui ]
+"220
+[; ;Digital2_toolbox.c: 220: {
+{
+[e :U _I2C_Master_Write ]
+"219
+[; ;Digital2_toolbox.c: 219: void I2C_Master_Write(unsigned d)
+[v _d `ui ~T0 @X0 1 r1 ]
+"220
+[; ;Digital2_toolbox.c: 220: {
+[f ]
+"221
+[; ;Digital2_toolbox.c: 221:     I2C_Master_Wait();
+[e ( _I2C_Master_Wait ..  ]
+"222
+[; ;Digital2_toolbox.c: 222:     SSPBUF = d;
+[e = _SSPBUF -> _d `uc ]
+"223
+[; ;Digital2_toolbox.c: 223: }
+[e :UE 181 ]
+}
+"228
+[; ;Digital2_toolbox.c: 228: unsigned short I2C_Master_Read(unsigned short a)
+[v _I2C_Master_Read `(us ~T0 @X0 1 ef1`us ]
+"229
+[; ;Digital2_toolbox.c: 229: {
+{
+[e :U _I2C_Master_Read ]
+"228
+[; ;Digital2_toolbox.c: 228: unsigned short I2C_Master_Read(unsigned short a)
+[v _a `us ~T0 @X0 1 r1 ]
+"229
+[; ;Digital2_toolbox.c: 229: {
+[f ]
+"230
+[; ;Digital2_toolbox.c: 230:     unsigned short temp;
+[v _temp `us ~T0 @X0 1 a ]
+"231
+[; ;Digital2_toolbox.c: 231:     I2C_Master_Wait();
+[e ( _I2C_Master_Wait ..  ]
+"232
+[; ;Digital2_toolbox.c: 232:     SSPCON2bits.RCEN = 1;
+[e = . . _SSPCON2bits 0 3 -> -> 1 `i `uc ]
+"233
+[; ;Digital2_toolbox.c: 233:     I2C_Master_Wait();
+[e ( _I2C_Master_Wait ..  ]
+"234
+[; ;Digital2_toolbox.c: 234:     temp = SSPBUF;
+[e = _temp -> _SSPBUF `us ]
+"235
+[; ;Digital2_toolbox.c: 235:     I2C_Master_Wait();
+[e ( _I2C_Master_Wait ..  ]
+"236
+[; ;Digital2_toolbox.c: 236:     if(a == 1){
+[e $ ! == -> _a `ui -> -> 1 `i `ui 183  ]
+{
+"237
+[; ;Digital2_toolbox.c: 237:         SSPCON2bits.ACKDT = 0;
+[e = . . _SSPCON2bits 0 5 -> -> 0 `i `uc ]
+"238
+[; ;Digital2_toolbox.c: 238:     }else{
+}
+[e $U 184  ]
+[e :U 183 ]
+{
+"239
+[; ;Digital2_toolbox.c: 239:         SSPCON2bits.ACKDT = 1;
+[e = . . _SSPCON2bits 0 5 -> -> 1 `i `uc ]
+"240
+[; ;Digital2_toolbox.c: 240:     }
+}
+[e :U 184 ]
+"241
+[; ;Digital2_toolbox.c: 241:     SSPCON2bits.ACKEN = 1;
+[e = . . _SSPCON2bits 0 4 -> -> 1 `i `uc ]
+"242
+[; ;Digital2_toolbox.c: 242:     return temp;
+[e ) _temp ]
+[e $UE 182  ]
+"243
+[; ;Digital2_toolbox.c: 243: }
+[e :UE 182 ]
+}
+"247
+[; ;Digital2_toolbox.c: 247: void I2C_Slave_Init(uint8_t address)
+[v _I2C_Slave_Init `(v ~T0 @X0 1 ef1`uc ]
+"248
+[; ;Digital2_toolbox.c: 248: {
+{
+[e :U _I2C_Slave_Init ]
+"247
+[; ;Digital2_toolbox.c: 247: void I2C_Slave_Init(uint8_t address)
+[v _address `uc ~T0 @X0 1 r1 ]
+"248
+[; ;Digital2_toolbox.c: 248: {
+[f ]
+"249
+[; ;Digital2_toolbox.c: 249:     SSPADD = address;
+[e = _SSPADD _address ]
+"250
+[; ;Digital2_toolbox.c: 250:     SSPCON = 0x36;
+[e = _SSPCON -> -> 54 `i `uc ]
+"251
+[; ;Digital2_toolbox.c: 251:     SSPSTAT = 0x80;
+[e = _SSPSTAT -> -> 128 `i `uc ]
+"252
+[; ;Digital2_toolbox.c: 252:     SSPCON2 = 0x01;
+[e = _SSPCON2 -> -> 1 `i `uc ]
+"253
+[; ;Digital2_toolbox.c: 253:     TRISC3 = 1;
+[e = _TRISC3 -> -> 1 `i `b ]
+"254
+[; ;Digital2_toolbox.c: 254:     TRISC4 = 1;
+[e = _TRISC4 -> -> 1 `i `b ]
+"255
+[; ;Digital2_toolbox.c: 255:     GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
+"256
+[; ;Digital2_toolbox.c: 256:     PEIE = 1;
+[e = _PEIE -> -> 1 `i `b ]
+"257
+[; ;Digital2_toolbox.c: 257:     SSPIF = 0;
+[e = _SSPIF -> -> 0 `i `b ]
+"258
+[; ;Digital2_toolbox.c: 258:     SSPIE = 1;
+[e = _SSPIE -> -> 1 `i `b ]
+"259
+[; ;Digital2_toolbox.c: 259: }
+[e :UE 185 ]
+}
+"267
+[; ;Digital2_toolbox.c: 267: void divide(uint16_t value, uint8_t *mil, uint8_t *cent, uint8_t *dec, uint8_t *unit){
 [v _divide `(v ~T0 @X0 1 ef5`ui`*uc`*uc`*uc`*uc ]
 {
 [e :U _divide ]
@@ -833,19 +1105,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _dec `*uc ~T0 @X0 1 r4 ]
 [v _unit `*uc ~T0 @X0 1 r5 ]
 [f ]
-"158
-[; ;Digital2_toolbox.c: 158:     *mil=value/1000;
+"268
+[; ;Digital2_toolbox.c: 268:     *mil=value/1000;
 [e = *U _mil -> / _value -> -> 1000 `i `ui `uc ]
-"159
-[; ;Digital2_toolbox.c: 159:     *cent=(value-1000*(int)*mil)/100;
+"269
+[; ;Digital2_toolbox.c: 269:     *cent=(value-1000*(int)*mil)/100;
 [e = *U _cent -> / - _value -> * -> 1000 `i -> *U _mil `i `ui -> -> 100 `i `ui `uc ]
-"160
-[; ;Digital2_toolbox.c: 160:     *dec=(value-1000*(int)*mil-100*(int)*cent)/10;
+"270
+[; ;Digital2_toolbox.c: 270:     *dec=(value-1000*(int)*mil-100*(int)*cent)/10;
 [e = *U _dec -> / - - _value -> * -> 1000 `i -> *U _mil `i `ui -> * -> 100 `i -> *U _cent `i `ui -> -> 10 `i `ui `uc ]
-"161
-[; ;Digital2_toolbox.c: 161:     *unit=value-1000*(int)*mil-100*(int)*cent-10*(int)*dec;
+"271
+[; ;Digital2_toolbox.c: 271:     *unit=value-1000*(int)*mil-100*(int)*cent-10*(int)*dec;
 [e = *U _unit -> - - - _value -> * -> 1000 `i -> *U _mil `i `ui -> * -> 100 `i -> *U _cent `i `ui -> * -> 10 `i -> *U _dec `i `ui `uc ]
-"163
-[; ;Digital2_toolbox.c: 163: }
-[e :UE 173 ]
+"273
+[; ;Digital2_toolbox.c: 273: }
+[e :UE 186 ]
 }
