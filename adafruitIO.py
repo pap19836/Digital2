@@ -11,18 +11,14 @@
 
 from Adafruit_IO import Client, RequestError, Feed
 
-ADAFRUIT_IO_KEY = "aio_QVdY56SbQT39GcmjKrLpI58ub9GN"
+ADAFRUIT_IO_KEY = "aio_dKyH51MpFNbdUI5HQZM5ItDhIsTG"
 ADAFRUIT_IO_USERNAME = "Stefano_Papadopolo"
 aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 
 # #Digital Feed
-digital_feed = aio.feeds('temperatura')
-aio.send_data(digital_feed.key, 3)
-digital_data = aio.receive(digital_feed.key)
-print(f'digital signal: {digital_data.value}')
-# 
-# #Analog Feed
-# analog_feed = aio.feeds('hello-analog')
-# aio.send_data(analog_feed.key, 100)
-# analog_data = aio.receive(analog_feed.key)
-# print(f'analog signal: {analog_data.value}')
+temperature = aio.feeds('temperatura')
+aio.send_data(temperature.key, 1)
+
+distance = aio.feeds("distancia")
+aio.send_data(distance.key, 6)
+

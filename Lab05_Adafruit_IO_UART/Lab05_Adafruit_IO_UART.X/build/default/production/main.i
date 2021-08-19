@@ -11,13 +11,13 @@
 #pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
-#pragma config MCLRE = ON
+#pragma config MCLRE = OFF
 #pragma config CP = OFF
 #pragma config CPD = OFF
-#pragma config BOREN = ON
-#pragma config IESO = ON
-#pragma config FCMEN = ON
-#pragma config LVP = ON
+#pragma config BOREN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = OFF
+#pragma config LVP = OFF
 
 
 #pragma config BOR4V = BOR40V
@@ -2831,23 +2831,25 @@ void __attribute__((picinterrupt(("")))) isr(void);
 void main(void){
     setup();
     while(1){
-        PORTD = counter;
+        PORTA = counter;
+
 
         if(counter_comp != counter){
-            divide(counter, &mc, &cc, &dc, &uc);
-            counter_comp = counter;
-            if(cc!=0)
-            UART_Write_Char(cc+48);
-            if(dc!=0)
-            UART_Write_Char(dc+48);
+            UART_Write_Char(counter);
 
-            UART_Write_Char(uc+48);
-            UART_Write("\r");
+            counter_comp = counter;
+
+
+
+
+
+
+
         }
 
 
         if(RCIF){
-            PORTA = RCREG;
+            PORTD = RCREG;
         }
     }
 }
