@@ -136,7 +136,7 @@ void __interrupt() isr(void){
         ADIF    =   0;
     }
 
-    if(PIR1bits.SSPIF == 1){ 
+    else if(PIR1bits.SSPIF == 1){ 
 
         SSPCONbits.CKP = 0;
        

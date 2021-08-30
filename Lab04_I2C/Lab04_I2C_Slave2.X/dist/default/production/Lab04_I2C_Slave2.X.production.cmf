@@ -22,7 +22,7 @@ cstackCOMMON COMMON 1 70 70 5 1
 intentry CODE 0 4 4 8 2
 bssCOMMON COMMON 1 75 75 2 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\stefa\AppData\Local\Temp\xcAsioo.o
+$C:\Users\stefa\AppData\Local\Temp\xcAsli8.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -72,13 +72,13 @@ STRING E1-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lab04_I2C_Slave2.X.production.o
-F cinit CODE >688:C:\Users\stefa\AppData\Local\Temp\xcAsioo.s
-F cinit CODE >691:C:\Users\stefa\AppData\Local\Temp\xcAsioo.s
-F cinit CODE >705:C:\Users\stefa\AppData\Local\Temp\xcAsioo.s
-10 cinit CODE >706:C:\Users\stefa\AppData\Local\Temp\xcAsioo.s
-11 cinit CODE >712:C:\Users\stefa\AppData\Local\Temp\xcAsioo.s
-11 cinit CODE >714:C:\Users\stefa\AppData\Local\Temp\xcAsioo.s
-12 cinit CODE >715:C:\Users\stefa\AppData\Local\Temp\xcAsioo.s
+F cinit CODE >688:C:\Users\stefa\AppData\Local\Temp\xcAsli8.s
+F cinit CODE >691:C:\Users\stefa\AppData\Local\Temp\xcAsli8.s
+F cinit CODE >705:C:\Users\stefa\AppData\Local\Temp\xcAsli8.s
+10 cinit CODE >706:C:\Users\stefa\AppData\Local\Temp\xcAsli8.s
+11 cinit CODE >712:C:\Users\stefa\AppData\Local\Temp\xcAsli8.s
+11 cinit CODE >714:C:\Users\stefa\AppData\Local\Temp\xcAsli8.s
+12 cinit CODE >715:C:\Users\stefa\AppData\Local\Temp\xcAsli8.s
 4 intentry CODE >106:C:\Digital2\Lab04_I2C\Lab04_I2C_Slave2.X\main.c
 15 text3 CODE >106:C:\Digital2\Lab04_I2C\Lab04_I2C_Slave2.X\main.c
 15 text3 CODE >107:C:\Digital2\Lab04_I2C\Lab04_I2C_Slave2.X\main.c
@@ -175,21 +175,21 @@ _PEIE 5E 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
 _RBIE 5B 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
 _RBIF 58 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
 _WPUB 95 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\stefa\AppData\Local\Temp\xcAsioo.o
+___sp 0 0 STACK 2 stack C:\Users\stefa\AppData\Local\Temp\xcAsli8.o
 _main 19E 0 CODE 0 maintext dist/default/production\Lab04_I2C_Slave2.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
-start 18 0 CODE 0 init C:\Users\stefa\AppData\Local\Temp\xcAsioo.o
+start 18 0 CODE 0 init C:\Users\stefa\AppData\Local\Temp\xcAsli8.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OPTION_REGbits 81 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 __LnvCOMMON 0 0 ABS 0 nvCOMMON -
-intlevel0 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsioo.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsioo.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsioo.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsioo.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsioo.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsioo.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsli8.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsli8.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsli8.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsli8.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsli8.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsli8.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -199,8 +199,8 @@ _ADRESL 9E 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
 _ANSELH 189 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
 _SSPCONbits 14 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\stefa\AppData\Local\Temp\xcAsioo.o
-___stacklo 0 0 ABS 0 - C:\Users\stefa\AppData\Local\Temp\xcAsioo.o
+___stackhi 0 0 ABS 0 - C:\Users\stefa\AppData\Local\Temp\xcAsli8.o
+___stacklo 0 0 ABS 0 - C:\Users\stefa\AppData\Local\Temp\xcAsli8.o
 _I2C_Slave_Init 16A 0 CODE 0 text2 dist/default/production\Lab04_I2C_Slave2.X.production.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
 __HnvCOMMON 0 0 ABS 0 nvCOMMON -
@@ -213,7 +213,7 @@ _SSPCON 14 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
 _TRISC5 43D 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\stefa\AppData\Local\Temp\xcAsioo.o
+___int_sp 0 0 STACK 2 stack C:\Users\stefa\AppData\Local\Temp\xcAsli8.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -261,7 +261,7 @@ __pnvCOMMON 77 0 COMMON 1 nvCOMMON dist/default/production\Lab04_I2C_Slave2.X.pr
 saved_w 7E 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
 __end_of_isr 126 0 CODE 0 text3 dist/default/production\Lab04_I2C_Slave2.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\stefa\AppData\Local\Temp\xcAsioo.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\stefa\AppData\Local\Temp\xcAsli8.o
 _RCSTAbits 18 0 ABS 0 - dist/default/production\Lab04_I2C_Slave2.X.production.o
 __pmaintext 19E 0 CODE 0 maintext dist/default/production\Lab04_I2C_Slave2.X.production.o
 __Lcommon 0 0 ABS 0 common -

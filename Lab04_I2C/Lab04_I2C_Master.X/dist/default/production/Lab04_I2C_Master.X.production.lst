@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Tue Aug 10 10:50:24 2021
+                                                                                               Sun Aug 29 19:25:46 2021
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	16F887
@@ -2913,23 +2913,23 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   2892                           ;	Power-up Timer Enable bit
   2893                           ;	PWRTE = OFF, PWRT disabled
   2894                           ;	RE3/MCLR pin function select bit
-  2895                           ;	MCLRE = ON, RE3/MCLR pin function is MCLR
+  2895                           ;	MCLRE = OFF, RE3/MCLR pin function is digital input, MCLR internally tied to VDD
   2896                           ;	Code Protection bit
   2897                           ;	CP = OFF, Program memory code protection is disabled
   2898                           ;	Data Code Protection bit
   2899                           ;	CPD = OFF, Data memory code protection is disabled
   2900                           ;	Brown Out Reset Selection bits
-  2901                           ;	BOREN = ON, BOR enabled
+  2901                           ;	BOREN = OFF, BOR disabled
   2902                           ;	Internal External Switchover bit
-  2903                           ;	IESO = ON, Internal/External Switchover mode is enabled
+  2903                           ;	IESO = OFF, Internal/External Switchover mode is disabled
   2904                           ;	Fail-Safe Clock Monitor Enabled bit
-  2905                           ;	FCMEN = ON, Fail-Safe Clock Monitor is enabled
+  2905                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
   2906                           ;	Low Voltage Programming Enable bit
   2907                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
   2908                           ;	In-Circuit Debugger Mode bit
   2909                           ;	DEBUG = 0x1, unprogrammed default
   2910  2007                     	org	8199
-  2911  2007  2FF4               	dw	12276
+  2911  2007  20D4               	dw	8404
   2912                           
   2913                           ;Config register CONFIG2 @ 0x2008
   2914                           ;	Brown-out Reset Selection bit
@@ -3163,7 +3163,7 @@ DATA                 0      0      39      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Tue Aug 10 10:50:24 2021
+Symbol Table                                                                                   Sun Aug 29 19:25:46 2021
 
                         pc 0002             ___bmul@product 0074                _SSPSTATbits 0094  
                        l63 04CC                         l72 04A3                         l69 034E  

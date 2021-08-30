@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <WORKSPACE>
  <FRAME activewindow="0">
-  <PLACEMENT>2c0000000200000003000000ffffffffffffffffffffffffffffffff640100000b00000080070000f9030000</PLACEMENT>
+  <PLACEMENT>2c00000002000000030000000083ffff0083ffffffffffffffffffff640100000b00000080070000f9030000</PLACEMENT>
   <WINDOW type="default" module="ISIS"/>
   <WINDOW type="default" module="DXP"/>
  </FRAME>
@@ -40,7 +40,7 @@
      <ITEM name="HexMode">0</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="52" x="513" flags="00000008" y="277" h="13" pid="3" iid="1">
+   <POPUP w="434" x="513" flags="00000008" y="277" h="216" pid="3" iid="1">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="533" flags="0000000a" y="297" h="32" pid="4" iid="1">
@@ -73,7 +73,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="14" x="593" flags="00000008" y="357" h="8" pid="7" iid="1">
+   <POPUP w="130" x="593" flags="00000008" y="357" h="151" pid="7" iid="1">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="613" flags="00000002" y="377" h="8" pid="8" iid="1">

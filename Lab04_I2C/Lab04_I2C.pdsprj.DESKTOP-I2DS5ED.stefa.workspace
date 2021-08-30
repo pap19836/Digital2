@@ -6,7 +6,7 @@
  </FRAME>
  <MODULE name="VSMDEBUG">
   <PWI>
-   <POPUP w="800" x="94" flags="00000003" y="93" h="200" pid="0" iid="-1">
+   <POPUP w="800" x="94" flags="00008003" y="93" h="200" pid="0" iid="-1">
     <PROPERTIES>
      <ITEM name="Message Column Width">661</ITEM>
      <ITEM name="ShowGrid">No</ITEM>
@@ -78,7 +78,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="52" x="208" flags="00000008" y="320" h="13" pid="3" iid="2">
+   <POPUP w="434" x="208" flags="00000008" y="320" h="216" pid="3" iid="2">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="228" flags="0000000a" y="340" h="32" pid="4" iid="2">
@@ -111,7 +111,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="14" x="288" flags="00000008" y="400" h="8" pid="7" iid="2">
+   <POPUP w="130" x="288" flags="00000008" y="400" h="151" pid="7" iid="2">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="308" flags="00000002" y="420" h="8" pid="8" iid="2">
@@ -124,7 +124,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="52" x="328" flags="00000008" y="440" h="13" pid="3" iid="3">
+   <POPUP w="434" x="328" flags="00000008" y="440" h="216" pid="3" iid="3">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="348" flags="0000000a" y="460" h="32" pid="4" iid="3">
@@ -157,7 +157,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="14" x="408" flags="00000008" y="520" h="8" pid="7" iid="3">
+   <POPUP w="130" x="408" flags="00000008" y="520" h="151" pid="7" iid="3">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="428" flags="00000002" y="540" h="8" pid="8" iid="3">
@@ -170,7 +170,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="52" x="448" flags="00000008" y="560" h="13" pid="3" iid="16">
+   <POPUP w="434" x="448" flags="00000008" y="560" h="216" pid="3" iid="16">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="468" flags="0000000a" y="580" h="32" pid="4" iid="16">
@@ -203,7 +203,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="14" x="528" flags="00000008" y="640" h="8" pid="7" iid="16">
+   <POPUP w="130" x="528" flags="00000008" y="640" h="151" pid="7" iid="16">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="548" flags="00000002" y="660" h="8" pid="8" iid="16">
@@ -216,7 +216,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="450" x="114" flags="00008023" y="296" h="250" pid="0" iid="21">
+   <POPUP w="450" x="114" flags="00000023" y="296" h="250" pid="0" iid="21">
     <PROPERTIES>
      <ITEM name="ComboBox1000">S</ITEM>
      <ITEM name="ComboBox1001">Sr</ITEM>
