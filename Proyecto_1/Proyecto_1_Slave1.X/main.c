@@ -32,17 +32,18 @@
 // Use project enums instead of #define for ON and OFF.
 
 //*****************************************************************************
-// Definición e importación de librerías
+// Definiciï¿½n e importaciï¿½n de librerï¿½as
 //*****************************************************************************
 #include <stdint.h>
 #include <pic16f887.h>
 #include <xc.h>
 #include <string.h>
 #include <stdlib.h>
+#include<stdbool.h>
 #include <stdio.h>
 #include"Digital2_toolbox.h"
 //*****************************************************************************
-// Definición de variables
+// Definiciï¿½n de variables
 //*****************************************************************************
 #define _XTAL_FREQ 4000000
 uint8_t z;
@@ -50,7 +51,7 @@ uint8_t flags;       //[0] = lock, [1] = Door
 int V;
 int D;
 //*****************************************************************************
-// Definición de funciones para que se puedan colocar después del main de lo 
+// Definiciï¿½n de funciones para que se puedan colocar despuï¿½s del main de lo 
 // contrario hay que colocarlos todas las funciones antes del main
 //*****************************************************************************
 void setup(void);
@@ -83,10 +84,10 @@ void main(void) {
         V = (TMR1L | (TMR1H<<8));
         D = V/58;
        
-        if(D >= 20){
+        if(D > 5){
             flags   =   flags   &  0b00000010;
         }
-        if(D < 20){
+        if(D < 5){
             flags   =   flags | 0b00000001;
         }
         
@@ -99,14 +100,12 @@ void main(void) {
             RA0 =   1;
         }
         
-        PORTD   =   flags;
-        
        __delay_ms(50);
     }
     return;
 }
 //*****************************************************************************
-// Función de Inicialización
+// Funciï¿½n de Inicializaciï¿½n
 //*****************************************************************************
 void setup(void){
  //I/O Setup

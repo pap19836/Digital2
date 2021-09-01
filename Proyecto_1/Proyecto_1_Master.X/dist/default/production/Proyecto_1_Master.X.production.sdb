@@ -50,6 +50,8 @@ SPI_ACTIVE_2_IDLE 64
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
 "80
 [v _UART_Init UART_Init `(v  1 e 1 0 ]
+"104
+[v _UART_Write_Char UART_Write_Char `(v  1 e 1 0 ]
 "130
 [v _spiReceiveWait spiReceiveWait `(v  1 s 1 spiReceiveWait ]
 "171
@@ -64,11 +66,11 @@ SPI_ACTIVE_2_IDLE 64
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
 "229
 [v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
-"65 C:\Digital2\Proyecto_1\Proyecto_1_Master.X\main.c
+"70 C:\Digital2\Proyecto_1\Proyecto_1_Master.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"141
+"162
 [v _setup setup `(v  1 e 1 0 ]
-"194
+"224
 [v _isr isr `II(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -80,14 +82,38 @@ SPI_ACTIVE_2_IDLE 64
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "414
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
+"650
+[v _TMR1 TMR1 `VEus  1 e 2 @14 ]
+[s S399 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 TMR1CS 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS 1 0 :2:4 
+`uc 1 TMR1GE 1 0 :1:6 
+`uc 1 T1GINV 1 0 :1:7 
+]
+"700
+[s S407 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1INSYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 T1GIV 1 0 :1:7 
+]
+[s S415 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1SYNC 1 0 :1:2 
+]
+[u S418 . 1 `S399 1 . 1 0 `S407 1 . 1 0 `S415 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES418  1 e 1 @16 ]
 "772
 [v _T2CON T2CON `VEuc  1 e 1 @18 ]
-[s S415 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S462 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "793
-[s S419 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S466 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TOUTPS0 1 0 :1:3 
@@ -95,8 +121,8 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 TOUTPS2 1 0 :1:5 
 `uc 1 TOUTPS3 1 0 :1:6 
 ]
-[u S427 . 1 `S415 1 . 1 0 `S419 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES427  1 e 1 @18 ]
+[u S474 . 1 `S462 1 . 1 0 `S466 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES474  1 e 1 @18 ]
 "843
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
@@ -265,6 +291,12 @@ SPI_ACTIVE_2_IDLE 64
 [v _SSPIE SSPIE `VEb  1 e 0 @1123 ]
 "4277
 [v _SSPIF SSPIF `VEb  1 e 0 @99 ]
+"4370
+[v _TMR1IE TMR1IE `VEb  1 e 0 @1120 ]
+"4373
+[v _TMR1IF TMR1IF `VEb  1 e 0 @96 ]
+"4376
+[v _TMR1ON TMR1ON `VEb  1 e 0 @128 ]
 "4382
 [v _TMR2IF TMR2IF `VEb  1 e 0 @97 ]
 "4457
@@ -273,27 +305,33 @@ SPI_ACTIVE_2_IDLE 64
 [v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
 "4463
 [v _TRISC5 TRISC5 `VEb  1 e 0 @1085 ]
-"42 C:\Digital2\Proyecto_1\Proyecto_1_Master.X\main.c
+"45 C:\Digital2\Proyecto_1\Proyecto_1_Master.X\main.c
 [v _light light `uc  1 e 1 0 ]
-"49
+"52
 [v _out_flag out_flag `uc  1 e 1 0 ]
-"50
-[v _lock lock `uc  1 e 1 0 ]
-"51
-[v _door door `uc  1 e 1 0 ]
 "53
-[v _in_sensor in_sensor `uc  1 e 1 0 ]
+[v _lock lock `uc  1 e 1 0 ]
 "54
-[v _in_counter in_counter `uc  1 e 1 0 ]
-"65
+[v _keep_lock_off keep_lock_off `a  1 e 1 0 ]
+"55
+[v _door door `uc  1 e 1 0 ]
+"56
+[v _keep_door_open keep_door_open `a  1 e 1 0 ]
+"57
+[v _in_sensor in_sensor `uc  1 e 1 0 ]
+"58
+[v _time time `uc  1 e 1 0 ]
+"59
+[v _close close `a  1 e 1 0 ]
+"70
 [v _main main `(v  1 e 1 0 ]
 {
-"136
+"157
 } 0
-"141
+"162
 [v _setup setup `(v  1 e 1 0 ]
 {
-"189
+"219
 } 0
 "80 C:\Digital2\Proyecto_1\Proyecto_1_Master.X\Digital2_toolbox.c
 [v _UART_Init UART_Init `(v  1 e 1 0 ]
@@ -310,37 +348,45 @@ SPI_ACTIVE_2_IDLE 64
 {
 [v Lcd_Cmd@a a `uc  1 a 1 wreg ]
 [v Lcd_Cmd@a a `uc  1 a 1 wreg ]
-[v Lcd_Cmd@a a `uc  1 a 1 4 ]
+[v Lcd_Cmd@a a `uc  1 a 1 5 ]
 "34
 } 0
 "171
 [v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
 {
-[v I2C_Master_Init@c c `DCul  1 p 4 8 ]
+[v I2C_Master_Init@c c `DCul  1 p 4 13 ]
 "179
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 {
 "10
-[v ___lldiv@quotient quotient `ul  1 a 4 3 ]
+[v ___lldiv@quotient quotient `ul  1 a 4 8 ]
 "11
-[v ___lldiv@counter counter `uc  1 a 1 7 ]
+[v ___lldiv@counter counter `uc  1 a 1 12 ]
 "5
 [v ___lldiv@divisor divisor `ul  1 p 4 0 ]
 [v ___lldiv@dividend dividend `ul  1 p 4 4 ]
 "30
 } 0
-"69 C:\Digital2\Proyecto_1\Proyecto_1_Master.X\Digital2_toolbox.c
+"104 C:\Digital2\Proyecto_1\Proyecto_1_Master.X\Digital2_toolbox.c
+[v _UART_Write_Char UART_Write_Char `(v  1 e 1 0 ]
+{
+[v UART_Write_Char@character character `uc  1 a 1 wreg ]
+[v UART_Write_Char@character character `uc  1 a 1 wreg ]
+[v UART_Write_Char@character character `uc  1 a 1 3 ]
+"107
+} 0
+"69
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
 {
 [v Lcd_Write_String@a a `*.24uc  1 a 1 wreg ]
 "70
-[v Lcd_Write_String@i i `i  1 a 2 5 ]
+[v Lcd_Write_String@i i `i  1 a 2 0 ]
 "69
 [v Lcd_Write_String@a a `*.24uc  1 a 1 wreg ]
 "71
-[v Lcd_Write_String@a a `*.24uc  1 a 1 7 ]
+[v Lcd_Write_String@a a `*.24uc  1 a 1 2 ]
 "74
 } 0
 "60
@@ -348,13 +394,13 @@ SPI_ACTIVE_2_IDLE 64
 {
 [v Lcd_Write_Char@a a `uc  1 a 1 wreg ]
 [v Lcd_Write_Char@a a `uc  1 a 1 wreg ]
-[v Lcd_Write_Char@a a `uc  1 a 1 4 ]
+[v Lcd_Write_Char@a a `uc  1 a 1 5 ]
 "67
 } 0
 "220
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
 {
-[v I2C_Master_Write@d d `ui  1 p 2 2 ]
+[v I2C_Master_Write@d d `ui  1 p 2 3 ]
 "224
 } 0
 "210
@@ -371,9 +417,9 @@ SPI_ACTIVE_2_IDLE 64
 [v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
 {
 "231
-[v I2C_Master_Read@temp temp `us  1 a 2 6 ]
+[v I2C_Master_Read@temp temp `us  1 a 2 0 ]
 "229
-[v I2C_Master_Read@a a `us  1 p 2 2 ]
+[v I2C_Master_Read@a a `us  1 p 2 3 ]
 "244
 } 0
 "187
@@ -381,8 +427,8 @@ SPI_ACTIVE_2_IDLE 64
 {
 "190
 } 0
-"194 C:\Digital2\Proyecto_1\Proyecto_1_Master.X\main.c
+"224 C:\Digital2\Proyecto_1\Proyecto_1_Master.X\main.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"195
+"230
 } 0

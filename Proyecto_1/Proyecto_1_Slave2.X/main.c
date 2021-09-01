@@ -39,6 +39,7 @@
 #include <xc.h>
 #include <string.h>
 #include <stdlib.h>
+#include<stdbool.h>
 #include <stdio.h>
 #include"Digital2_toolbox.h"
 //*****************************************************************************
@@ -84,13 +85,12 @@ void main(void) {
         V = (TMR1L | (TMR1H<<8));
         D = V/58;
        
-        if(D >= 20){
+        if(D > 5){
             flags   =   0;
         }
-        if(D < 20){
+        if(D < 5){
             flags   =  1;
         }
-        
         
        __delay_ms(50);
     }

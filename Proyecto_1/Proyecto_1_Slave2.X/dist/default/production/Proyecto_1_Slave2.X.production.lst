@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Mon Aug 30 13:40:39 2021
+                                                                                               Tue Aug 31 18:07:38 2021
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	16F887
@@ -454,7 +454,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    440 ;;
    441 ;; *************** function _main *****************
    442 ;; Defined at:
-   443 ;;		line 63 in file "main.c"
+   443 ;;		line 64 in file "main.c"
    444 ;; Parameters:    Size  Location     Type
    445 ;;		None
    446 ;; Auto vars:     Size  Location     Type
@@ -490,25 +490,25 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    476                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
    477                           
    478                           
-   479                           ;main.c: 64:     setup();
+   479                           ;main.c: 65:     setup();
    480  0085  120A  118A  2149  120A  118A  	fcall	_setup
    481  008A                     l1255:
    482                           
-   483                           ;main.c: 71:         TMR1H = 0;
+   483                           ;main.c: 72:         TMR1H = 0;
    484  008A  1283               	bcf	3,5	;RP0=0, select bank0
    485  008B  1303               	bcf	3,6	;RP1=0, select bank0
    486  008C  018F               	clrf	15	;volatile
    487  008D                     l1257:
    488                           
-   489                           ;main.c: 72:         TMR1L = 0;
+   489                           ;main.c: 73:         TMR1L = 0;
    490  008D  018E               	clrf	14	;volatile
    491  008E                     l1259:
    492                           
-   493                           ;main.c: 74:         RB0 = 1;
+   493                           ;main.c: 75:         RB0 = 1;
    494  008E  1406               	bsf	6,0	;volatile
    495  008F                     l1261:
    496                           
-   497                           ;main.c: 75:         _delay((unsigned long)((10)*(4000000/4000000.0)));
+   497                           ;main.c: 76:         _delay((unsigned long)((10)*(4000000/4000000.0)));
    498  008F  3002               	movlw	2
    499  0090  1283               	bcf	3,5	;RP0=0, select bank0
    500  0091  1303               	bcf	3,6	;RP1=0, select bank0
@@ -519,12 +519,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    505  0095  0000               	nop
    506  0096                     l1263:
    507                           
-   508                           ;main.c: 76:         RB0 = 0;
+   508                           ;main.c: 77:         RB0 = 0;
    509  0096  1283               	bcf	3,5	;RP0=0, select bank0
    510  0097  1303               	bcf	3,6	;RP1=0, select bank0
    511  0098  1006               	bcf	6,0	;volatile
    512  0099                     l218:	
-   513                           ;main.c: 79:         while(!RB1);
+   513                           ;main.c: 80:         while(!RB1);
    514                           
    515  0099  1C86               	btfss	6,1	;volatile
    516  009A  289C               	goto	u491
@@ -534,10 +534,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    520  009D                     u490:
    521  009D                     l220:
    522                           
-   523                           ;main.c: 80:         TMR1ON = 1;
+   523                           ;main.c: 81:         TMR1ON = 1;
    524  009D  1410               	bsf	16,0	;volatile
    525  009E                     l221:	
-   526                           ;main.c: 81:         while(RB1);
+   526                           ;main.c: 82:         while(RB1);
    527                           
    528  009E  1886               	btfsc	6,1	;volatile
    529  009F  28A1               	goto	u501
@@ -547,18 +547,18 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    533  00A2                     u500:
    534  00A2                     l223:
    535                           
-   536                           ;main.c: 82:         TMR1ON = 0;
+   536                           ;main.c: 83:         TMR1ON = 0;
    537  00A2  1010               	bcf	16,0	;volatile
    538  00A3                     l1265:
    539                           
-   540                           ;main.c: 84:         V = (TMR1L | (TMR1H<<8));
+   540                           ;main.c: 85:         V = (TMR1L | (TMR1H<<8));
    541  00A3  080F               	movf	15,w	;volatile
    542  00A4  00A9               	movwf	_V+1
    543  00A5  080E               	movf	14,w	;volatile
    544  00A6  00A8               	movwf	_V
    545  00A7                     l1267:
    546                           
-   547                           ;main.c: 85:         D = V/58;
+   547                           ;main.c: 86:         D = V/58;
    548  00A7  303A               	movlw	58
    549  00A8  00F3               	movwf	___awdiv@divisor
    550  00A9  3000               	movlw	0
@@ -576,7 +576,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    562  00B9  00A6               	movwf	_D
    563  00BA                     l1269:
    564                           
-   565                           ;main.c: 87:         if(D >= 20){
+   565                           ;main.c: 88:         if(D > 5){
    566  00BA  0827               	movf	_D+1,w
    567  00BB  3A80               	xorlw	128
    568  00BC  00FF               	movwf	btemp+1
@@ -584,7 +584,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    570  00BE  027F               	subwf	btemp+1,w
    571  00BF  1D03               	skipz
    572  00C0  28C3               	goto	u515
-   573  00C1  3014               	movlw	20
+   573  00C1  3006               	movlw	6
    574  00C2  0226               	subwf	_D,w
    575  00C3                     u515:
    576  00C3  1C03               	skipc
@@ -595,11 +595,11 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    581  00C7                     u510:
    582  00C7                     l1271:
    583                           
-   584                           ;main.c: 88:             flags = 0;
+   584                           ;main.c: 89:             flags = 0;
    585  00C7  01F9               	clrf	_flags
    586  00C8                     l1273:
    587                           
-   588                           ;main.c: 90:         if(D < 20){
+   588                           ;main.c: 91:         if(D < 5){
    589  00C8  1283               	bcf	3,5	;RP0=0, select bank0
    590  00C9  1303               	bcf	3,6	;RP1=0, select bank0
    591  00CA  0827               	movf	_D+1,w
@@ -609,7 +609,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    595  00CE  027F               	subwf	btemp+1,w
    596  00CF  1D03               	skipz
    597  00D0  28D3               	goto	u525
-   598  00D1  3014               	movlw	20
+   598  00D1  3005               	movlw	5
    599  00D2  0226               	subwf	_D,w
    600  00D3                     u525:
    601  00D3  1803               	skipnc
@@ -620,7 +620,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    606  00D7                     u520:
    607  00D7                     l1275:
    608                           
-   609                           ;main.c: 91:             flags = 1;
+   609                           ;main.c: 92:             flags = 1;
    610  00D7  01F9               	clrf	_flags
    611  00D8  0AF9               	incf	_flags,f
    612  00D9                     l1277:
@@ -1435,7 +1435,7 @@ DATA                 0      0      15      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Mon Aug 30 13:40:39 2021
+Symbol Table                                                                                   Tue Aug 31 18:07:38 2021
 
                       _D 0026                        _V 0028                        _z 007A  
             _SSPSTATbits 0094                       _BF 04A0             ___awdiv@sign 0021  

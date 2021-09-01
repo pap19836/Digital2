@@ -52,7 +52,7 @@ SPI_ACTIVE_2_IDLE 64
 [v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
 "248
 [v _I2C_Slave_Init I2C_Slave_Init `(v  1 e 1 0 ]
-"63 C:\Digital2\Proyecto_1\Proyecto_1_Slave2.X\main.c
+"64 C:\Digital2\Proyecto_1\Proyecto_1_Slave2.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "102
 [v _setup setup `(v  1 e 1 0 ]
@@ -267,15 +267,15 @@ SPI_ACTIVE_2_IDLE 64
 [v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
 "4463
 [v _TRISC5 TRISC5 `VEb  1 e 0 @1085 ]
-"48 C:\Digital2\Proyecto_1\Proyecto_1_Slave2.X\main.c
+"49 C:\Digital2\Proyecto_1\Proyecto_1_Slave2.X\main.c
 [v _z z `uc  1 e 1 0 ]
-"49
+"50
 [v _flags flags `uc  1 e 1 0 ]
-"51
-[v _V V `i  1 e 2 0 ]
 "52
+[v _V V `i  1 e 2 0 ]
+"53
 [v _D D `i  1 e 2 0 ]
-"63
+"64
 [v _main main `(v  1 e 1 0 ]
 {
 "98

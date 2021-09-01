@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"57 main.c
-[; ;main.c: 57: void setup(void);
+"58 main.c
+[; ;main.c: 58: void setup(void);
 [v _setup `(v ~T0 @X0 0 ef ]
 "664 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 664: extern volatile unsigned char TMR1H __attribute__((address(0x00F)));
@@ -391,96 +391,96 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"48 main.c
-[; ;main.c: 48: uint8_t z;
+"49 main.c
+[; ;main.c: 49: uint8_t z;
 [v _z `uc ~T0 @X0 1 e ]
-"49
-[; ;main.c: 49: uint8_t flags;
-[v _flags `uc ~T0 @X0 1 e ]
 "50
-[; ;main.c: 50: uint8_t out;
-[v _out `uc ~T0 @X0 1 e ]
+[; ;main.c: 50: uint8_t flags;
+[v _flags `uc ~T0 @X0 1 e ]
 "51
-[; ;main.c: 51: int V;
-[v _V `i ~T0 @X0 1 e ]
+[; ;main.c: 51: uint8_t out;
+[v _out `uc ~T0 @X0 1 e ]
 "52
-[; ;main.c: 52: int D;
+[; ;main.c: 52: int V;
+[v _V `i ~T0 @X0 1 e ]
+"53
+[; ;main.c: 53: int D;
 [v _D `i ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"63
-[; ;main.c: 63: void main(void) {
+"64
+[; ;main.c: 64: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"64
-[; ;main.c: 64:     setup();
+"65
+[; ;main.c: 65:     setup();
 [e ( _setup ..  ]
-"68
-[; ;main.c: 68:     while(1){
+"69
+[; ;main.c: 69:     while(1){
 [e :U 145 ]
 {
-"71
-[; ;main.c: 71:         TMR1H = 0;
-[e = _TMR1H -> -> 0 `i `uc ]
 "72
-[; ;main.c: 72:         TMR1L = 0;
+[; ;main.c: 72:         TMR1H = 0;
+[e = _TMR1H -> -> 0 `i `uc ]
+"73
+[; ;main.c: 73:         TMR1L = 0;
 [e = _TMR1L -> -> 0 `i `uc ]
-"74
-[; ;main.c: 74:         RB0 = 1;
-[e = _RB0 -> -> 1 `i `b ]
 "75
-[; ;main.c: 75:         _delay((unsigned long)((10)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;main.c: 75:         RB0 = 1;
+[e = _RB0 -> -> 1 `i `b ]
 "76
-[; ;main.c: 76:         RB0 = 0;
+[; ;main.c: 76:         _delay((unsigned long)((10)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"77
+[; ;main.c: 77:         RB0 = 0;
 [e = _RB0 -> -> 0 `i `b ]
-"79
-[; ;main.c: 79:         while(!RB1);
+"80
+[; ;main.c: 80:         while(!RB1);
 [e $U 147  ]
 [e :U 148 ]
 [e :U 147 ]
 [e $ ! _RB1 148  ]
 [e :U 149 ]
-"80
-[; ;main.c: 80:         TMR1ON = 1;
-[e = _TMR1ON -> -> 1 `i `b ]
 "81
-[; ;main.c: 81:         while(RB1);
+[; ;main.c: 81:         TMR1ON = 1;
+[e = _TMR1ON -> -> 1 `i `b ]
+"82
+[; ;main.c: 82:         while(RB1);
 [e $U 150  ]
 [e :U 151 ]
 [e :U 150 ]
 [e $ _RB1 151  ]
 [e :U 152 ]
-"82
-[; ;main.c: 82:         TMR1ON = 0;
+"83
+[; ;main.c: 83:         TMR1ON = 0;
 [e = _TMR1ON -> -> 0 `i `b ]
-"84
-[; ;main.c: 84:         V = (TMR1L | (TMR1H<<8));
-[e = _V | -> _TMR1L `i << -> _TMR1H `i -> 8 `i ]
 "85
-[; ;main.c: 85:         D = V/58;
+[; ;main.c: 85:         V = (TMR1L | (TMR1H<<8));
+[e = _V | -> _TMR1L `i << -> _TMR1H `i -> 8 `i ]
+"86
+[; ;main.c: 86:         D = V/58;
 [e = _D / _V -> 58 `i ]
-"87
-[; ;main.c: 87:         if(D >= 20){
-[e $ ! >= _D -> 20 `i 153  ]
-{
 "88
-[; ;main.c: 88:             flags = 0;
-[e = _flags -> -> 0 `i `uc ]
+[; ;main.c: 88:         if(D > 5){
+[e $ ! > _D -> 5 `i 153  ]
+{
 "89
-[; ;main.c: 89:         }
+[; ;main.c: 89:             flags = 0;
+[e = _flags -> -> 0 `i `uc ]
+"90
+[; ;main.c: 90:         }
 }
 [e :U 153 ]
-"90
-[; ;main.c: 90:         if(D < 20){
-[e $ ! < _D -> 20 `i 154  ]
-{
 "91
-[; ;main.c: 91:             flags = 1;
-[e = _flags -> -> 1 `i `uc ]
+[; ;main.c: 91:         if(D < 5){
+[e $ ! < _D -> 5 `i 154  ]
+{
 "92
-[; ;main.c: 92:         }
+[; ;main.c: 92:             flags = 1;
+[e = _flags -> -> 1 `i `uc ]
+"93
+[; ;main.c: 93:         }
 }
 [e :U 154 ]
 "95

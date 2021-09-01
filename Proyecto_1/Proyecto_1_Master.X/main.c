@@ -30,10 +30,13 @@
 // Use project enums instead of #define for ON and OFF.
 
 #define _XTAL_FREQ  4000000
-#include<xc.h>
-#include<pic.h>
-#include<stdint.h>
-#include<string.h>
+#include <stdint.h>
+#include <pic16f887.h>
+#include <xc.h>
+#include <string.h>
+#include <stdlib.h>
+#include<stdbool.h>
+#include <stdio.h>
 #include"Digital2_toolbox.h"
 
 //|----------------------------------------------------------------------------|
@@ -46,12 +49,14 @@ uint8_t cL;
 uint8_t dL;
 uint8_t uL;
 
-uint8_t out_flag;
+uint8_t out_flag;           //I2C outdoor sensors
 uint8_t lock;
+bool keep_lock_off;
 uint8_t door;
-
-uint8_t in_sensor;
-uint8_t in_counter;
+bool keep_door_open;
+uint8_t in_sensor;          //I2C indoor sensor
+uint8_t time;               //Time before door closes
+bool close;                 //Activates closing protocol
 //|----------------------------------------------------------------------------|
 //|------------------------------PROTOTYPES------------------------------------|
 //|----------------------------------------------------------------------------|
@@ -78,60 +83,76 @@ void    main(void){
     I2C_Master_Stop();
     __delay_ms(200);*/
     while(1){
-        
+        //I2C Recieve SlavePic 1
         I2C_Master_Start();
         I2C_Master_Write(0b00000001);
         out_flag = I2C_Master_Read(0);
         I2C_Master_Stop();
         __delay_ms(200);
+        lock    =   out_flag & 0b00000001;
+        door    =   out_flag & 0b00000010;
         
+        //I2C Recieve SlavePic 2
         I2C_Master_Start();
         I2C_Master_Write(0b00000011);
         in_sensor = I2C_Master_Read(0);
         I2C_Master_Stop();
         __delay_ms(200);
+
+        //SERIAL Send data
+        UART_Write_Char(91);
+        UART_Write_Char(lock+48);
+        UART_Write_Char(44);
+        UART_Write_Char(door+48);
+        UART_Write_Char(44);
+        UART_Write_Char(light+48);
+        UART_Write_Char(44);
+        UART_Write_Char(93);
         
-        lock    =   out_flag & 0b00000001;
-        door    =   out_flag & 0b00000010;
-        PORTB   =   in_sensor;
-        /*if(lock   ==  0){
-            CCPR1L  =   32;
-            Lcd_Cmd(0b11000000);
-            Lcd_Write_String(" ON");
-        }*/
-        if(lock   !=  0){
+        
+        if(lock != 0 && keep_lock_off == 0){
             CCPR1L  =   128;
             Lcd_Cmd(0b11000000);
             Lcd_Write_String("OFF");
+            keep_lock_off = 1;
         }
-        if (door    >   0 && lock   != 0){
-            Lcd_Cmd(0b11000100);
+        
+        if (door != 0 && keep_door_open == 0){
+            Lcd_Cmd(0b11000101);
             Lcd_Write_String("OPEN");
             RD0 =   0;
             RD1 =   1;
-            __delay_ms(500);
+            __delay_ms(150);
             RD1 =   0;
+            keep_door_open = 1;
         }
         
-        if (in_sensor>0){
-            in_counter  =   1;
-            
+        if(in_sensor!=0){
+            TMR1    =   0;
+            TMR1ON  =   1;
         }
-        if(in_counter == 1 && in_sensor  ==   0){
-            in_counter  =   0;
-            Lcd_Cmd(0b11000100);
+        
+        if(time>=4 && keep_lock_off && keep_door_open){// if 2s pass with in_sensor off
+            time    =   0;      //Reset time
+            TMR1ON  =   0;      // Turn TMR1 off
+            close   =   1;      //Turn on closing flag
+        }
+        
+        if(close == 1 && keep_door_open == 1 && keep_lock_off == 1){
+            close = 0;
+            keep_door_open = 0;
+            keep_lock_off  = 0;
+            Lcd_Cmd(0b11000101);
             Lcd_Write_String(" NO ");
             RD0=1;
             RD1=0;
-            __delay_ms(200);
+            __delay_ms(150);
             RD0=0;
-            __delay_ms(100);
+            __delay_ms(150);
             CCPR1L  =   32;
             Lcd_Cmd(0b11000000);
             Lcd_Write_String(" ON");
-            
         }
-
     }
 }
 //|----------------------------------------------------------------------------|
@@ -152,7 +173,13 @@ void setup(void){
     //Interrupt config
     GIE     =   1;
     PEIE    =   1;
+    TMR1IE  =   1;
+    TMR1IF  =   0;
 
+    
+    //Timer1 Config
+    T1CONbits.T1CKPS    =   3;      //Prescaler 1:8
+    
     Lcd_Init();
     
     UART_Init();
@@ -184,12 +211,20 @@ void setup(void){
     //Variable Inicialization
     light   =   0;
     door    =   0;
+    keep_door_open  =   0;
     lock    =   0;
+    keep_lock_off   =   0;
     in_sensor   =   0;
+    close       =   0;
 }  
 
 //|----------------------------------------------------------------------------|
 //|------------------------------INTERRUPTS------------------------------------|
 //|----------------------------------------------------------------------------|
 void __interrupt() isr(void){
+    if(TMR1IF){
+        TMR1    =   0;
+        time++;
+        TMR1IF  =   0;
+    }
 }

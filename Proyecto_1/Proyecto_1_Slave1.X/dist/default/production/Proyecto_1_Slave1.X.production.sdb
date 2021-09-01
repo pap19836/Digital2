@@ -52,11 +52,11 @@ SPI_ACTIVE_2_IDLE 64
 [v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
 "248
 [v _I2C_Slave_Init I2C_Slave_Init `(v  1 e 1 0 ]
-"62 C:\Digital2\Proyecto_1\Proyecto_1_Slave1.X\main.c
+"63 C:\Digital2\Proyecto_1\Proyecto_1_Slave1.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"111
+"110
 [v _setup setup `(v  1 e 1 0 ]
-"139
+"138
 [v _isr isr `II(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -271,23 +271,23 @@ SPI_ACTIVE_2_IDLE 64
 [v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
 "4463
 [v _TRISC5 TRISC5 `VEb  1 e 0 @1085 ]
-"48 C:\Digital2\Proyecto_1\Proyecto_1_Slave1.X\main.c
+"49 C:\Digital2\Proyecto_1\Proyecto_1_Slave1.X\main.c
 [v _z z `uc  1 e 1 0 ]
-"49
-[v _flags flags `uc  1 e 1 0 ]
 "50
-[v _V V `i  1 e 2 0 ]
+[v _flags flags `uc  1 e 1 0 ]
 "51
+[v _V V `i  1 e 2 0 ]
+"52
 [v _D D `i  1 e 2 0 ]
-"62
+"63
 [v _main main `(v  1 e 1 0 ]
 {
-"107
+"106
 } 0
-"111
+"110
 [v _setup setup `(v  1 e 1 0 ]
 {
-"138
+"137
 } 0
 "248 C:\Digital2\Proyecto_1\Proyecto_1_Slave1.X\Digital2_toolbox.c
 [v _I2C_Slave_Init I2C_Slave_Init `(v  1 e 1 0 ]
@@ -311,8 +311,8 @@ SPI_ACTIVE_2_IDLE 64
 [v ___awdiv@dividend dividend `i  1 p 2 5 ]
 "41
 } 0
-"139 C:\Digital2\Proyecto_1\Proyecto_1_Slave1.X\main.c
+"138 C:\Digital2\Proyecto_1\Proyecto_1_Slave1.X\main.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"173
+"172
 } 0

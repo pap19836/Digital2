@@ -2785,6 +2785,9 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 extern char * ftoa(float f, int * status);
 # 41 "main.c" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdbool.h" 1 3
+# 42 "main.c" 2
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdio.h" 1 3
 # 11 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdarg.h" 1 3
@@ -2865,7 +2868,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 42 "main.c" 2
+# 43 "main.c" 2
 
 # 1 "./Digital2_toolbox.h" 1
 
@@ -2973,7 +2976,7 @@ void I2C_Slave_Init(uint8_t address);
 
 
 void divide(uint16_t value, uint8_t *mil, uint8_t *cent, uint8_t *dec, uint8_t *unit);
-# 43 "main.c" 2
+# 44 "main.c" 2
 
 
 
@@ -3017,10 +3020,10 @@ void main(void) {
         V = (TMR1L | (TMR1H<<8));
         D = V/58;
 
-        if(D >= 20){
+        if(D > 5){
             flags = flags & 0b00000010;
         }
-        if(D < 20){
+        if(D < 5){
             flags = flags | 0b00000001;
         }
 
@@ -3032,8 +3035,6 @@ void main(void) {
             flags = flags | 0b00000010;
             RA0 = 1;
         }
-
-        PORTD = flags;
 
        _delay((unsigned long)((50)*(4000000/4000.0)));
     }
