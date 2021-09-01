@@ -100,14 +100,14 @@ void    main(void){
         __delay_ms(200);
 
         //SERIAL Send data
-        UART_Write_Char(91);
+        //UART_Write_Char(91); Esto se lo quité porque ya no voy a usar los corchetes
         UART_Write_Char(keep_lock_off+48);
         UART_Write_Char(44);
         UART_Write_Char(keep_door_open+48);
         UART_Write_Char(44);
         UART_Write_Char(light+48);
         UART_Write_Char(44);
-        UART_Write_Char(93);
+        //UART_Write_Char(93); Igual que esto
         
         
         if(lock != 0 && keep_lock_off == 0){
