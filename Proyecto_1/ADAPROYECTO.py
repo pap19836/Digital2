@@ -61,7 +61,5 @@ while(1):
         ser.write('1'.encode('utf-8'))
     if light_int == 0:
         ser.write('0'.encode('utf-8'))
-    #intlight = int(light_state.value)
-    #bytelight = light_state.value.to_bytes(3, 'big')
-    #ser.write(bytelight)
+
     time.sleep(3)
