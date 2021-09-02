@@ -101,6 +101,7 @@ void    main(void){
 
         //SERIAL Send data
         //UART_Write_Char(91); Esto se lo quité porque ya no voy a usar los corchetes
+        UART_Write_Char(44);
         UART_Write_Char(keep_lock_off+48);
         UART_Write_Char(44);
         UART_Write_Char(keep_door_open+48);
