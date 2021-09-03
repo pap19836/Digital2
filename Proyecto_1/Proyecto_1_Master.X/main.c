@@ -77,7 +77,7 @@ void    main(void){
     Lcd_Write_String(" ON");
     Lcd_Cmd(0b11000100);
     Lcd_Write_String(" NO ");
-    
+
 
     while(1){
         I2C_Master_Start();
@@ -91,25 +91,25 @@ void    main(void){
         I2C_Master_Write(0b01110010);   //Light Sensor Address Write
         I2C_Master_Write(0b10101100);   //CH0 low read
         I2C_Master_Stop();
-        
+
         I2C_Master_Start();
         I2C_Master_Write(0b01110011);
         light_low   =   I2C_Master_Read(0);
         I2C_Master_Stop();
-        
+
         I2C_Master_Start();
         I2C_Master_Write(0b01110010);   //Light Sensor Address Write
         I2C_Master_Write(0b10101100);   //CH0 high read
         I2C_Master_Stop();
-        
+
         I2C_Master_Start();
         I2C_Master_Write(0b01110011);
         light_high   =   I2C_Master_Read(0);
         I2C_Master_Stop();
         __delay_ms(200);
-        
+
         light = (light_high<<8)| light_low;
-        
+
         //I2C Recieve SlavePic 1
         I2C_Master_Start();
         I2C_Master_Write(0b00000001);
@@ -118,7 +118,7 @@ void    main(void){
         __delay_ms(200);
         lock    =   out_flag & 0b00000001;
         door    =   out_flag & 0b00000010;
-        
+
         //I2C Recieve SlavePic 2
         I2C_Master_Start();
         I2C_Master_Write(0b00000011);
@@ -127,23 +127,24 @@ void    main(void){
         __delay_ms(200);
 
         //SERIAL Send data
-        UART_Write_Char(91);
+        //UART_Write_Char(91); Esto se lo quité porque ya no voy a usar los corchetes
+        UART_Write_Char(44);
         UART_Write_Char(keep_lock_off+48);
         UART_Write_Char(44);
         UART_Write_Char(keep_door_open+48);
         UART_Write_Char(44);
         UART_Write_Char(light+48);
         UART_Write_Char(44);
-        UART_Write_Char(93);
-        
-        
+        //UART_Write_Char(93); Igual que esto
+
+
         if(lock != 0 && keep_lock_off == 0){
             CCPR1L  =   128;
             Lcd_Cmd(0b11000000);
             Lcd_Write_String("OFF");
             keep_lock_off = 1;
         }
-        
+
         if (door != 0 && keep_door_open == 0){
             Lcd_Cmd(0b11000101);
             Lcd_Write_String("OPEN");
@@ -153,18 +154,18 @@ void    main(void){
             RD1 =   0;
             keep_door_open = 1;
         }
-        
+
         if(in_sensor!=0 && keep_lock_off && keep_door_open){
             TMR1    =   0;
             TMR1ON  =   1;
         }
-        
+
         if(time>=4){// if 2s pass with in_sensor off
             time    =   0;      //Reset time
             TMR1ON  =   0;      // Turn TMR1 off
             close   =   1;      //Turn on closing flag
         }
-        
+
         if(close == 1 && keep_door_open == 1 && keep_lock_off == 1){
             close = 0;
             keep_door_open = 0;
@@ -180,7 +181,7 @@ void    main(void){
             Lcd_Cmd(0b11000000);
             Lcd_Write_String(" ON");
         }
-        
+
         if(light<300 | Adafruit_light==1){
             Lcd_Cmd(0b11001100);
             Lcd_Write_String(" ON");
@@ -206,7 +207,7 @@ void setup(void){
     TRISC   =   0b10010000;
     TRISD   =   0;
     TRISE   =   0;
-    
+
 
     //Interrupt config
     GIE     =   1;
@@ -214,16 +215,16 @@ void setup(void){
     TMR1IE  =   1;
     TMR1IF  =   0;
 
-    
+
     //Timer1 Config
     T1CONbits.T1CKPS    =   3;      //Prescaler 1:8
-    
+
     Lcd_Init();
-    
+
     UART_Init();
-    
+
     I2C_Master_Init(400000);
-        
+
 
     //Configure PMW CCP1
     TRISCbits.TRISC2    =  1;//CCP2 are as inputs so they don't change in config
@@ -231,21 +232,21 @@ void setup(void){
     CCP1M3  =   1;      //Activate PMW mode of CCP
     CCP1M2  =   1;
     CCPR1L  =   32;     //Start at duty cicle of 1/21ms
-    
+
     TMR2IF  =   0;
     T2CON   =   3;          //turn on T2 Prescaler to 1:16
     T2CONbits.TMR2ON =  1;  //Turn on timer 2
-    while(TMR2IF==0){   
+    while(TMR2IF==0){
     }
     TRISCbits.TRISC2    =   0;
-    
+
     //Port Inicialization
     PORTA   =   0;
     PORTB   =   0;
     PORTC   =   0;
     PORTD   =   0;
     PORTE   =   0;
-    
+
     //Variable Inicialization
     light_high  =   0;
     light_low   =   0;
@@ -256,7 +257,7 @@ void setup(void){
     keep_lock_off   =   0;
     in_sensor   =   0;
     close       =   0;
-}  
+}
 
 //|----------------------------------------------------------------------------|
 //|------------------------------INTERRUPTS------------------------------------|
