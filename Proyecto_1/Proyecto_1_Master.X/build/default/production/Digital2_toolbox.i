@@ -2719,13 +2719,7 @@ unsigned short I2C_Master_Read(unsigned short a);
 
 
 void I2C_Slave_Init(uint8_t address);
-
-
-
-
-
-
-
+# 168 "./Digital2_toolbox.h"
 void divide(uint16_t value, uint8_t *mil, uint8_t *cent, uint8_t *dec, uint8_t *unit);
 # 1 "Digital2_toolbox.c" 2
 

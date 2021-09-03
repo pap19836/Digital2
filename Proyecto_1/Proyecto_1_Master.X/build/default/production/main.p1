@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"63 main.c
-[; ;main.c: 63: void setup(void);
+"66 main.c
+[; ;main.c: 66: void setup(void);
 [v _setup `(v ~T0 @X0 0 ef ]
 "39 ./Digital2_toolbox.h
 [; ;./Digital2_toolbox.h: 39: void Lcd_Write_String(char *a);
@@ -15,9 +15,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "145
 [; ;./Digital2_toolbox.h: 145: void I2C_Master_Write(unsigned d);
 [v _I2C_Master_Write `(v ~T0 @X0 0 ef1`ui ]
-"150
-[; ;./Digital2_toolbox.h: 150: unsigned short I2C_Master_Read(unsigned short a);
-[v _I2C_Master_Read `(us ~T0 @X0 0 ef1`us ]
 "139
 [; ;./Digital2_toolbox.h: 139: void I2C_Master_Stop(void);
 [v _I2C_Master_Stop `(v ~T0 @X0 0 ef ]
@@ -25,7 +22,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
 [v __delay `JF1284 ~T0 @X0 0 e ]
 [p i __delay ]
-"50 ./Digital2_toolbox.h
+"150 ./Digital2_toolbox.h
+[; ;./Digital2_toolbox.h: 150: unsigned short I2C_Master_Read(unsigned short a);
+[v _I2C_Master_Read `(us ~T0 @X0 0 ef1`us ]
+"50
 [; ;./Digital2_toolbox.h: 50: void UART_Write_Char(uint8_t character);
 [v _UART_Write_Char `(v ~T0 @X0 0 ef1`uc ]
 "927 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
@@ -43,6 +43,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4376
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4376: extern volatile __bit TMR1ON __attribute__((address(0x80)));
 [v _TMR1ON `Vb ~T0 @X0 0 e@128 ]
+"4187
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4187: extern volatile __bit RD2 __attribute__((address(0x42)));
+[v _RD2 `Vb ~T0 @X0 0 e@66 ]
 "3387
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
@@ -421,436 +424,559 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "45 main.c
-[; ;main.c: 45: uint8_t light;
-[v _light `uc ~T0 @X0 1 e ]
+[; ;main.c: 45: uint16_t light;
+[v _light `ui ~T0 @X0 1 e ]
 "46
-[; ;main.c: 46: uint8_t light_compare;
-[v _light_compare `uc ~T0 @X0 1 e ]
+[; ;main.c: 46: uint8_t light_low;
+[v _light_low `uc ~T0 @X0 1 e ]
 "47
-[; ;main.c: 47: uint8_t mL;
-[v _mL `uc ~T0 @X0 1 e ]
+[; ;main.c: 47: uint8_t light_high;
+[v _light_high `uc ~T0 @X0 1 e ]
 "48
-[; ;main.c: 48: uint8_t cL;
-[v _cL `uc ~T0 @X0 1 e ]
+[; ;main.c: 48: uint8_t light_compare;
+[v _light_compare `uc ~T0 @X0 1 e ]
 "49
-[; ;main.c: 49: uint8_t dL;
-[v _dL `uc ~T0 @X0 1 e ]
+[; ;main.c: 49: uint8_t mL;
+[v _mL `uc ~T0 @X0 1 e ]
 "50
-[; ;main.c: 50: uint8_t uL;
-[v _uL `uc ~T0 @X0 1 e ]
+[; ;main.c: 50: uint8_t cL;
+[v _cL `uc ~T0 @X0 1 e ]
+"51
+[; ;main.c: 51: uint8_t dL;
+[v _dL `uc ~T0 @X0 1 e ]
 "52
-[; ;main.c: 52: uint8_t out_flag;
-[v _out_flag `uc ~T0 @X0 1 e ]
-"53
-[; ;main.c: 53: uint8_t lock;
-[v _lock `uc ~T0 @X0 1 e ]
+[; ;main.c: 52: uint8_t uL;
+[v _uL `uc ~T0 @X0 1 e ]
 "54
-[; ;main.c: 54: _Bool keep_lock_off;
-[v _keep_lock_off `a ~T0 @X0 1 e ]
+[; ;main.c: 54: uint8_t out_flag;
+[v _out_flag `uc ~T0 @X0 1 e ]
 "55
-[; ;main.c: 55: uint8_t door;
-[v _door `uc ~T0 @X0 1 e ]
+[; ;main.c: 55: uint8_t lock;
+[v _lock `uc ~T0 @X0 1 e ]
 "56
-[; ;main.c: 56: _Bool keep_door_open;
-[v _keep_door_open `a ~T0 @X0 1 e ]
+[; ;main.c: 56: _Bool keep_lock_off;
+[v _keep_lock_off `a ~T0 @X0 1 e ]
 "57
-[; ;main.c: 57: uint8_t in_sensor;
-[v _in_sensor `uc ~T0 @X0 1 e ]
+[; ;main.c: 57: uint8_t door;
+[v _door `uc ~T0 @X0 1 e ]
 "58
-[; ;main.c: 58: uint8_t time;
-[v _time `uc ~T0 @X0 1 e ]
+[; ;main.c: 58: _Bool keep_door_open;
+[v _keep_door_open `a ~T0 @X0 1 e ]
 "59
-[; ;main.c: 59: _Bool close;
+[; ;main.c: 59: uint8_t in_sensor;
+[v _in_sensor `uc ~T0 @X0 1 e ]
+"60
+[; ;main.c: 60: uint8_t time;
+[v _time `uc ~T0 @X0 1 e ]
+"61
+[; ;main.c: 61: _Bool close;
 [v _close `a ~T0 @X0 1 e ]
+"62
+[; ;main.c: 62: _Bool Adafruit_light;
+[v _Adafruit_light `a ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"70
-[; ;main.c: 70: void main(void){
+"73
+[; ;main.c: 73: void main(void){
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"71
-[; ;main.c: 71:     setup();
-[e ( _setup ..  ]
-"72
-[; ;main.c: 72:     Lcd_Write_String(" Lock Door Lights");
-[e ( _Lcd_Write_String (1 :s 1C ]
-"73
-[; ;main.c: 73:     Lcd_Cmd(0b11000000);
-[e ( _Lcd_Cmd (1 -> -> 192 `i `uc ]
 "74
-[; ;main.c: 74:     Lcd_Write_String(" ON");
-[e ( _Lcd_Write_String (1 :s 2C ]
+[; ;main.c: 74:     setup();
+[e ( _setup ..  ]
 "75
-[; ;main.c: 75:     Lcd_Cmd(0b11000100);
-[e ( _Lcd_Cmd (1 -> -> 196 `i `uc ]
+[; ;main.c: 75:     Lcd_Write_String(" Lock Door Lights");
+[e ( _Lcd_Write_String (1 :s 1C ]
 "76
-[; ;main.c: 76:     Lcd_Write_String(" NO ");
+[; ;main.c: 76:     Lcd_Cmd(0b11000000);
+[e ( _Lcd_Cmd (1 -> -> 192 `i `uc ]
+"77
+[; ;main.c: 77:     Lcd_Write_String(" ON");
+[e ( _Lcd_Write_String (1 :s 2C ]
+"78
+[; ;main.c: 78:     Lcd_Cmd(0b11000100);
+[e ( _Lcd_Cmd (1 -> -> 196 `i `uc ]
+"79
+[; ;main.c: 79:     Lcd_Write_String(" NO ");
 [e ( _Lcd_Write_String (1 :s 3C ]
-"85
-[; ;main.c: 85:     while(1){
+"82
+[; ;main.c: 82:     while(1){
 [e :U 145 ]
 {
-"87
-[; ;main.c: 87:         I2C_Master_Start();
+"83
+[; ;main.c: 83:         I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
-"88
-[; ;main.c: 88:         I2C_Master_Write(0b00000001);
-[e ( _I2C_Master_Write (1 -> -> 1 `i `ui ]
-"89
-[; ;main.c: 89:         out_flag = I2C_Master_Read(0);
-[e = _out_flag -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"90
-[; ;main.c: 90:         I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
-"91
-[; ;main.c: 91:         _delay((unsigned long)((200)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"92
-[; ;main.c: 92:         lock = out_flag & 0b00000001;
-[e = _lock -> & -> _out_flag `i -> 1 `i `uc ]
-"93
-[; ;main.c: 93:         door = out_flag & 0b00000010;
-[e = _door -> & -> _out_flag `i -> 2 `i `uc ]
-"96
-[; ;main.c: 96:         I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
-"97
-[; ;main.c: 97:         I2C_Master_Write(0b00000011);
+"84
+[; ;main.c: 84:         I2C_Master_Write(0b01110010);
+[e ( _I2C_Master_Write (1 -> -> 114 `i `ui ]
+"85
+[; ;main.c: 85:         I2C_Master_Write(0b10000000);
+[e ( _I2C_Master_Write (1 -> -> 128 `i `ui ]
+"86
+[; ;main.c: 86:         I2C_Master_Write(0b00000011);
 [e ( _I2C_Master_Write (1 -> -> 3 `i `ui ]
+"87
+[; ;main.c: 87:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"89
+[; ;main.c: 89:         _delay((unsigned long)((403)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 403 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"90
+[; ;main.c: 90:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"91
+[; ;main.c: 91:         I2C_Master_Write(0b01110010);
+[e ( _I2C_Master_Write (1 -> -> 114 `i `ui ]
+"92
+[; ;main.c: 92:         I2C_Master_Write(0b10101100);
+[e ( _I2C_Master_Write (1 -> -> 172 `i `ui ]
+"93
+[; ;main.c: 93:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"95
+[; ;main.c: 95:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"96
+[; ;main.c: 96:         I2C_Master_Write(0b01110011);
+[e ( _I2C_Master_Write (1 -> -> 115 `i `ui ]
+"97
+[; ;main.c: 97:         light_low = I2C_Master_Read(0);
+[e = _light_low -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
 "98
-[; ;main.c: 98:         in_sensor = I2C_Master_Read(0);
-[e = _in_sensor -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"99
-[; ;main.c: 99:         I2C_Master_Stop();
+[; ;main.c: 98:         I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
 "100
-[; ;main.c: 100:         _delay((unsigned long)((200)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;main.c: 100:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"101
+[; ;main.c: 101:         I2C_Master_Write(0b01110010);
+[e ( _I2C_Master_Write (1 -> -> 114 `i `ui ]
+"102
+[; ;main.c: 102:         I2C_Master_Write(0b10101100);
+[e ( _I2C_Master_Write (1 -> -> 172 `i `ui ]
 "103
-[; ;main.c: 103:         UART_Write_Char(91);
-[e ( _UART_Write_Char (1 -> -> 91 `i `uc ]
-"104
-[; ;main.c: 104:         UART_Write_Char(lock+48);
-[e ( _UART_Write_Char (1 -> + -> _lock `i -> 48 `i `uc ]
+[; ;main.c: 103:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
 "105
-[; ;main.c: 105:         UART_Write_Char(44);
-[e ( _UART_Write_Char (1 -> -> 44 `i `uc ]
+[; ;main.c: 105:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
 "106
-[; ;main.c: 106:         UART_Write_Char(door+48);
-[e ( _UART_Write_Char (1 -> + -> _door `i -> 48 `i `uc ]
+[; ;main.c: 106:         I2C_Master_Write(0b01110011);
+[e ( _I2C_Master_Write (1 -> -> 115 `i `ui ]
 "107
-[; ;main.c: 107:         UART_Write_Char(44);
-[e ( _UART_Write_Char (1 -> -> 44 `i `uc ]
+[; ;main.c: 107:         light_high = I2C_Master_Read(0);
+[e = _light_high -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
 "108
-[; ;main.c: 108:         UART_Write_Char(light+48);
-[e ( _UART_Write_Char (1 -> + -> _light `i -> 48 `i `uc ]
+[; ;main.c: 108:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
 "109
-[; ;main.c: 109:         UART_Write_Char(44);
+[; ;main.c: 109:         _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"111
+[; ;main.c: 111:         light = (light_high<<8)| light_low;
+[e = _light -> | << -> _light_high `i -> 8 `i -> _light_low `i `ui ]
+"114
+[; ;main.c: 114:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"115
+[; ;main.c: 115:         I2C_Master_Write(0b00000001);
+[e ( _I2C_Master_Write (1 -> -> 1 `i `ui ]
+"116
+[; ;main.c: 116:         out_flag = I2C_Master_Read(0);
+[e = _out_flag -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"117
+[; ;main.c: 117:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"118
+[; ;main.c: 118:         _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"119
+[; ;main.c: 119:         lock = out_flag & 0b00000001;
+[e = _lock -> & -> _out_flag `i -> 1 `i `uc ]
+"120
+[; ;main.c: 120:         door = out_flag & 0b00000010;
+[e = _door -> & -> _out_flag `i -> 2 `i `uc ]
+"123
+[; ;main.c: 123:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"124
+[; ;main.c: 124:         I2C_Master_Write(0b00000011);
+[e ( _I2C_Master_Write (1 -> -> 3 `i `ui ]
+"125
+[; ;main.c: 125:         in_sensor = I2C_Master_Read(0);
+[e = _in_sensor -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"126
+[; ;main.c: 126:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"127
+[; ;main.c: 127:         _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"130
+[; ;main.c: 130:         UART_Write_Char(91);
+[e ( _UART_Write_Char (1 -> -> 91 `i `uc ]
+"131
+[; ;main.c: 131:         UART_Write_Char(keep_lock_off+48);
+[e ( _UART_Write_Char (1 -> + -> _keep_lock_off `i -> 48 `i `uc ]
+"132
+[; ;main.c: 132:         UART_Write_Char(44);
 [e ( _UART_Write_Char (1 -> -> 44 `i `uc ]
-"110
-[; ;main.c: 110:         UART_Write_Char(93);
+"133
+[; ;main.c: 133:         UART_Write_Char(keep_door_open+48);
+[e ( _UART_Write_Char (1 -> + -> _keep_door_open `i -> 48 `i `uc ]
+"134
+[; ;main.c: 134:         UART_Write_Char(44);
+[e ( _UART_Write_Char (1 -> -> 44 `i `uc ]
+"135
+[; ;main.c: 135:         UART_Write_Char(light+48);
+[e ( _UART_Write_Char (1 -> + _light -> -> 48 `i `ui `uc ]
+"136
+[; ;main.c: 136:         UART_Write_Char(44);
+[e ( _UART_Write_Char (1 -> -> 44 `i `uc ]
+"137
+[; ;main.c: 137:         UART_Write_Char(93);
 [e ( _UART_Write_Char (1 -> -> 93 `i `uc ]
-"113
-[; ;main.c: 113:         if(lock != 0 && keep_lock_off == 0){
+"140
+[; ;main.c: 140:         if(lock != 0 && keep_lock_off == 0){
 [e $ ! && != -> _lock `i -> 0 `i == -> _keep_lock_off `i -> 0 `i 147  ]
 {
-"114
-[; ;main.c: 114:             CCPR1L = 128;
+"141
+[; ;main.c: 141:             CCPR1L = 128;
 [e = _CCPR1L -> -> 128 `i `uc ]
-"115
-[; ;main.c: 115:             Lcd_Cmd(0b11000000);
+"142
+[; ;main.c: 142:             Lcd_Cmd(0b11000000);
 [e ( _Lcd_Cmd (1 -> -> 192 `i `uc ]
-"116
-[; ;main.c: 116:             Lcd_Write_String("OFF");
+"143
+[; ;main.c: 143:             Lcd_Write_String("OFF");
 [e ( _Lcd_Write_String (1 :s 4C ]
-"117
-[; ;main.c: 117:             keep_lock_off = 1;
+"144
+[; ;main.c: 144:             keep_lock_off = 1;
 [e = _keep_lock_off -> -> 1 `i `a ]
-"118
-[; ;main.c: 118:         }
+"145
+[; ;main.c: 145:         }
 }
 [e :U 147 ]
-"120
-[; ;main.c: 120:         if (door != 0 && keep_door_open == 0){
+"147
+[; ;main.c: 147:         if (door != 0 && keep_door_open == 0){
 [e $ ! && != -> _door `i -> 0 `i == -> _keep_door_open `i -> 0 `i 148  ]
 {
-"121
-[; ;main.c: 121:             Lcd_Cmd(0b11000101);
-[e ( _Lcd_Cmd (1 -> -> 197 `i `uc ]
-"122
-[; ;main.c: 122:             Lcd_Write_String("OPEN");
-[e ( _Lcd_Write_String (1 :s 5C ]
-"123
-[; ;main.c: 123:             RD0 = 0;
-[e = _RD0 -> -> 0 `i `b ]
-"124
-[; ;main.c: 124:             RD1 = 1;
-[e = _RD1 -> -> 1 `i `b ]
-"125
-[; ;main.c: 125:             _delay((unsigned long)((150)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"126
-[; ;main.c: 126:             RD1 = 0;
-[e = _RD1 -> -> 0 `i `b ]
-"127
-[; ;main.c: 127:             keep_door_open = 1;
-[e = _keep_door_open -> -> 1 `i `a ]
-"128
-[; ;main.c: 128:         }
-}
-[e :U 148 ]
-"130
-[; ;main.c: 130:         if(in_sensor!=0){
-[e $ ! != -> _in_sensor `i -> 0 `i 149  ]
-{
-"131
-[; ;main.c: 131:             TMR1 = 0;
-[e = _TMR1 -> -> 0 `i `us ]
-"132
-[; ;main.c: 132:             TMR1ON = 1;
-[e = _TMR1ON -> -> 1 `i `b ]
-"133
-[; ;main.c: 133:         }
-}
-[e :U 149 ]
-"135
-[; ;main.c: 135:         if(time>=4 && keep_lock_off && keep_door_open){
-[e $ ! && && >= -> _time `i -> 4 `i != -> _keep_lock_off `i -> 0 `i != -> _keep_door_open `i -> 0 `i 150  ]
-{
-"136
-[; ;main.c: 136:             time = 0;
-[e = _time -> -> 0 `i `uc ]
-"137
-[; ;main.c: 137:             TMR1ON = 0;
-[e = _TMR1ON -> -> 0 `i `b ]
-"138
-[; ;main.c: 138:             close = 1;
-[e = _close -> -> 1 `i `a ]
-"139
-[; ;main.c: 139:         }
-}
-[e :U 150 ]
-"141
-[; ;main.c: 141:         if(close == 1 && keep_door_open == 1 && keep_lock_off == 1){
-[e $ ! && && == -> _close `i -> 1 `i == -> _keep_door_open `i -> 1 `i == -> _keep_lock_off `i -> 1 `i 151  ]
-{
-"142
-[; ;main.c: 142:             close = 0;
-[e = _close -> -> 0 `i `a ]
-"143
-[; ;main.c: 143:             keep_door_open = 0;
-[e = _keep_door_open -> -> 0 `i `a ]
-"144
-[; ;main.c: 144:             keep_lock_off = 0;
-[e = _keep_lock_off -> -> 0 `i `a ]
-"145
-[; ;main.c: 145:             Lcd_Cmd(0b11000101);
-[e ( _Lcd_Cmd (1 -> -> 197 `i `uc ]
-"146
-[; ;main.c: 146:             Lcd_Write_String(" NO ");
-[e ( _Lcd_Write_String (1 :s 6C ]
-"147
-[; ;main.c: 147:             RD0=1;
-[e = _RD0 -> -> 1 `i `b ]
 "148
-[; ;main.c: 148:             RD1=0;
-[e = _RD1 -> -> 0 `i `b ]
+[; ;main.c: 148:             Lcd_Cmd(0b11000101);
+[e ( _Lcd_Cmd (1 -> -> 197 `i `uc ]
 "149
-[; ;main.c: 149:             _delay((unsigned long)((150)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;main.c: 149:             Lcd_Write_String("OPEN");
+[e ( _Lcd_Write_String (1 :s 5C ]
 "150
-[; ;main.c: 150:             RD0=0;
+[; ;main.c: 150:             RD0 = 0;
 [e = _RD0 -> -> 0 `i `b ]
 "151
-[; ;main.c: 151:             _delay((unsigned long)((150)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;main.c: 151:             RD1 = 1;
+[e = _RD1 -> -> 1 `i `b ]
 "152
-[; ;main.c: 152:             CCPR1L = 32;
-[e = _CCPR1L -> -> 32 `i `uc ]
+[; ;main.c: 152:             _delay((unsigned long)((150)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "153
-[; ;main.c: 153:             Lcd_Cmd(0b11000000);
-[e ( _Lcd_Cmd (1 -> -> 192 `i `uc ]
+[; ;main.c: 153:             RD1 = 0;
+[e = _RD1 -> -> 0 `i `b ]
 "154
-[; ;main.c: 154:             Lcd_Write_String(" ON");
-[e ( _Lcd_Write_String (1 :s 7C ]
+[; ;main.c: 154:             keep_door_open = 1;
+[e = _keep_door_open -> -> 1 `i `a ]
 "155
 [; ;main.c: 155:         }
 }
+[e :U 148 ]
+"157
+[; ;main.c: 157:         if(in_sensor!=0 && keep_lock_off && keep_door_open){
+[e $ ! && && != -> _in_sensor `i -> 0 `i != -> _keep_lock_off `i -> 0 `i != -> _keep_door_open `i -> 0 `i 149  ]
+{
+"158
+[; ;main.c: 158:             TMR1 = 0;
+[e = _TMR1 -> -> 0 `i `us ]
+"159
+[; ;main.c: 159:             TMR1ON = 1;
+[e = _TMR1ON -> -> 1 `i `b ]
+"160
+[; ;main.c: 160:         }
+}
+[e :U 149 ]
+"162
+[; ;main.c: 162:         if(time>=4){
+[e $ ! >= -> _time `i -> 4 `i 150  ]
+{
+"163
+[; ;main.c: 163:             time = 0;
+[e = _time -> -> 0 `i `uc ]
+"164
+[; ;main.c: 164:             TMR1ON = 0;
+[e = _TMR1ON -> -> 0 `i `b ]
+"165
+[; ;main.c: 165:             close = 1;
+[e = _close -> -> 1 `i `a ]
+"166
+[; ;main.c: 166:         }
+}
+[e :U 150 ]
+"168
+[; ;main.c: 168:         if(close == 1 && keep_door_open == 1 && keep_lock_off == 1){
+[e $ ! && && == -> _close `i -> 1 `i == -> _keep_door_open `i -> 1 `i == -> _keep_lock_off `i -> 1 `i 151  ]
+{
+"169
+[; ;main.c: 169:             close = 0;
+[e = _close -> -> 0 `i `a ]
+"170
+[; ;main.c: 170:             keep_door_open = 0;
+[e = _keep_door_open -> -> 0 `i `a ]
+"171
+[; ;main.c: 171:             keep_lock_off = 0;
+[e = _keep_lock_off -> -> 0 `i `a ]
+"172
+[; ;main.c: 172:             Lcd_Cmd(0b11000101);
+[e ( _Lcd_Cmd (1 -> -> 197 `i `uc ]
+"173
+[; ;main.c: 173:             Lcd_Write_String(" NO ");
+[e ( _Lcd_Write_String (1 :s 6C ]
+"174
+[; ;main.c: 174:             RD0=1;
+[e = _RD0 -> -> 1 `i `b ]
+"175
+[; ;main.c: 175:             RD1=0;
+[e = _RD1 -> -> 0 `i `b ]
+"176
+[; ;main.c: 176:             _delay((unsigned long)((150)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"177
+[; ;main.c: 177:             RD0=0;
+[e = _RD0 -> -> 0 `i `b ]
+"178
+[; ;main.c: 178:             _delay((unsigned long)((150)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"179
+[; ;main.c: 179:             CCPR1L = 32;
+[e = _CCPR1L -> -> 32 `i `uc ]
+"180
+[; ;main.c: 180:             Lcd_Cmd(0b11000000);
+[e ( _Lcd_Cmd (1 -> -> 192 `i `uc ]
+"181
+[; ;main.c: 181:             Lcd_Write_String(" ON");
+[e ( _Lcd_Write_String (1 :s 7C ]
+"182
+[; ;main.c: 182:         }
+}
 [e :U 151 ]
-"156
-[; ;main.c: 156:     }
+"184
+[; ;main.c: 184:         if(light<200 | Adafruit_light==1){
+[e $ ! | < _light -> -> 200 `i `ui == -> _Adafruit_light `i -> 1 `i 152  ]
+{
+"185
+[; ;main.c: 185:             Lcd_Cmd(0b11001100);
+[e ( _Lcd_Cmd (1 -> -> 204 `i `uc ]
+"186
+[; ;main.c: 186:             Lcd_Write_String(" ON");
+[e ( _Lcd_Write_String (1 :s 8C ]
+"187
+[; ;main.c: 187:             RD2 = 1;
+[e = _RD2 -> -> 1 `i `b ]
+"188
+[; ;main.c: 188:         }
+}
+[e $U 153  ]
+"189
+[; ;main.c: 189:         else{
+[e :U 152 ]
+{
+"190
+[; ;main.c: 190:             Lcd_Cmd(0b11001100);
+[e ( _Lcd_Cmd (1 -> -> 204 `i `uc ]
+"191
+[; ;main.c: 191:             Lcd_Write_String("OFF");
+[e ( _Lcd_Write_String (1 :s 9C ]
+"192
+[; ;main.c: 192:             RD2 = 0;
+[e = _RD2 -> -> 0 `i `b ]
+"193
+[; ;main.c: 193:         }
+}
+[e :U 153 ]
+"194
+[; ;main.c: 194:     }
 }
 [e :U 144 ]
 [e $U 145  ]
 [e :U 146 ]
-"157
-[; ;main.c: 157: }
+"195
+[; ;main.c: 195: }
 [e :UE 143 ]
 }
-"162
-[; ;main.c: 162: void setup(void){
+"200
+[; ;main.c: 200: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"164
-[; ;main.c: 164:     ANSEL = 0;
-[e = _ANSEL -> -> 0 `i `uc ]
-"165
-[; ;main.c: 165:     ANSELH = 0;
-[e = _ANSELH -> -> 0 `i `uc ]
-"166
-[; ;main.c: 166:     TRISA = 0;
-[e = _TRISA -> -> 0 `i `uc ]
-"167
-[; ;main.c: 167:     TRISB = 0;
-[e = _TRISB -> -> 0 `i `uc ]
-"168
-[; ;main.c: 168:     TRISC = 0b10010000;
-[e = _TRISC -> -> 144 `i `uc ]
-"169
-[; ;main.c: 169:     TRISD = 0;
-[e = _TRISD -> -> 0 `i `uc ]
-"170
-[; ;main.c: 170:     TRISE = 0;
-[e = _TRISE -> -> 0 `i `uc ]
-"174
-[; ;main.c: 174:     GIE = 1;
-[e = _GIE -> -> 1 `i `b ]
-"175
-[; ;main.c: 175:     PEIE = 1;
-[e = _PEIE -> -> 1 `i `b ]
-"176
-[; ;main.c: 176:     TMR1IE = 1;
-[e = _TMR1IE -> -> 1 `i `b ]
-"177
-[; ;main.c: 177:     TMR1IF = 0;
-[e = _TMR1IF -> -> 0 `i `b ]
-"181
-[; ;main.c: 181:     T1CONbits.T1CKPS = 3;
-[e = . . _T1CONbits 0 4 -> -> 3 `i `uc ]
-"183
-[; ;main.c: 183:     Lcd_Init();
-[e ( _Lcd_Init ..  ]
-"185
-[; ;main.c: 185:     UART_Init();
-[e ( _UART_Init ..  ]
-"187
-[; ;main.c: 187:     I2C_Master_Init(100000);
-[e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
-"191
-[; ;main.c: 191:     TRISCbits.TRISC2 = 1;
-[e = . . _TRISCbits 0 2 -> -> 1 `i `uc ]
-"192
-[; ;main.c: 192:     PR2 = 249;
-[e = _PR2 -> -> 249 `i `uc ]
-"193
-[; ;main.c: 193:     CCP1M3 = 1;
-[e = _CCP1M3 -> -> 1 `i `b ]
-"194
-[; ;main.c: 194:     CCP1M2 = 1;
-[e = _CCP1M2 -> -> 1 `i `b ]
-"195
-[; ;main.c: 195:     CCPR1L = 32;
-[e = _CCPR1L -> -> 32 `i `uc ]
-"197
-[; ;main.c: 197:     TMR2IF = 0;
-[e = _TMR2IF -> -> 0 `i `b ]
-"198
-[; ;main.c: 198:     T2CON = 3;
-[e = _T2CON -> -> 3 `i `uc ]
-"199
-[; ;main.c: 199:     T2CONbits.TMR2ON = 1;
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-"200
-[; ;main.c: 200:     while(TMR2IF==0){
-[e $U 153  ]
-[e :U 154 ]
-{
-"201
-[; ;main.c: 201:     }
-}
-[e :U 153 ]
-"200
-[; ;main.c: 200:     while(TMR2IF==0){
-[e $ == -> _TMR2IF `i -> 0 `i 154  ]
-[e :U 155 ]
 "202
-[; ;main.c: 202:     TRISCbits.TRISC2 = 0;
-[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 202:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
+"203
+[; ;main.c: 203:     ANSELH = 0;
+[e = _ANSELH -> -> 0 `i `uc ]
+"204
+[; ;main.c: 204:     TRISA = 0;
+[e = _TRISA -> -> 0 `i `uc ]
 "205
-[; ;main.c: 205:     PORTA = 0;
-[e = _PORTA -> -> 0 `i `uc ]
+[; ;main.c: 205:     TRISB = 0;
+[e = _TRISB -> -> 0 `i `uc ]
 "206
-[; ;main.c: 206:     PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;main.c: 206:     TRISC = 0b10010000;
+[e = _TRISC -> -> 144 `i `uc ]
 "207
-[; ;main.c: 207:     PORTC = 0;
-[e = _PORTC -> -> 0 `i `uc ]
+[; ;main.c: 207:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
 "208
-[; ;main.c: 208:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
-"209
-[; ;main.c: 209:     PORTE = 0;
-[e = _PORTE -> -> 0 `i `uc ]
+[; ;main.c: 208:     TRISE = 0;
+[e = _TRISE -> -> 0 `i `uc ]
 "212
-[; ;main.c: 212:     light = 0;
-[e = _light -> -> 0 `i `uc ]
+[; ;main.c: 212:     GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
 "213
-[; ;main.c: 213:     door = 0;
-[e = _door -> -> 0 `i `uc ]
+[; ;main.c: 213:     PEIE = 1;
+[e = _PEIE -> -> 1 `i `b ]
 "214
-[; ;main.c: 214:     keep_door_open = 0;
-[e = _keep_door_open -> -> 0 `i `a ]
+[; ;main.c: 214:     TMR1IE = 1;
+[e = _TMR1IE -> -> 1 `i `b ]
 "215
-[; ;main.c: 215:     lock = 0;
-[e = _lock -> -> 0 `i `uc ]
-"216
-[; ;main.c: 216:     keep_lock_off = 0;
-[e = _keep_lock_off -> -> 0 `i `a ]
-"217
-[; ;main.c: 217:     in_sensor = 0;
-[e = _in_sensor -> -> 0 `i `uc ]
-"218
-[; ;main.c: 218:     close = 0;
-[e = _close -> -> 0 `i `a ]
+[; ;main.c: 215:     TMR1IF = 0;
+[e = _TMR1IF -> -> 0 `i `b ]
 "219
-[; ;main.c: 219: }
-[e :UE 152 ]
+[; ;main.c: 219:     T1CONbits.T1CKPS = 3;
+[e = . . _T1CONbits 0 4 -> -> 3 `i `uc ]
+"221
+[; ;main.c: 221:     Lcd_Init();
+[e ( _Lcd_Init ..  ]
+"223
+[; ;main.c: 223:     UART_Init();
+[e ( _UART_Init ..  ]
+"225
+[; ;main.c: 225:     I2C_Master_Init(400000);
+[e ( _I2C_Master_Init (1 -> -> 400000 `l `ul ]
+"229
+[; ;main.c: 229:     TRISCbits.TRISC2 = 1;
+[e = . . _TRISCbits 0 2 -> -> 1 `i `uc ]
+"230
+[; ;main.c: 230:     PR2 = 249;
+[e = _PR2 -> -> 249 `i `uc ]
+"231
+[; ;main.c: 231:     CCP1M3 = 1;
+[e = _CCP1M3 -> -> 1 `i `b ]
+"232
+[; ;main.c: 232:     CCP1M2 = 1;
+[e = _CCP1M2 -> -> 1 `i `b ]
+"233
+[; ;main.c: 233:     CCPR1L = 32;
+[e = _CCPR1L -> -> 32 `i `uc ]
+"235
+[; ;main.c: 235:     TMR2IF = 0;
+[e = _TMR2IF -> -> 0 `i `b ]
+"236
+[; ;main.c: 236:     T2CON = 3;
+[e = _T2CON -> -> 3 `i `uc ]
+"237
+[; ;main.c: 237:     T2CONbits.TMR2ON = 1;
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+"238
+[; ;main.c: 238:     while(TMR2IF==0){
+[e $U 155  ]
+[e :U 156 ]
+{
+"239
+[; ;main.c: 239:     }
+}
+[e :U 155 ]
+"238
+[; ;main.c: 238:     while(TMR2IF==0){
+[e $ == -> _TMR2IF `i -> 0 `i 156  ]
+[e :U 157 ]
+"240
+[; ;main.c: 240:     TRISCbits.TRISC2 = 0;
+[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
+"243
+[; ;main.c: 243:     PORTA = 0;
+[e = _PORTA -> -> 0 `i `uc ]
+"244
+[; ;main.c: 244:     PORTB = 0;
+[e = _PORTB -> -> 0 `i `uc ]
+"245
+[; ;main.c: 245:     PORTC = 0;
+[e = _PORTC -> -> 0 `i `uc ]
+"246
+[; ;main.c: 246:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"247
+[; ;main.c: 247:     PORTE = 0;
+[e = _PORTE -> -> 0 `i `uc ]
+"250
+[; ;main.c: 250:     light_high = 0;
+[e = _light_high -> -> 0 `i `uc ]
+"251
+[; ;main.c: 251:     light_low = 0;
+[e = _light_low -> -> 0 `i `uc ]
+"252
+[; ;main.c: 252:     light = 0;
+[e = _light -> -> 0 `i `ui ]
+"253
+[; ;main.c: 253:     door = 0;
+[e = _door -> -> 0 `i `uc ]
+"254
+[; ;main.c: 254:     keep_door_open = 0;
+[e = _keep_door_open -> -> 0 `i `a ]
+"255
+[; ;main.c: 255:     lock = 0;
+[e = _lock -> -> 0 `i `uc ]
+"256
+[; ;main.c: 256:     keep_lock_off = 0;
+[e = _keep_lock_off -> -> 0 `i `a ]
+"257
+[; ;main.c: 257:     in_sensor = 0;
+[e = _in_sensor -> -> 0 `i `uc ]
+"258
+[; ;main.c: 258:     close = 0;
+[e = _close -> -> 0 `i `a ]
+"259
+[; ;main.c: 259: }
+[e :UE 154 ]
 }
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"224
-[; ;main.c: 224: void __attribute__((picinterrupt(("")))) isr(void){
+"264
+[; ;main.c: 264: void __attribute__((picinterrupt(("")))) isr(void){
 [v _isr `(v ~T2 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"225
-[; ;main.c: 225:     if(TMR1IF){
-[e $ ! _TMR1IF 157  ]
+"265
+[; ;main.c: 265:     if(TMR1IF){
+[e $ ! _TMR1IF 159  ]
 {
-"226
-[; ;main.c: 226:         TMR1 = 0;
+"266
+[; ;main.c: 266:         TMR1 = 0;
 [e = _TMR1 -> -> 0 `i `us ]
-"227
-[; ;main.c: 227:         time++;
+"267
+[; ;main.c: 267:         time++;
 [e ++ _time -> -> 1 `i `uc ]
-"228
-[; ;main.c: 228:         TMR1IF = 0;
+"268
+[; ;main.c: 268:         TMR1IF = 0;
 [e = _TMR1IF -> -> 0 `i `b ]
-"229
-[; ;main.c: 229:     }
+"269
+[; ;main.c: 269:     }
 }
-[e :U 157 ]
-"230
-[; ;main.c: 230: }
-[e :UE 156 ]
+[e :U 159 ]
+"270
+[; ;main.c: 270: }
+[e :UE 158 ]
 }
 [a 1C 32 76 111 99 107 32 68 111 111 114 32 76 105 103 104 116 115 0 ]
 [a 2C 32 79 78 0 ]
 [a 7C 32 79 78 0 ]
+[a 8C 32 79 78 0 ]
 [a 5C 79 80 69 78 0 ]
 [a 4C 79 70 70 0 ]
+[a 9C 79 70 70 0 ]
 [a 3C 32 78 79 32 0 ]
 [a 6C 32 78 79 32 0 ]

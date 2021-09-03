@@ -19,7 +19,7 @@ maintext CODE 0 2B 2B 9 2
 cstackCOMMON COMMON 1 70 70 2 1
 intentry CODE 0 4 4 8 2
 config CONFIG 4 2007 2007 2 2
-$C:\Users\stefa\AppData\Local\Temp\xcAskjo.o
+$C:\Users\stefa\AppData\Local\Temp\xcAsik4.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -69,11 +69,11 @@ STRING 3B-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Port_Testerw.X.production.o
-F cinit CODE >452:C:\Users\stefa\AppData\Local\Temp\xcAskjo.s
-F cinit CODE >455:C:\Users\stefa\AppData\Local\Temp\xcAskjo.s
-F cinit CODE >461:C:\Users\stefa\AppData\Local\Temp\xcAskjo.s
-F cinit CODE >463:C:\Users\stefa\AppData\Local\Temp\xcAskjo.s
-10 cinit CODE >464:C:\Users\stefa\AppData\Local\Temp\xcAskjo.s
+F cinit CODE >452:C:\Users\stefa\AppData\Local\Temp\xcAsik4.s
+F cinit CODE >455:C:\Users\stefa\AppData\Local\Temp\xcAsik4.s
+F cinit CODE >461:C:\Users\stefa\AppData\Local\Temp\xcAsik4.s
+F cinit CODE >463:C:\Users\stefa\AppData\Local\Temp\xcAsik4.s
+10 cinit CODE >464:C:\Users\stefa\AppData\Local\Temp\xcAsik4.s
 4 intentry CODE >75:C:\Digital2\TESTER\Port_Testerw.X\main.c
 34 text2 CODE >75:C:\Digital2\TESTER\Port_Testerw.X\main.c
 34 text2 CODE >77:C:\Digital2\TESTER\Port_Testerw.X\main.c
@@ -115,28 +115,28 @@ __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\stefa\AppData\Local\Temp\xcAskjo.o
+___sp 0 0 STACK 2 stack C:\Users\stefa\AppData\Local\Temp\xcAsik4.o
 _main 56 0 CODE 0 maintext dist/default/production\Port_Testerw.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Port_Testerw.X.production.o
-start 18 0 CODE 0 init C:\Users\stefa\AppData\Local\Temp\xcAskjo.o
+start 18 0 CODE 0 init C:\Users\stefa\AppData\Local\Temp\xcAsik4.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Port_Testerw.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAskjo.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAskjo.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAskjo.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAskjo.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAskjo.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAskjo.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsik4.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsik4.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsik4.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsik4.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsik4.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\stefa\AppData\Local\Temp\xcAsik4.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Port_Testerw.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
 _ANSELH 189 0 ABS 0 - dist/default/production\Port_Testerw.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\stefa\AppData\Local\Temp\xcAskjo.o
-___stacklo 0 0 ABS 0 - C:\Users\stefa\AppData\Local\Temp\xcAskjo.o
+___stackhi 0 0 ABS 0 - C:\Users\stefa\AppData\Local\Temp\xcAsik4.o
+___stacklo 0 0 ABS 0 - C:\Users\stefa\AppData\Local\Temp\xcAsik4.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\Port_Testerw.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\Port_Testerw.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\stefa\AppData\Local\Temp\xcAskjo.o
+___int_sp 0 0 STACK 2 stack C:\Users\stefa\AppData\Local\Temp\xcAsik4.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -177,7 +177,7 @@ _isr 68 0 CODE 0 text2 dist/default/production\Port_Testerw.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\Port_Testerw.X.production.o
 __end_of_isr 76 0 CODE 0 text2 dist/default/production\Port_Testerw.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\stefa\AppData\Local\Temp\xcAskjo.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\stefa\AppData\Local\Temp\xcAsik4.o
 __pmaintext 56 0 CODE 0 maintext dist/default/production\Port_Testerw.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
