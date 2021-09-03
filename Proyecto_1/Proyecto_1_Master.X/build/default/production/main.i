@@ -2966,7 +2966,13 @@ unsigned short I2C_Master_Read(unsigned short a);
 
 
 void I2C_Slave_Init(uint8_t address);
-# 168 "./Digital2_toolbox.h"
+
+
+
+
+
+
+
 void divide(uint16_t value, uint8_t *mil, uint8_t *cent, uint8_t *dec, uint8_t *unit);
 # 40 "main.c" 2
 
@@ -2974,9 +2980,7 @@ void divide(uint16_t value, uint8_t *mil, uint8_t *cent, uint8_t *dec, uint8_t *
 
 
 
-uint16_t light;
-uint8_t light_low;
-uint8_t light_high;
+uint8_t light;
 uint8_t light_compare;
 uint8_t mL;
 uint8_t cL;
@@ -2991,7 +2995,6 @@ _Bool keep_door_open;
 uint8_t in_sensor;
 uint8_t time;
 _Bool close;
-_Bool Adafruit_light;
 
 
 
@@ -3009,39 +3012,8 @@ void main(void){
     Lcd_Write_String(" ON");
     Lcd_Cmd(0b11000100);
     Lcd_Write_String(" NO ");
-
-
+# 85 "main.c"
     while(1){
-        I2C_Master_Start();
-        I2C_Master_Write(0b01110010);
-        I2C_Master_Write(0b10000000);
-        I2C_Master_Write(0b00000011);
-        I2C_Master_Stop();
-
-        _delay((unsigned long)((403)*(4000000/4000.0)));
-        I2C_Master_Start();
-        I2C_Master_Write(0b01110010);
-        I2C_Master_Write(0b10101100);
-        I2C_Master_Stop();
-
-        I2C_Master_Start();
-        I2C_Master_Write(0b01110011);
-        light_low = I2C_Master_Read(0);
-        I2C_Master_Stop();
-
-        I2C_Master_Start();
-        I2C_Master_Write(0b01110010);
-        I2C_Master_Write(0b10101100);
-        I2C_Master_Stop();
-
-        I2C_Master_Start();
-        I2C_Master_Write(0b01110011);
-        light_high = I2C_Master_Read(0);
-        I2C_Master_Stop();
-        _delay((unsigned long)((200)*(4000000/4000.0)));
-
-        light = (light_high<<8)| light_low;
-
 
         I2C_Master_Start();
         I2C_Master_Write(0b00000001);
@@ -3060,9 +3032,9 @@ void main(void){
 
 
         UART_Write_Char(91);
-        UART_Write_Char(keep_lock_off+48);
+        UART_Write_Char(lock+48);
         UART_Write_Char(44);
-        UART_Write_Char(keep_door_open+48);
+        UART_Write_Char(door+48);
         UART_Write_Char(44);
         UART_Write_Char(light+48);
         UART_Write_Char(44);
@@ -3086,12 +3058,12 @@ void main(void){
             keep_door_open = 1;
         }
 
-        if(in_sensor!=0 && keep_lock_off && keep_door_open){
+        if(in_sensor!=0){
             TMR1 = 0;
             TMR1ON = 1;
         }
 
-        if(time>=4){
+        if(time>=4 && keep_lock_off && keep_door_open){
             time = 0;
             TMR1ON = 0;
             close = 1;
@@ -3111,17 +3083,6 @@ void main(void){
             CCPR1L = 32;
             Lcd_Cmd(0b11000000);
             Lcd_Write_String(" ON");
-        }
-
-        if(light<200 | Adafruit_light==1){
-            Lcd_Cmd(0b11001100);
-            Lcd_Write_String(" ON");
-            RD2 = 1;
-        }
-        else{
-            Lcd_Cmd(0b11001100);
-            Lcd_Write_String("OFF");
-            RD2 = 0;
         }
     }
 }
@@ -3154,7 +3115,7 @@ void setup(void){
 
     UART_Init();
 
-    I2C_Master_Init(400000);
+    I2C_Master_Init(100000);
 
 
 
@@ -3179,8 +3140,6 @@ void setup(void){
     PORTE = 0;
 
 
-    light_high = 0;
-    light_low = 0;
     light = 0;
     door = 0;
     keep_door_open = 0;

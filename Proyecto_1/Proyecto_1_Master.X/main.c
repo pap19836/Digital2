@@ -42,9 +42,7 @@
 //|----------------------------------------------------------------------------|
 //|-------------------------------VARIABLES------------------------------------|
 //|----------------------------------------------------------------------------|
-uint16_t light;
-uint8_t light_low;
-uint8_t light_high;
+uint8_t light;
 uint8_t light_compare;
 uint8_t mL;
 uint8_t cL;
@@ -59,7 +57,6 @@ bool keep_door_open;
 uint8_t in_sensor;          //I2C indoor sensor
 uint8_t time;               //Time before door closes
 bool close;                 //Activates closing protocol
-bool Adafruit_light;
 //|----------------------------------------------------------------------------|
 //|------------------------------PROTOTYPES------------------------------------|
 //|----------------------------------------------------------------------------|
@@ -77,6 +74,7 @@ void    main(void){
     Lcd_Write_String(" ON");
     Lcd_Cmd(0b11000100);
     Lcd_Write_String(" NO ");
+<<<<<<< HEAD
 
 
     while(1){
@@ -110,6 +108,17 @@ void    main(void){
 
         light = (light_high<<8)| light_low;
 
+=======
+    
+    /*I2C_Master_Start();
+    I2C_Master_Write(0b001010001);  //Light sensor address
+    I2C_Master_Write(0b10000000);   //Enter ENABLE register
+    I2C_Master_Write(0b00000011);   //turn un ALS and power on
+    I2C_Master_Write(0b10010001);   ////SHOW ID
+    I2C_Master_Stop();
+    __delay_ms(200);*/
+    while(1){
+>>>>>>> parent of 3ed5cd0 (Light sensor Working)
         //I2C Recieve SlavePic 1
         I2C_Master_Start();
         I2C_Master_Write(0b00000001);
@@ -127,11 +136,16 @@ void    main(void){
         __delay_ms(200);
 
         //SERIAL Send data
+<<<<<<< HEAD
         //UART_Write_Char(91); Esto se lo quité porque ya no voy a usar los corchetes
         UART_Write_Char(44);
         UART_Write_Char(keep_lock_off+48);
+=======
+        UART_Write_Char(91);
+        UART_Write_Char(lock+48);
+>>>>>>> parent of 3ed5cd0 (Light sensor Working)
         UART_Write_Char(44);
-        UART_Write_Char(keep_door_open+48);
+        UART_Write_Char(door+48);
         UART_Write_Char(44);
         UART_Write_Char(light+48);
         UART_Write_Char(44);
@@ -154,6 +168,7 @@ void    main(void){
             RD1 =   0;
             keep_door_open = 1;
         }
+<<<<<<< HEAD
 
         if(in_sensor!=0 && keep_lock_off && keep_door_open){
             TMR1    =   0;
@@ -161,6 +176,15 @@ void    main(void){
         }
 
         if(time>=4){// if 2s pass with in_sensor off
+=======
+        
+        if(in_sensor!=0){
+            TMR1    =   0;
+            TMR1ON  =   1;
+        }
+        
+        if(time>=4 && keep_lock_off && keep_door_open){// if 2s pass with in_sensor off
+>>>>>>> parent of 3ed5cd0 (Light sensor Working)
             time    =   0;      //Reset time
             TMR1ON  =   0;      // Turn TMR1 off
             close   =   1;      //Turn on closing flag
@@ -181,6 +205,7 @@ void    main(void){
             Lcd_Cmd(0b11000000);
             Lcd_Write_String(" ON");
         }
+<<<<<<< HEAD
 
         if(light<300 | Adafruit_light==1){
             Lcd_Cmd(0b11001100);
@@ -192,6 +217,8 @@ void    main(void){
             Lcd_Write_String("OFF");
             RD2 =   0;
         }
+=======
+>>>>>>> parent of 3ed5cd0 (Light sensor Working)
     }
 }
 //|----------------------------------------------------------------------------|
@@ -222,9 +249,15 @@ void setup(void){
     Lcd_Init();
 
     UART_Init();
+<<<<<<< HEAD
 
     I2C_Master_Init(400000);
 
+=======
+    
+    I2C_Master_Init(100000);
+        
+>>>>>>> parent of 3ed5cd0 (Light sensor Working)
 
     //Configure PMW CCP1
     TRISCbits.TRISC2    =  1;//CCP2 are as inputs so they don't change in config
@@ -248,8 +281,6 @@ void setup(void){
     PORTE   =   0;
 
     //Variable Inicialization
-    light_high  =   0;
-    light_low   =   0;
     light   =   0;
     door    =   0;
     keep_door_open  =   0;
