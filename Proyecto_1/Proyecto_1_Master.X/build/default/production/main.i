@@ -7,7 +7,7 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 14 "main.c"
+# 15 "main.c"
 #pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -161,7 +161,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 33 "main.c" 2
+# 34 "main.c" 2
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\proc\\pic16f887.h" 1 3
 # 44 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\proc\\pic16f887.h" 3
@@ -2573,7 +2573,7 @@ extern volatile __bit nW __attribute__((address(0x4A2)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x4A2)));
-# 34 "main.c" 2
+# 35 "main.c" 2
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
@@ -2643,7 +2643,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 35 "main.c" 2
+# 36 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 1 3
 
@@ -2696,7 +2696,7 @@ extern char * strchr(const char *, int);
 extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
-# 36 "main.c" 2
+# 37 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdlib.h" 1 3
 
@@ -2781,10 +2781,10 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 37 "main.c" 2
+# 38 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdbool.h" 1 3
-# 38 "main.c" 2
+# 39 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdio.h" 1 3
 # 11 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdio.h" 3
@@ -2866,7 +2866,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 39 "main.c" 2
+# 40 "main.c" 2
 
 # 1 "./Digital2_toolbox.h" 1
 
@@ -2968,7 +2968,7 @@ unsigned short I2C_Master_Read(unsigned short a);
 void I2C_Slave_Init(uint8_t address);
 # 168 "./Digital2_toolbox.h"
 void divide(uint16_t value, uint8_t *mil, uint8_t *cent, uint8_t *dec, uint8_t *unit);
-# 40 "main.c" 2
+# 41 "main.c" 2
 
 
 
@@ -2977,21 +2977,19 @@ void divide(uint16_t value, uint8_t *mil, uint8_t *cent, uint8_t *dec, uint8_t *
 uint16_t light;
 uint8_t light_low;
 uint8_t light_high;
-uint8_t light_compare;
-uint8_t mL;
-uint8_t cL;
-uint8_t dL;
-uint8_t uL;
+_Bool light_flag;
+uint8_t Adafruit_light;
 
 uint8_t out_flag;
 uint8_t lock;
 _Bool keep_lock_off;
 uint8_t door;
 _Bool keep_door_open;
+
 uint8_t in_sensor;
 uint8_t time;
 _Bool close;
-_Bool Adafruit_light;
+
 
 
 
@@ -3004,12 +3002,14 @@ void __attribute__((picinterrupt(("")))) isr(void);
 
 void main(void){
     setup();
+
     Lcd_Write_String(" Lock Door Lights");
     Lcd_Cmd(0b11000000);
     Lcd_Write_String(" ON");
     Lcd_Cmd(0b11000100);
     Lcd_Write_String(" NO ");
-
+    Lcd_Cmd(0b11001100);
+    Lcd_Write_String("OFF");
 
     while(1){
         I2C_Master_Start();
@@ -3059,14 +3059,13 @@ void main(void){
         _delay((unsigned long)((200)*(4000000/4000.0)));
 
 
-        UART_Write_Char(91);
+        UART_Write_Char(44);
         UART_Write_Char(keep_lock_off+48);
         UART_Write_Char(44);
         UART_Write_Char(keep_door_open+48);
         UART_Write_Char(44);
-        UART_Write_Char(light+48);
+        UART_Write_Char(light_flag+48);
         UART_Write_Char(44);
-        UART_Write_Char(93);
 
 
         if(lock != 0 && keep_lock_off == 0){
@@ -3075,6 +3074,7 @@ void main(void){
             Lcd_Write_String("OFF");
             keep_lock_off = 1;
         }
+
 
         if (door != 0 && keep_door_open == 0){
             Lcd_Cmd(0b11000101);
@@ -3085,6 +3085,7 @@ void main(void){
             RD1 = 0;
             keep_door_open = 1;
         }
+
 
         if(in_sensor!=0 && keep_lock_off && keep_door_open){
             TMR1 = 0;
@@ -3112,16 +3113,36 @@ void main(void){
             Lcd_Cmd(0b11000000);
             Lcd_Write_String(" ON");
         }
+        if(RCIF){
+            Adafruit_light = RCREG;
+        }
 
-        if(light<200 | Adafruit_light==1){
+
+        if(Adafruit_light==0){
+            if(light<500){
             Lcd_Cmd(0b11001100);
             Lcd_Write_String(" ON");
+            light_flag = 1;
             RD2 = 1;
+            }
+            else{
+            Lcd_Cmd(0b11001100);
+            Lcd_Write_String(" OFF");
+            light_flag = 0;
+            RD2 = 0;
+            }
         }
-        else{
+        if (Adafruit_light == 1){
             Lcd_Cmd(0b11001100);
             Lcd_Write_String("OFF");
+            light_flag = 0;
             RD2 = 0;
+        }
+        if (Adafruit_light == 2){
+            Lcd_Cmd(0b11001100);
+            Lcd_Write_String(" ON");
+            light_flag = 1;
+            RD2 = 1;
         }
     }
 }
@@ -3151,11 +3172,8 @@ void setup(void){
     T1CONbits.T1CKPS = 3;
 
     Lcd_Init();
-
     UART_Init();
-
     I2C_Master_Init(400000);
-
 
 
     TRISCbits.TRISC2 = 1;
@@ -3182,6 +3200,7 @@ void setup(void){
     light_high = 0;
     light_low = 0;
     light = 0;
+    Adafruit_light = 0;
     door = 0;
     keep_door_open = 0;
     lock = 0;

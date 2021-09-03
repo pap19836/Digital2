@@ -6,11 +6,12 @@
 // Autor: Stefano Papadopolo
 // Compilador: XC-8 (v2.32)
 //
-// Programa: LCD & UART
-// Hardware: Sensores Ultrasonicos 
+// Programa: Proyecto 1 Sistema de Bienvenida
+// Hardware: LCD Display, UART, I2C, TSL2561 Light sensor, 3 PIC16f887, 1pot
+// 2 ultrasonic sensors, 1 servo, 1 motoreductor, 1 L293D Motor Driver
 //
-// Creado 29 de agosto, 2021
-// Ultima Actualizacion: 29 de agosto, 2021
+// Creado 23 de agosto, 2021
+// Ultima Actualizacion: 3 de septiembre, 2021
 
 // CONFIG1
 #pragma config FOSC = INTRC_NOCLKOUT// Oscillator Selection bits (RCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, RC on RA7/OSC1/CLKIN)

@@ -4,11 +4,12 @@
 // Autor: Stefano Papadopolo
 // Compilador: XC-8 (v2.32)
 //
-// Programa: LCD & UART
-// Hardware: LCD Display, 2 pot, Consola
+// Programa: Proyecto 1 Sistema de Bienvenida
+// Hardware: LCD Display, UART, I2C, TSL2561 Light sensor, 3 PIC16f887, 1pot
+// 2 ultrasonic sensors, 1 servo, 1 motoreductor, 1 L293D Motor Driver
 //
-// Creado 21 de jul, 2021
-// �ltima Actualizaci�n: 21 de jul, 2021
+// Creado 23 de agosto, 2021
+// Ultima Actualizacion: 3 de septiembre, 2021
 
 // CONFIG1
 #pragma config FOSC = INTRC_NOCLKOUT// Oscillator Selection bits (INTOSCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
@@ -42,24 +43,22 @@
 //|----------------------------------------------------------------------------|
 //|-------------------------------VARIABLES------------------------------------|
 //|----------------------------------------------------------------------------|
-uint16_t light;
+uint16_t light;             //light sensor variables
 uint8_t light_low;
 uint8_t light_high;
-uint8_t light_compare;
-uint8_t mL;
-uint8_t cL;
-uint8_t dL;
-uint8_t uL;
+bool    light_flag;
+uint8_t Adafruit_light;
 
 uint8_t out_flag;           //I2C outdoor sensors
 uint8_t lock;
 bool keep_lock_off;
 uint8_t door;
 bool keep_door_open;
+
 uint8_t in_sensor;          //I2C indoor sensor
 uint8_t time;               //Time before door closes
 bool close;                 //Activates closing protocol
-bool Adafruit_light;
+
 //|----------------------------------------------------------------------------|
 //|------------------------------PROTOTYPES------------------------------------|
 //|----------------------------------------------------------------------------|
@@ -72,12 +71,14 @@ void __interrupt() isr(void);
 
 void    main(void){
     setup();
+    //Starting state of LCD
     Lcd_Write_String(" Lock Door Lights");
     Lcd_Cmd(0b11000000);
     Lcd_Write_String(" ON");
     Lcd_Cmd(0b11000100);
     Lcd_Write_String(" NO ");
-
+    Lcd_Cmd(0b11001100);
+    Lcd_Write_String("OFF");
 
     while(1){
         I2C_Master_Start();
@@ -92,7 +93,7 @@ void    main(void){
         I2C_Master_Write(0b10101100);   //CH0 low read
         I2C_Master_Stop();
 
-        I2C_Master_Start();
+        I2C_Master_Start();             //I2C read light sensor
         I2C_Master_Write(0b01110011);
         light_low   =   I2C_Master_Read(0);
         I2C_Master_Stop();
@@ -102,13 +103,13 @@ void    main(void){
         I2C_Master_Write(0b10101100);   //CH0 high read
         I2C_Master_Stop();
 
-        I2C_Master_Start();
+        I2C_Master_Start();             //I2C read light sensor
         I2C_Master_Write(0b01110011);
         light_high   =   I2C_Master_Read(0);
         I2C_Master_Stop();
         __delay_ms(200);
 
-        light = (light_high<<8)| light_low;
+        light = (light_high<<8)| light_low;     //concatenate light bytes
 
         //I2C Recieve SlavePic 1
         I2C_Master_Start();
@@ -127,17 +128,15 @@ void    main(void){
         __delay_ms(200);
 
         //SERIAL Send data
-        //UART_Write_Char(91); Esto se lo quité porque ya no voy a usar los corchetes
         UART_Write_Char(44);
         UART_Write_Char(keep_lock_off+48);
         UART_Write_Char(44);
         UART_Write_Char(keep_door_open+48);
         UART_Write_Char(44);
-        UART_Write_Char(light+48);
+        UART_Write_Char(light_flag+48);
         UART_Write_Char(44);
-        //UART_Write_Char(93); Igual que esto
 
-
+        //Control lock
         if(lock != 0 && keep_lock_off == 0){
             CCPR1L  =   128;
             Lcd_Cmd(0b11000000);
@@ -145,6 +144,7 @@ void    main(void){
             keep_lock_off = 1;
         }
 
+        //Control Door
         if (door != 0 && keep_door_open == 0){
             Lcd_Cmd(0b11000101);
             Lcd_Write_String("OPEN");
@@ -155,6 +155,7 @@ void    main(void){
             keep_door_open = 1;
         }
 
+        //Closing mechanism
         if(in_sensor!=0 && keep_lock_off && keep_door_open){
             TMR1    =   0;
             TMR1ON  =   1;
@@ -181,16 +182,36 @@ void    main(void){
             Lcd_Cmd(0b11000000);
             Lcd_Write_String(" ON");
         }
+        if(RCIF){
+            Adafruit_light   =   RCREG;
+        }
 
-        if(light<300 | Adafruit_light==1){
+        //light Control
+        if(Adafruit_light==0){      //Adafruit light control is "Auto" 
+            if(light<500){          // Uses Sensor to turn it on or off
             Lcd_Cmd(0b11001100);
             Lcd_Write_String(" ON");
+            light_flag = 1;
             RD2 =   1;
+            }
+            else{
+            Lcd_Cmd(0b11001100);
+            Lcd_Write_String(" OFF");
+            light_flag = 0;
+            RD2 =   0;
+            }
         }
-        else{
+        if (Adafruit_light == 1){       //Adafruit light control is "OFF"
             Lcd_Cmd(0b11001100);
             Lcd_Write_String("OFF");
+            light_flag = 0;
             RD2 =   0;
+        }
+        if (Adafruit_light == 2){       //Adafruit light control is "ON"
+            Lcd_Cmd(0b11001100);
+            Lcd_Write_String(" ON");
+            light_flag = 1;
+            RD2 =   1;
         }
     }
 }
@@ -220,11 +241,8 @@ void setup(void){
     T1CONbits.T1CKPS    =   3;      //Prescaler 1:8
 
     Lcd_Init();
-
     UART_Init();
-
     I2C_Master_Init(400000);
-
 
     //Configure PMW CCP1
     TRISCbits.TRISC2    =  1;//CCP2 are as inputs so they don't change in config
@@ -251,6 +269,7 @@ void setup(void){
     light_high  =   0;
     light_low   =   0;
     light   =   0;
+    Adafruit_light = 0;
     door    =   0;
     keep_door_open  =   0;
     lock    =   0;
