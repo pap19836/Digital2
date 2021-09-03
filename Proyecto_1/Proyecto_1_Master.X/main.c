@@ -181,7 +181,7 @@ void    main(void){
             Lcd_Write_String(" ON");
         }
         
-        if(light<200 | Adafruit_light==1){
+        if(light<300 | Adafruit_light==1){
             Lcd_Cmd(0b11001100);
             Lcd_Write_String(" ON");
             RD2 =   1;
