@@ -196,7 +196,7 @@ void    main(void){
             }
             else{
             Lcd_Cmd(0b11001100);
-            Lcd_Write_String(" OFF");
+            Lcd_Write_String("OFF");
             light_flag = 0;
             RD2 =   0;
             }

@@ -802,7 +802,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 198:             Lcd_Cmd(0b11001100);
 [e ( _Lcd_Cmd (1 -> -> 204 `i `uc ]
 "199
-[; ;main.c: 199:             Lcd_Write_String(" OFF");
+[; ;main.c: 199:             Lcd_Write_String("OFF");
 [e ( _Lcd_Write_String (1 :s 10C ]
 "200
 [; ;main.c: 200:             light_flag = 0;
@@ -1042,9 +1042,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [a 9C 32 79 78 0 ]
 [a 12C 32 79 78 0 ]
 [a 6C 79 80 69 78 0 ]
-[a 10C 32 79 70 70 0 ]
 [a 4C 79 70 70 0 ]
 [a 5C 79 70 70 0 ]
+[a 10C 79 70 70 0 ]
 [a 11C 79 70 70 0 ]
 [a 3C 32 78 79 32 0 ]
 [a 7C 32 78 79 32 0 ]
