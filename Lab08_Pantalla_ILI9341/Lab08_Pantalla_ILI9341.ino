@@ -1,5 +1,5 @@
 
-0//***************************************************************************************************************************************
+//***************************************************************************************************************************************
 /* Librería para el uso de la pantalla ILI9341 en modo 8 bits
  * Basado en el código de martinayotte - https://www.stm32duino.com/viewtopic.php?t=637
  * Adaptación, migración y creación de nuevas funciones: Pablo Mazariegos y José Morales
@@ -515,8 +515,10 @@ void MapSD(char x[]){
       }
       LCD_Bitmap(0, vert, 320, 1 , maps);
       vert++;
+      Serial.println(vert);
     }
     pic.close();
+    Serial.println("DONE");
   }
 
   else{

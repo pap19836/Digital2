@@ -2,3 +2,4 @@ Vídeo:
 https://youtu.be/s6hMhrCCcwo
 
 Repositorio:
+https://github.com/pap19836/Digital2/tree/main/Lab08_Pantalla_ILI9341
