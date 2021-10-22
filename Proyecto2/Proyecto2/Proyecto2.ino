@@ -76,18 +76,20 @@ bool debounce0 = 0;
 uint8_t push1 = 17;
 bool debounce1 = 0;
 
+
+enum types {NORMAL, GRASS, FIRE, WATER, PSYCHIC};
 //Attack struct definition
 struct attack{
   char name[50];
   int power;
   bool range;      //0 for physical, 1 for special
-  char type[50];
+  int type;
 };
 //Pokemon Struct definition
 struct pokemon {
   //stats
   char name[50];
-  char type[50];
+  int type;
   int id;
   int hp;
   int original_hp;
@@ -143,6 +145,7 @@ struct pokemon {
   float hp_bar_1;
   float hp_bar_2;
   int damage;
+  uint8_t effectiveness;
 //***************************************************************************************************************************************
 // Initialization
 //***************************************************************************************************************************************
@@ -173,7 +176,7 @@ void setup() {
   //variable init
   //Bulbasaur info
   strcpy(bulbasaur.name, "Bulbasaur");
-  strcpy(bulbasaur.type, "GRASS");
+  bulbasaur.type = GRASS;
   //Stats
   bulbasaur.id = 1;
   bulbasaur.hp = 45;
@@ -186,15 +189,15 @@ void setup() {
   bulbasaur.accuracy = 100;
   //Attacks
   strcpy(bulbasaur.attack1.name, "TACKLE");
-  strcpy(bulbasaur.attack1.type, "NORMAL");
+  bulbasaur.attack1.type = NORMAL;
   bulbasaur.attack1.range = 0;
   bulbasaur.attack1.power = 40;
   strcpy(bulbasaur.attack2.name, "GROWL");
-  strcpy(bulbasaur.attack2.type, "STATUS");
+  bulbasaur.attack2.type = NORMAL;
   bulbasaur.attack2.range = 1;
   bulbasaur.attack2.power = 50;
   strcpy(bulbasaur.attack3.name, "VINE WHIP");
-  strcpy(bulbasaur.attack3.type, "GRASS");
+  bulbasaur.attack3.type = GRASS;
   bulbasaur.attack3.range = 1;
   bulbasaur.attack3.power = 45;
   //image
@@ -205,7 +208,7 @@ void setup() {
   //charmander Info
   //Stats
   strcpy(charmander.name, "Charmander");
-  strcpy(charmander.type, "FIRE");
+  charmander.type = FIRE;
   charmander.id = 2;
   charmander.hp = 39;
   charmander.original_hp = 39;
@@ -217,15 +220,15 @@ void setup() {
   charmander.accuracy = 100;
   //Attacks
   strcpy(charmander.attack1.name, "SCRATCH");
-  strcpy(charmander.attack1.type, "NORMAL");
+  charmander.attack1.type = NORMAL;
   charmander.attack1.range = 0;
   charmander.attack1.power = 40;
   strcpy(charmander.attack2.name, "GROWL");
-  strcpy(charmander.attack2.type, "STATUS");
+  charmander.attack2.type = NORMAL;
   charmander.attack1.range = 1;
   charmander.attack2.power = 50;
   strcpy(charmander.attack3.name, "EMBER");
-  strcpy(charmander.attack3.type, "FIRE");
+  charmander.attack3.type = FIRE;
   charmander.attack1.range = 1;
   charmander.attack3.power = 40;
   //Image
@@ -237,7 +240,7 @@ void setup() {
   //Squrtile Info
   //stats
   strcpy(squirtle.name, "Squirtle");
-  strcpy(squirtle.type, "WATER");
+  squirtle.type = WATER;
   squirtle.id = 3;
   squirtle.hp = 44;
   squirtle.original_hp = 44;
@@ -249,15 +252,15 @@ void setup() {
   squirtle.accuracy = 100;
   //Attacks
   strcpy(squirtle.attack1.name, "TACKLE");
-  strcpy(squirtle.attack1.type, "NORMAL");
+  squirtle.attack1.type = NORMAL;
   squirtle.attack1.range = 0;
   squirtle.attack1.power = 40;
   strcpy(squirtle.attack2.name, "DEFENSE CURL");
-  strcpy(squirtle.attack2.type, "STATUS");
+  squirtle.attack2.type = NORMAL;
   squirtle.attack1.range = 0;
   squirtle.attack2.power = 50;
   strcpy(squirtle.attack3.name, "WATER GUN");
-  strcpy(squirtle.attack3.type, "WATER");
+  squirtle.attack3.type = WATER;
   squirtle.attack1.range = 0;
   squirtle.attack3.power = 40;
   //Image
@@ -269,7 +272,7 @@ void setup() {
   //Abra Info
   //Stats
   strcpy(abra.name, "Abra");
-  strcpy(abra.type, "PSYCHIC");
+  abra.type = PSYCHIC;
   abra.id = 4;
   abra.hp = 25;
   abra.original_hp = 25;
@@ -281,22 +284,21 @@ void setup() {
   abra.accuracy = 100;
   //Attacks
   strcpy(abra.attack1.name, "TACKLE");
-  strcpy(abra.attack1.type, "NORMAL");
+  abra.attack1.type = NORMAL;
   abra.attack1.range = 0;
   abra.attack1.power = 40;
   strcpy(abra.attack2.name, "CONFUSION");
-  strcpy(abra.attack2.type, "STATUS");
+  abra.attack2.type = NORMAL;
   abra.attack2.range = 1;
   abra.attack2.power = 25;
   strcpy(abra.attack3.name, "PSYCHIC");
-  strcpy(abra.attack3.type, "PSYCHIC");
+  abra.attack3.type = PSYCHIC;
   abra.attack3.range = 1;
   abra.attack3.power = 40;
   //Image
   abra.width = 60;
   abra.height_f = 57;
   abra.height_b = 60;
-  delay(500);
 
 
   //MapSD("Intro.txt");
@@ -390,34 +392,32 @@ void loop() {
       active_pokemon = p1_field_pokemon;
       passive_pokemon = p2_field_pokemon;
       main_menu(1);
-      if(p2_field_pokemon.hp == 0) change_pokemon(2);
-      if(p2pokemon1.hp == 0 && p2pokemon2.hp == 0) done = 1;
-      if(done != 0) break;
+//      if(p2_field_pokemon.hp == 0) change_pokemon(2);
+//      if(p2pokemon1.hp == 0 && p2pokemon2.hp == 0) done = 1;
+//      if(done != 0) break;
       FillRect(0, 170, 160, 20, 0xad75);
       LCD_Print("Player 2 Turn", 15, 175, 1, 0x0000, 0xad75);
       active_pokemon = p2_field_pokemon;
       passive_pokemon = p1_field_pokemon;
       main_menu(2);
-      if(p1_field_pokemon.hp == 0) change_pokemon(1);
-      if(p1pokemon1.hp == 0 && p1pokemon2.hp == 0) done = 2;
+//      if(p1_field_pokemon.hp == 0) change_pokemon(1);
+//      if(p1pokemon1.hp == 0 && p1pokemon2.hp == 0) done = 2;
     }
     else{
       FillRect(0, 170, 160, 20, 0xad75);
       LCD_Print("Player 2 Turn", 15, 175, 1, 0x0000, 0xad75);
       active_pokemon = p2_field_pokemon;
       main_menu(2);
-      if(p1_field_pokemon.hp == 0) change_pokemon(1);
-      if(p1pokemon1.hp == 0 && p1pokemon2.hp == 0) done = 2;
-      if(done != 0) break;
+//      if(p1_field_pokemon.hp == 0) change_pokemon(1);
+//      if(p1pokemon1.hp == 0 && p1pokemon2.hp == 0) done = 2;
+//      if(done != 0) break;
       FillRect(0, 170, 160, 20, 0xad75);
       LCD_Print("Player 1 Turn", 15, 175, 1, 0x0000, 0xad75);
       active_pokemon = p1_field_pokemon;
-      main_menu(2);
-      if(p2_field_pokemon.hp == 0) change_pokemon(2);
-      if(p2pokemon1.hp == 0 && p2pokemon2.hp == 0) done = 1;
-    }
-    
-    
+      main_menu(1);
+//      if(p2_field_pokemon.hp == 0) change_pokemon(2);
+//      if(p2pokemon1.hp == 0 && p2pokemon2.hp == 0) done = 1;
+    } 
   }
 
    button = 0;
@@ -1020,6 +1020,9 @@ void attack_menu(uint8_t player){
       write_on_menu(active_pokemon.attack3.name);
       passive_pokemon.hp = passive_pokemon.hp-damage;
       delay(1000);
+      if(effectiveness == 2) write_on_menu("IT'S SUPER EFFECTIVE!");
+      if(effectiveness == 0) write_on_menu("IT'S NOT VERY EFFECTIVE...");
+      delay(1000);
       break;  
     case 4:
       main_menu(player);
@@ -1183,5 +1186,60 @@ int damage_calculation (struct attack attack){
      D = passive_pokemon.spdefense;
   }
   x = (((4*attack.power*A/D)/50)+2);
+  //STAB
+  if(active_pokemon.type == attack.type) x = x*1.5;
+  x = type_advantage(x, attack);
   return (int)x;
+}
+
+float type_advantage(float value, struct attack attack){
+  float out;
+  if(passive_pokemon.type == GRASS){
+    switch(attack.type){
+      case FIRE:
+        out = 2*value;
+        effectiveness = 2;
+        return out;
+      case WATER:
+        out = value/2;
+        effectiveness = 0;
+        return out;
+      default:
+        out = value;
+        effectiveness = 1;
+        return out;
+    }
+  }
+  if(passive_pokemon.type == FIRE){
+    switch(attack.type){
+      case WATER:
+        out = 2*value;
+        effectiveness = 2;
+        return out;
+      case GRASS:
+        out = value/2;
+        effectiveness = 0;
+        return out;
+      default:
+        out = value;
+        return out;
+        effectiveness = 1;
+    }
+    
+  }if(passive_pokemon.type == WATER){
+    switch(attack.type){
+      case GRASS:
+        out = 2*value;
+        effectiveness = 2;
+        return out;
+      case FIRE:
+        out = value/2;
+        effectiveness = 0;
+        return out;
+      default:
+        out = value;
+        effectiveness = 1;
+        return out;
+    }    
+  }
 }
