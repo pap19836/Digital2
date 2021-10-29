@@ -146,13 +146,15 @@ struct pokemon {
   float hp_bar_2;
   int damage;
   uint8_t effectiveness;
+  uint8_t music;
 //***************************************************************************************************************************************
 // Initialization
 //***************************************************************************************************************************************
 void setup() {
-  pinMode(push0, INPUT_PULLUP);//push 1
-  pinMode(push1, INPUT_PULLUP);//push 2
-
+  pinMode(18, OUTPUT);
+  digitalWrite(18, LOW);
+  pinMode(17, OUTPUT);
+  digitalWrite (17, LOW);
   SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
   Serial.begin(9600);
   GPIOPadConfigSet(GPIO_PORTB_BASE, 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7, GPIO_STRENGTH_8MA, GPIO_PIN_TYPE_STD_WPU);
@@ -300,9 +302,9 @@ void setup() {
   abra.height_f = 57;
   abra.height_b = 60;
 
-
-  //MapSD("Intro.txt");
-  //delay(2000);
+  digitalWrite(17, HIGH);
+  MapSD("Intro.txt");
+  delay(2000);
  
 
 
@@ -313,6 +315,8 @@ void setup() {
 //***************************************************************************************************************************************
 void loop() {
 
+  button = 0;
+  done = 0;
   //Selection Menu
   while(1){
     LCD_Clear(0xFFFF);
@@ -392,36 +396,36 @@ void loop() {
       active_pokemon = p1_field_pokemon;
       passive_pokemon = p2_field_pokemon;
       main_menu(1);
-//      if(p2_field_pokemon.hp == 0) change_pokemon(2);
-//      if(p2pokemon1.hp == 0 && p2pokemon2.hp == 0) done = 1;
-//      if(done != 0) break;
+     if(p2_field_pokemon.hp == 0) change_pokemon(2);
+      if(p2pokemon1.hp == 0 && p2pokemon2.hp == 0) done = 1;
+      if(done != 0) break;
       FillRect(0, 170, 160, 20, 0xad75);
       LCD_Print("Player 2 Turn", 15, 175, 1, 0x0000, 0xad75);
       active_pokemon = p2_field_pokemon;
       passive_pokemon = p1_field_pokemon;
       main_menu(2);
-//      if(p1_field_pokemon.hp == 0) change_pokemon(1);
-//      if(p1pokemon1.hp == 0 && p1pokemon2.hp == 0) done = 2;
+      if(p1_field_pokemon.hp == 0) change_pokemon(1);
+      if(p1pokemon1.hp == 0 && p1pokemon2.hp == 0) done = 2;
     }
     else{
       FillRect(0, 170, 160, 20, 0xad75);
       LCD_Print("Player 2 Turn", 15, 175, 1, 0x0000, 0xad75);
       active_pokemon = p2_field_pokemon;
       main_menu(2);
-//      if(p1_field_pokemon.hp == 0) change_pokemon(1);
-//      if(p1pokemon1.hp == 0 && p1pokemon2.hp == 0) done = 2;
-//      if(done != 0) break;
+      if(p1_field_pokemon.hp == 0) change_pokemon(1);
+      if(p1pokemon1.hp == 0 && p1pokemon2.hp == 0) done = 2;
+      if(done != 0) break;
       FillRect(0, 170, 160, 20, 0xad75);
       LCD_Print("Player 1 Turn", 15, 175, 1, 0x0000, 0xad75);
       active_pokemon = p1_field_pokemon;
       main_menu(1);
-//      if(p2_field_pokemon.hp == 0) change_pokemon(2);
-//      if(p2pokemon1.hp == 0 && p2pokemon2.hp == 0) done = 1;
+      if(p2_field_pokemon.hp == 0) change_pokemon(2);
+      if(p2pokemon1.hp == 0 && p2pokemon2.hp == 0) done = 1;
     } 
   }
 
    button = 0;
-
+   digitalWrite(18, HIGH);
    while(button == 0){
     if(done == 1){
       LCD_Clear(0x0000);
